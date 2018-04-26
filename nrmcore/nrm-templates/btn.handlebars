@@ -1,0 +1,30 @@
+{{! partial for action buttons }}
+{{! caller responsible for applying button groups for dropdown, this might need refactoring }}
+{{#if href}}
+<a role="button" href="{{href}}"{{#if target}} target="{{target}}"{{/if}}{{#if disabled}} aria-disabled="true"{{/if}}
+{{else}}
+<button type="{{#if submit}}submit{{else}}button{{/if}}"{{#if disabled}} disabled="disabled"{{/if}}{{#if @form}} form={{@form}}{{/if}}
+{{/if}} 
+   class="btn btn-{{#if btnStyle}}{{btnStyle}}{{else}}default{{/if}}{{#if className}} {{className}}{{/if}}{{#if items}} dropdown-toggle{{/if}}{{#if href}}{{#if disabled}} disabled{{/if}}{{/if}}"
+   id="{{id}}"{{#if items}} data-toggle="dropdown"{{/if}}{{#if title}} title="{{title}}"{{/if}}>
+{{#if icon}}
+   <span class="{{icon}}" aria-hidden="true"></span> 
+{{/if}}
+{{#if label}}
+   {{#if nolabel}}
+   <span class="sr-only">{{label}}</span>
+   {{else}}
+   {{label}}
+   {{/if}}
+{{/if}}
+{{#if items}} 
+  <span class="caret" aria-hidden="true"></span>
+{{/if}}
+{{#if href}}
+</a>
+{{else}}
+</button>
+{{/if}}
+{{#if items}}
+{{partial "dropdown"}}
+{{/if}}

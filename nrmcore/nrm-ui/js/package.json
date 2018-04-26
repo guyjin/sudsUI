@@ -1,0 +1,12 @@
+{
+	"name": "nrm-ui",
+	"version":"1.0",
+	"directories": {
+		"lib": "."
+	},
+	"main": "main",
+	"description": "NRM Core UI components",
+	"bugs": "https://teamforge.fs.usda.gov/sf/tracker/do/listArtifacts/projects.nrm_ui_mod/tracker.change_backlog",
+	"homepage": "https://teamforge.fs.usda.gov/sf/projects/nrm_ui_mod/",
+	"dojoBuild": "nrm-ui.profile.js"
+}

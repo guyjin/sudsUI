@@ -1,0 +1,5 @@
+{{! Mobile Online Indicator }}
+{{#if mobileApp}}<p class="navbar-text" role="status" data-placement="bottom" data-original-title="Online indicator">
+    {{#if online}}<span class="label label-success onlineindicator">Online</span>{{else}}
+      <span class="label label-warning onlineindicator">Offline</span>{{/if}}
+  </p>{{/if}}

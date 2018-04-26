@@ -1,0 +1,14 @@
+<div id="{{id}}-container">
+<h3 id="{{id}}-label">{{title}}</h3>
+<form class="nrm-searchresults-form {{#if hz}}form-horizontal{{/if}}" role="form" action="#">
+{{#if parentLabel}}
+{{#with parentLabel}}{{partial "staticLabel"}}{{/with}}
+{{/if}}
+{{#if groupLabel}}
+{{#if groupLabel.value}}
+{{#with groupLabel}}{{partial "staticLabel"}}{{/with}}
+{{else}}<div id="{{groupLabel.id}}-container"/>{{/if}}
+{{/if}}
+{{partial "table"}}
+</form>
+</div>

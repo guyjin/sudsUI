@@ -1,0 +1,14 @@
+<div id="{{id}}-container" style="overflow: auto;{{#if max-height}} max-height: {{max-height}};{{/if}}">
+    <table class="table table-bordered table-condensed nrm-table-singlerecord">
+        {{#if caption}}<caption>{{caption}}</caption>{{/if}}
+        <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+        <tbody>
+            {{#each nameValuePairs}}
+                <tr>
+                    <td><i>{{this.[0]}}</i></td>
+                    <td>{{this.[1]}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

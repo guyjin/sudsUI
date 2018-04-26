@@ -1,0 +1,31 @@
+<div id="{{modalId}}"class="modal{{#if animate}} fade{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{modalId}}-caption" aria-hidden="true">
+<div class="modal-dialog{{#if modalClass}} {{modalClass}}{{/if}}">
+    <div class="modal-content">
+      <div class="modal-header">
+          <span class="nrm-modal-icon-container">
+        {{#if helpUrl}}
+          <a id="{{modalId}}-help-link" title="Help (Alt+F1)" class="btn btn-link nrm-modal-help" href="{{helpUrl}}" target="_blank"><i class="glyphicon glyphicon-question-sign"></i></a>
+        {{/if}}
+        {{#unless hideCloseIcon}}
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
+        {{/unless}}
+          </span>
+        <h4 class="modal-title" id="{{modalId}}-caption">{{caption}}</h4>
+      </div>
+      <div class="modal-body">
+      {{#if text}}
+        <p>{{text}}</p>
+      {{/if}}
+      {{#if content}}
+        {{{content}}}
+      {{/if}}
+      {{#if template}} 
+        {{partial template}} 
+      {{/if}}
+      </div>
+      <div class="modal-footer">
+        {{partial "formActions"}}
+      </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,14 @@
+<div id="{{id}}-container" class="nrm-input-group-container"> {{#if hz}}<div class="row">
+{{apply-label}} 
+<div class="{{#if hzGrid}}{{hzGrid}}{{else}}{{#if nolabel}}col-sm-offset-2 {{/if}}col-sm-10{{/if}}">
+{{else}}{{apply-label}}{{/if}}
+<div class="input-group{{#if className}} {{className}}{{/if}}">
+{{partial "inputInner"}}
+<div class="input-group-btn">
+{{#each actions}}
+{{#if type}}{{partial type}}{{else}}{{partial "btn"}}{{/if}}
+{{/each}}
+</div>
+{{#if hz}}</div></div>{{/if}}
+</div>
+</div>

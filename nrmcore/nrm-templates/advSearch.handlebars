@@ -1,0 +1,26 @@
+<form class="nrm-edit-form{{#if hz}} form-horizontal{{else if inline}} form-inline{{/if}}" role="search" action="#">
+{{#if title}}
+  <h3 class="nrm-form-title">{{title}}</h3>
+{{/if}}
+{{#if caption}}
+  <div class="row">
+   <div class="col-sm-12">
+     <div class="form-group">
+      <div class="form-control-static nrm-form-caption">{{{caption}}}</div>
+    </div>
+   </div>
+  </div>
+{{else}}
+  {{#if parentLabel}}
+  {{#with parentLabel}}
+  {{partial "staticLabel"}}
+  {{/with}}
+  {{/if}}
+{{/if}}
+  {{partial "panelContent"}}
+{{#if actions}}
+  <div class="nrm-edit-form-actionsbar nrm-search-buttons">
+    {{partial "formActions"}}
+  </div>
+{{/if}}
+</form>

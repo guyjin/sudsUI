@@ -1,0 +1,17 @@
+ <div id="{{id}}-container" class="form-group">
+  {{apply-label}} 
+ {{#if hz}}<div class="{{#if hzGrid}}{{hzGrid}}{{else}}{{#if nolabel}}col-sm-offset-2 {{/if}}col-sm-10{{/if}}">{{/if}}
+{{#if btn}}{{#with btn}}
+<button type="button" id="{{../id}}-btn" data-target="#{{../id}}" aria-labelledby="{{../id}}-label" class="btn btn-default button-textarea nrm-enable-readonly" title="{{#if title}}{{title}}{{else}}View or edit {{../label}}{{/if}}">...</button>
+{{/with}}{{/if}}
+{{#if richText}}
+<div aria-labelledby="{{id}}-label" class="form-control nrm-rich-text{{#if className}} {{className}}{{/if}}{{#if readonly}} disabled{{/if}} hidden" id="{{id}}">{{{value}}}</div>
+{{else}}
+<textarea class="form-control{{#if className}} {{className}}{{/if}}{{#if btn}} hidden{{/if}}" id="{{id}}"
+{{#if title}} title="{{title}}"{{/if}}
+{{#if required}} required{{/if}}{{#if disabled}} disabled{{/if}}{{#if readonly}} readonly{{/if}}{{#if rows}} rows="{{rows}}"{{/if}}
+{{#if maxlength}} maxlength="{{maxlength}}"{{/if}}{{#if pattern}} pattern="{{pattern}}"{{/if}}{{#if placeholder}} placeholder="{{placeholder}}"{{/if}}>
+{{value}}</textarea>
+{{/if}}
+ {{#if hz}}</div>{{/if}}
+ </div>

@@ -1,0 +1,11 @@
+<div id="{{id}}-container" class="form-group">
+    <p class="form-control-static{{#if className}} {{className}}{{/if}}">
+        <{{#if tag}}{{tag}}{{else}}span{{/if}} id="{{id}}">
+          {{#if html}}
+            {{{value}}}
+          {{else}}
+            {{value}}
+          {{/if}}
+        </{{#if tag}}{{tag}}{{else}}span{{/if}}>
+    </p>
+</div> 

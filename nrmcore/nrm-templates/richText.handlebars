@@ -1,0 +1,70 @@
+<div style="padding-bottom:10px;">
+  <form class="form-horizontal" action="#" role="form">
+  <div style="padding-bottom:10px;">
+      <!-- main content goes here -->
+  <div id="nrm-richtext-toolbar" class="btn-toolbar" data-role="modal-editor-toolbar" data-target=".nrm-richtext-editor">
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn dropdown-toggle" role="button" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+          </ul>
+        </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn dropdown-toggle" role="button" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+          <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-edit="fontSize 5" style="font-size:x-large;">Large</a></li>
+          <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-edit="fontSize 3" style="font-size:medium;">Normal</a></li>
+          <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-edit="fontSize 1" style="font-size:x-small;">Small</a></li>
+          </ul>
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="bold" title="Bold (Ctrl+B)"><i class="fa fa-bold"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="italic" title="Italic (Ctrl+I)"><i class="fa fa-italic"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="underline" title="Underline (Ctrl+U)"><i class="fa fa-underline"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="superscript" title="Superscript"><i class="fa fa-superscript"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="subscript" title="Subscript"><i class="fa fa-subscript"></i></a>
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="outdent" title="Reduce indent"><i class="fa fa-outdent"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="indent" title="Indent"><i class="fa fa-indent"></i></a>
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="justifyleft" title="Align Left (Ctrl+L)"><i class="fa fa-align-left"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="justifycenter" title="Center (Ctrl+E)"><i class="fa fa-align-center"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="justifyright" title="Align Right (Ctrl+R)"><i class="fa fa-align-right"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="justifyfull" title="Justify (Ctrl+J)"><i class="fa fa-align-justify"></i></a>
+      </div>
+      <div id="nrm-richtext-hyperlink-div" class="btn-group hidden">
+		  <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn dropdown-toggle" role="button" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
+		    <div class="dropdown-menu input-append">
+			    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+			    <button class="btn btn-sm btn-default nrm-richtext-toolbar-btn" type="button">Add</button>
+        </div>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+
+      </div>
+      
+      <div class="btn-group">
+          <a href="#" id="nrm-richtext-specialchars" class="btn btn-sm btn-default nrm-richtext-toolbar-btn dropdown-toggle" role="button" data-toggle="dropdown" title="Special Characters" style="font-size:16">&Omega;<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+          </ul>
+        </div>
+
+      <div id="nrm-richtext-picture-div" class="btn-group hidden">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" title="Insert picture (or just drag & drop)" id="pictureBtn" onclick="$('#nrm-richtext-picture-input').click();"><i class="fa fa-picture-o"></i></a>
+        <input id="nrm-richtext-picture-input" type="file" tabindex="-1" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" accept="image/*" title="Insert picture (or just drag & drop)" />
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="undo" title="Undo (Ctrl+Z)"><i class="fa fa-undo"></i></a>
+        <a href="#" class="btn btn-sm btn-default nrm-richtext-toolbar-btn" role="button" data-edit="redo" title="Redo (Ctrl+Y)"><i class="fa fa-repeat"></i></a>
+      </div>
+        <input type="text" tabindex="-1" data-edit="inserttext" id="nrm-richtext-voice-btn" x-webkit-speech=""/>
+    </div>
+
+    <div class="nrm-richtext-editor form-control" aria-label="{{header}}">
+    </div>
+  </div>
+</form>
+</div>

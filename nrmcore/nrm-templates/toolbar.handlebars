@@ -1,0 +1,17 @@
+ {{! 
+    Note: it may be necessary to add clearfix to parent element if alignRight option is set.
+    We can't wrap the pull-right in a clearfix div here because it might disrupt flow of other siblings.
+}}
+{{#if actions}}
+{{#if alignRight}}<div class="pull-right">{{/if}}
+{{#each actions}}  
+{{#if group}}{{#if @index}}</div>{{/if}}
+<div class="btn-group{{#unless ../btnClass}} btn-group-sm{{/unless}}">{{else}}
+{{#if items}}{{#if @index}}</div>{{/if}}
+<div class="btn-group{{#unless ../btnClass}} btn-group-sm{{/unless}}">{{else}}
+{{#unless @index}}<div class="btn-group{{#unless ../btnClass}} btn-group-sm{{/unless}}">{{/unless}}{{/if}}{{/if}}
+{{#if type}}{{partial type}}{{else}}{{partial "btn"}}{{/if}}
+{{/each}}
+</div>
+{{#if alignRight}}</div>{{/if}}
+{{/if}}

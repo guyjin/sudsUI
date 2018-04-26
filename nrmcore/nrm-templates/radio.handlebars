@@ -1,0 +1,15 @@
+<div class="form-group" id="{{id}}-container">
+  {{apply-label}} 
+{{#if hz}}<div class="{{#if hzGrid}}{{hzGrid}}{{else}}{{#if nolabel}}col-sm-offset-2 {{/if}}col-sm-10{{/if}}">{{/if}}
+    <div class="nrm-radio-container{{#if className}} {{className}}{{/if}}" id="{{id}}"{{#if title}} title="{{title}}"{{/if}}>
+{{#each options}}
+ <div class="radio{{#if ../inline}}-inline{{/if}}">
+   <label>
+     <input type="radio" name="{{../id}}" id="{{../id}}{{value}}" value="{{value}}" {{#if selected}} checked{{/if}}
+{{#if title}} title="{{title}}"{{/if}}
+{{#if ../disabled}} disabled{{else}}{{#if disabled}} disabled{{/if}}{{/if}}>{{#if text}}{{text}}{{else}}{{value}}{{/if}}
+   </label>
+ </div>{{/each}}
+    </div>  
+{{#if hz}}</div>{{/if}}
+</div>

@@ -1,0 +1,59 @@
+ <div id="nrm-navbar">
+<a id="top" name="top" href="#main-content" class="sr-only nrm-main-content nrm-route-action">Skip to main content</a>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="position:fixed" id="navMain">
+    {{! NRM Logo }}
+    <img id="nrm-logo" src="{{logoUrl}}" alt="NRM logo">
+    <div class="navbar-header" >
+  
+        <a class="navbar-brand" href="#home">{{appName}}</a>
+        <div class="visible-xs">
+        {{partial "navBadges"}}
+        {{! Collapse Icon }}
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navbar" tabindex="0">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        </div>
+    </div>
+
+    {{! Application navigation links defined in navbar.handlebars}}
+    <div id="app-navbar" class="collapse navbar-collapse">
+        {{> navbar}}
+    <div class="navbar-right">
+        <div class="hidden-xs navbar-left">
+        {{partial "navBadges"}}
+        </div>
+      {{! Help }}
+      <ul id="help-navbar" class="nav navbar-nav">
+        {{partial "userMenu"}}
+        <li class="dropdown">
+          <a id="helpMenu" href="#" role="button" tabindex="0" class="dropdown-toggle" data-toggle="dropdown">
+            Help<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="helpMenu">
+            <li id="context-help">
+              <a id="context-help-link" href="#context-help" role="menuitem" tabindex="-1" class="nrm-route-action">Help (Alt+F1)</a>
+            </li>
+            <li id="support-page">
+              {{#if helpUrl}}<a href="{{helpUrl}}" role="menuitem" tabindex="-1" target="_blank">Support Page</a>{{else}}
+              <a href="#help" role="menuitem" tabindex="-1" class="nrm-route-action">Support Page</a>{{/if}}
+            </li>
+            <li id="about">
+              <a href="#about" role="menuitem" tabindex="-1" class="nrm-route-action">About</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+        </div>
+    </div>
+</nav>
+</div>
+<div id="nrm-contextmenu" class="dropdown nrm-contextmenu">
+      <button class="btn dropdown-toggle sr-only" type="button" id="nrm-contextmenu-btn" tabindex="-1"
+data-toggle="dropdown" data-target="#nrm-contextmenu">
+        Toggle dropdown
+        <span class="caret"></span>
+      </button>
+</div>

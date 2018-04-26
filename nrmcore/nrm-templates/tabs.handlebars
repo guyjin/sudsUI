@@ -1,0 +1,28 @@
+<div id="{{id}}-container" class="nrm-tabs-container">
+    <ul id="{{id}}" class="nav nav-{{#if pill}}pills{{else}}tabs{{/if}}" role="tablist">
+    {{#each tabs}}
+      <li role="presentation" class="{{#if className}}{{className}}{{else}}nrm-tab-default{{/if}}{{#if selected}} active{{else if disabled}} disabled{{/if}}">
+          <a id="{{id}}-tab" href="#{{id}}" role="tab" data-toggle="tab"{{#if title}} title="{{title}}"{{/if}}
+             aria-controls="{{id}}" aria-expanded="{{#if selected}}true{{else}}false{{/if}}" aria-disabled="{{#if disabled}}true{{else}}false{{/if}}">
+              {{#if ../numbered}}<span class="badge">{{increment @index}}</span>{{/if}} {{label}}
+          </a>
+      </li>
+    {{/each}}
+    </ul>
+    <div id="{{id}}-content" class="tab-content">
+    {{#each tabs}}
+        <div role="tabpanel" class="tab-pane{{#if selected}} active{{/if}}{{#if helpContext}} nrm-help-provider" 
+             data-nrm-help-context="{{helpContext}}"{{else}}"{{/if}} id="{{id}}" aria-labelledby="{{id}}-tab">
+        {{#if content}}
+            {{{content}}}
+        {{/if}}
+        {{#if template}}
+            {{partial template}}
+        {{/if}}
+        {{#if fields}}
+            {{partial "hiddenFields"}}
+        {{/if}}
+        </div>
+    {{/each}}
+    </div>
+</div>

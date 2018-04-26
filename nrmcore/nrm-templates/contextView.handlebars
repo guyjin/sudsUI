@@ -1,0 +1,7 @@
+{{! Context View - may contain a search accordion and tree, maybe some other stuff? }}
+{{#if tree-accordion}}
+{{#with tree-accordion}}{{partial "accordion"}}{{/with}}
+{{/if}}
+{{#if tools-accordion}}
+{{#with tools-accordion}}{{partial "accordion"}}{{/with}}
+{{/if}}

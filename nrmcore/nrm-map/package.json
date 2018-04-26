@@ -1,0 +1,11 @@
+{
+	"name": "nrm-map",
+	"version":"1.0",
+	"directories": {
+		"lib": "."
+	},
+	"description": "NRM Core map components",
+	"bugs": "https://teamforge.fs.usda.gov/sf/tracker/do/listArtifacts/projects.nrm_ui_mod/tracker.change_backlog",
+	"homepage": "https://teamforge.fs.usda.gov/sf/projects/nrm_ui_mod/",
+	"dojoBuild": "nrm-map.profile.js"
+}

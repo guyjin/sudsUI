@@ -1,0 +1,419 @@
+
+.map-settings-overlay {
+       position: absolute;
+       top:20px;
+       right:30px;
+       z-index: 60;
+       color: #fff;
+       background: "black";
+}
+
+.map-settings-image{
+  display: inline-block;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: rgba(128,128,128,0.5);
+/*  border: 1px solid #dddddd;*/
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+.file-upload span {
+  display:none;
+  }
+.file-upload-status {
+  vertical-align: middle;
+  padding: 5px 11px;
+  font-size: 12px;
+  color: #888;
+  background: #F8F8F8;
+  }
+  
+File upload form styling 
+.field { 
+      /*padding:4px 4px;*/
+   }
+   .file-upload{
+          /*border: 1px solid #666666; */
+   }
+/*   .file-upload {
+   overflow: hidden;
+   display: inline-block;
+   position: relative;	
+   vertical-align: middle;
+   text-align: center;
+   border: 2px solid #666666;
+   background: #444444;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+   border-radius: 6px;
+ color: #fff;
+ text-shadow: 0px 2px 3px #555;
+ cursor:pointer;
+}
+.file-upload:hover { 
+   background-color: #454545;
+   }
+*/
+
+
+.file-upload input {
+   position: absolute;
+   top: 0;
+   left: 0;
+   margin: 0;
+   font-size: 70px;
+   opacity: 0;
+   filter: alpha(opacity=0);
+ z-index:2;
+   }
+
+.file-upload strong { 
+   font: normal 1.75em arial,sans-serif; 
+   }	
+
+.file-upload span {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: inline-block;
+
+   /*padding-top: .45em;*/
+   }
+
+/*.file-upload { height: 2em; }*/
+.file-upload,
+.file-upload span {	width: 10em; }	
+
+/* Fixes for CSS name collision between ESRI and Bootstrap 3 */
+/* ESRI JSAPI 3.15 changed class name from container to esriMapContainer, so this can be removed
+   when no applications are using JSAPI versions earlier than 3.15 */
+.nrm-map div.container {
+        max-width: none;
+}
+
+/* Allows nesting map div inside layout without scrollbars appearing */
+.nrm-map {
+    height:100%;
+}
+
+/* Fixes for CSS name collision between ESRI and Bootstrap 3 */
+.nrm-map .map-custom-overlay-shadow {
+  text-shadow: 1px 1px 0px #000;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nrm-map:focus {
+    outline: thin dotted #333;
+   /*outline: 5px auto -webkit-focus-ring-color;*/
+}
+
+#nrm-map-dropdownmenu select:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);    
+}
+
+.agsjsTOCNode {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    cursor: pointer;
+}
+
+.agsjsTOCContent {
+    white-space: nowrap;
+}
+
+.agsjsTOCContent input {
+    vertical-align: top;
+}
+
+.agsjsTOCOutOfScale {
+    /*color: grey;*/
+    opacity: 0.5;
+    filter: alpha(opacity=50); 
+    zoom: 1;
+}
+
+/*.agsjsTOCIcon {
+  vertical-align:bottom
+}*/
+
+.tocSelected {
+    /*background-color:#f5f5f5;*/
+    border: 1px solid #666666;
+    border-radius: 4px; 
+    padding-left: 4px;
+    padding-right: 4px;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 102, 102, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 102, 102, 0.6);
+}
+
+.agsjsTOCRootLayer {
+    margin-bottom: 3px;
+}
+
+.agsjsTOCRootLayerLabel {
+    font-size: 10pt;
+    /*font-weight: bold;*/
+    padding: 2px 5px;
+    display: inline-block;
+    white-space: normal;
+    cursor: pointer;
+}
+
+.agsjsTOCRootLayerLabel:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.agsjsTOCGroupLayer {
+    /*font-weight: bold;*/
+}
+
+.agsjsTOCGroupLayerLabel {
+    font-size: 9pt;
+    padding: 2px 5px;
+    display: inline-block;
+    white-space: normal;
+}
+
+/*.agsjsTOCServiceLayer {
+    font-weight: bold;
+}*/
+
+.agsjsTOCServiceLayerLabel {
+    font-size: 10pt;
+    padding: 2px 5px;
+    display: inline-block;
+    white-space: normal;
+}
+
+.agsjsTOCLegendIcon {
+    /* width: 50px;*/
+}
+
+.agsjsTOCIcon {
+    /* width: 50px;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+.agsjsTOCRootLayer .agsjsTOCIcon {
+    margin-top: -5px;
+}
+
+/* Commented-out section here was an attempt at fixing wrapping issues.
+This work-around was replaced by setting margin-right on the parent element 
+to avoid undesirable horizontal scrollbars even when text is constrained to visible area.*/
+/*
+span.agsjsTOCIcon+span {
+    padding-right: 30px;
+}
+.agsjsTOCIcon+span {
+    padding-right: 20px;
+}
+img[src$="blank.gif"].agsjsTOCIcon+span {
+    padding-right: 5px;
+}
+.tocSelected span.agsjsTOCIcon+span {
+    padding-right: 45px;
+}
+.tocSelected .agsjsTOCIcon+span {
+    padding-right: 35px;
+}
+.tocSelected img[src$="blank.gif"].agsjsTOCIcon+span {
+    padding-right: 20px;
+}*/
+
+.agsjsTOCNode>.agsjsTOCServiceLayer {
+    margin-right: 20px;
+}
+.agsjsTOCNode>.agsjsTOCRootLayer {
+    margin-right: 30px;
+}
+.agsjsTOCNode>div {
+    margin-right: 2px;
+}
+
+.tocSelected .agsjsTOCNode>.agsjsTOCServiceLayer {
+    margin-right: 25px;
+}
+.tocSelected .agsjsTOCNode>.agsjsTOCRootLayer {
+    margin-right: 35px;
+}
+.tocSelected .agsjsTOCNode>div {
+    margin-right: 5px;
+}
+
+.agsjsTOCLegendLabel {
+    font-size: 8pt;
+    padding: 2px;
+    display: inline-block;
+    white-space: normal;
+}
+
+.agsjsTOCSlider {
+    padding: 5px 5px 5px 30px;
+    max-width: 200px;
+}
+
+.dijitSliderImageHandle:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+#map-identify-results-div {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.dijitTooltipBelow, 
+.dijitTooltipAbove {
+    padding: 0px;
+}
+.dijitTooltipContainer {
+    border: solid darkcyan 1px;
+    background-color: cornsilk;
+    -khtml-opacity:.85; 
+    -moz-opacity:.85; 
+    -ms-filter:alpha(opacity=85);
+     filter:alpha(opacity=85);
+     filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.85);
+     opacity:.85; 
+}
+
+/* map tabs */
+#nrm-app-accordion-layers-panel > .panel-body > .nav-tabs > li > a,
+#nrm-app-accordion-layers-panel > .panel-body > .nav-tabs > li > a > i {
+  line-height: 0;
+  margin-left: -5px;
+  margin-right: 5px;
+  width: 5px
+}
+
+/* measurement */
+.dijitDownArrowButton {
+  display: inline-block;
+}
+
+.esriMeasurementButtonContainer .esriButtonFocused,
+.dijitDownArrowButton:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    /*z-index: 3;*/
+}
+
+.dijitMenuPopup {
+    padding: 5px 0;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.unitDropDown td.dijitMenuItemLabel {
+  min-width: 130px;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-align: left;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.unitDropDown:focus td.dijitMenuItemLabel,
+.unitDropDown td.dijitMenuItemLabel:hover,
+.unitDropDown td.dijitMenuItemLabel:focus {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #3276b1;
+}
+
+/*
+LW: Resize zoom buttons CSS
+#mapDiv_zoom_slider.esriSimpleSlider div {
+    width:25px; 
+    height:25px;
+    font-size: 18px;
+}
+#mapDiv_zoom_slider.esriSimpleSliderTL {
+    top: 1px;
+    left: 2px;
+}
+*/
+
+/*
+LW: ButtonBar CSS
+https://raw.githubusercontent.com/Esri/arcgis-dijit-home-button-js/master/css/HomeButton.css
+*/
+
+.MapButtonBar span {
+	display:none;  /* This controls whether the underlying TEXT is displayed */
+        color: #fff;
+        font-size: 12px;
+        text-shadow: 0 1px 0 #000;
+}
+
+/* for icons not available in font-awesome, take a look at
+http://desktop.arcgis.com/en/arcmap/10.3/map/working-with-arcmap/displaying-maps-in-data-view-and-layout-view.htm#ESRI_SECTION1_5B9F92C6F7BE484AB561488552CB05CD */
+.MapButtonBar .btn div.image {
+    line-height: 50%;
+}
+.MapButtonBar .reshape div.image:before {
+    content: url('images/reshape.png');
+}
+.MapButtonBar .reshape.disabled div.image:before {
+    content: url('images/reshape-disabled.png');
+}
+.MapButtonBar .selectmode div.image:before {
+    content: url('images/select.png');
+}
+.MapButtonBar .selectmode.disabled div.image:before {
+    content: url('images/select-disabled.png');
+}
+.MapButtonBar .pan div.image:before {
+    content: url('images/pan.png');
+}
+
+.MapButtonBar .btn.active {
+    background-color: #333;
+    background-color: rgba(255,255,255,1.0);
+ -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+#MapButtonBar{
+    position: absolute;
+    top:2px; left: 95px;
+    z-index: 50;
+    display:none; /* Needs to appear and disappear with edit mode */
+}
+
+#NavButtonBar{
+    position: absolute;
+    top:2px; left: 2px;
+    z-index: 50;
+}
+#NavButtonBar .btn{
+    float: none; /* makes buttons stack vertically */
+    display: block; /* override inline-block from font-awesome (also for vertical stacking) */
+    margin-bottom: 2px;
+}
+.MapButtonBar .btn.disabled{
+    color: gray;
+    opacity: 1; /* override bootstrap disabled */
+    cursor: not-allowed;
+}
+.MapButtonBar .btn.disabled > * {
+    pointer-events: none;
+}

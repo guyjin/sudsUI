@@ -1,0 +1,23 @@
+<div id="{{id}}-container" class="progress"
+     style="width:100%;margin-top:10px;margin-bottom:0px">
+    <div id="{{id}}-progressbar"
+         {{#if title}}title="{{title}}"{{/if}}
+         class="progress-bar progress-bar-{{type}}{{#if animated}} progress-bar-striped active{{/if}}"
+         role="progressbar"
+         aria-valuenow="{{percentComplete}}"
+         style="width: {{percentComplete}}%; margin-bottom:0px"
+         aria-valuemin="0"
+         aria-valuemax="100">
+         {{text}}
+    </div>
+    {{#unless hideCloseIcon}}
+        <button 
+            id="{{id}}-close"
+            class="close nrm-progress-close-button"
+            title="{{closeIconTitle}}"
+            aria-label="{{closeIconTitle}}"
+            type="button">
+            <span aria-hidden="true">×</span>
+        </button>
+    {{/unless}}
+</div>

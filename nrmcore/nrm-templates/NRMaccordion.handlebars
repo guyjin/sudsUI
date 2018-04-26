@@ -1,0 +1,20 @@
+ <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        {{#if collapsible}}
+        <a data-toggle="collapse" data-parent="#accordion" href="#{{collapseId}}">
+	      <span class="glyphicon glyphicon-chevron-up smallchevroncolor"></span>
+        {{/if}}
+          {{title}}
+        {{#if collapsible}}
+        </a>
+        {{/if}}
+      </div>
+    </div>
+    <div id="{{collapseId}}" class="panel-collapse collapse in">
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{{!
+ * nrm-templates/staticLabel.handlebars
+ * 
+ * http://teamforge.fs.usda.gov/sf/go/artf43414 : Tree/grid integration - effect of selecting a "group" node
+ * Refactored from searchResults.handlebars
+ * 
+ * }}
+<div class="row"{{#if id}} id="{{id}}-container"{{/if}}>
+  <div class="col-sm-12">
+    <div class="form-group">
+      <p class="form-control-static"{{#if id}} id="{{id}}"{{/if}}>
+      {{#if value}}
+        <b>{{label}}: </b><span{{#if className}} class="{{className}}"{{/if}}> {{value}}</span>
+      {{else if content}}
+        {{{content}}}
+      {{else}}
+        {{text}}
+      {{/if}}
+      </p>
+    </div>
+  </div>
+</div>

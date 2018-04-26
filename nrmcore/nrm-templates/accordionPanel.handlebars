@@ -1,0 +1,27 @@
+  <div class="panel panel-{{#if panelStyle}}{{panelStyle}}{{else}}default{{/if}}{{#if helpContext}} nrm-help-provider" data-nrm-help-context="{{helpContext}}"{{else}}"{{/if}}>
+    <div class="panel-heading">
+      <{{#if headerType}}{{headerType}}{{else}}h4{{/if}} class="panel-title"{{#if actions}} style="display: inline-block;"{{/if}}>
+        <a id="{{id}}-toggle" data-toggle="collapse" data-parent="#{{parentId}}" href="#{{id}}" aria-expanded="{{#if expand}}true{{else}}false{{/if}}" aria-controls="{{id}}">
+        <span class="glyphicon glyphicon-chevron-{{#if expand}}down{{else}}right{{/if}} smallchevroncolor"></span>
+          {{header}}
+        </a>
+      </{{#if headerType}}{{headerType}}{{else}}h4{{/if}}>{{#if actions}}<div class="btn-group btn-group-sm pull-right nrm-titlebtn{{#if hideButton}} nrm-titlebtn-expand{{#unless expand}} hidden{{/unless}}{{/if}}">
+{{#with actions}}<button type="button" id="{{id}}" class="btn btn-default btn-group-sm" 
+{{#if title}} title="{{title}}"{{/if}}{{#if disabled}} disabled="disabled"{{/if}}>{{label}} <span class="caret"></span>
+</button>{{/with}}
+</div><div class="clearfix"></div>{{/if}}
+    </div>
+    <div id="{{id}}" class="panel-collapse collapse nrm-accordion-panel{{#if expand}} in{{/if}}" aria-labelledby="{{id}}-toggle">
+      <div class="panel-body">
+      {{#if content}}
+        {{{content}}}
+      {{/if}}
+      {{#if template}}
+        {{partial template}}
+      {{/if}}
+      {{#if fields}}
+        {{partial "hiddenFields"}}
+      {{/if}}
+      </div>
+    </div>
+  </div>

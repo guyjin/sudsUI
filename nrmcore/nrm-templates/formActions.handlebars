@@ -1,0 +1,5 @@
+{{#each actions}}
+    {{#if items}}<div class="btn-group">{{/if}}
+    {{#if type}}{{partial type}}{{else}}{{partial "btn"}}{{/if}}
+    {{#if items}}</div>{{/if}}
+{{/each}}

@@ -1,0 +1,4 @@
+{{#each options}}
+ <option value="{{value}}"{{#if selected}} selected="selected"{{/if}}{{#if disabled}} disabled="disabled"{{/if}}{{#if columns}}
+{{#each columns}} data-nrm-col{{@index}}="{{value}}"{{/each}}{{/if}}>{{#if text}}{{text}}{{else}}{{value}}{{/if}}</option>
+{{/each}}
