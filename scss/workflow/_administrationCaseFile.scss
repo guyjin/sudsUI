@@ -1,0 +1,472 @@
+#renderView.caseFile.administrationCaseFile {
+    .caseContent {
+        .caseSections {
+    
+            margin-bottom: 15px;
+        }
+        
+        &[data-view="case"] {
+            .caseSections {
+                margin-right: 15px;
+                
+                #insuranceSection {
+                    .sectionLabel {
+                        &:after {
+                            right: -22.85px;
+                        }
+                    }
+                }
+                
+                .sectionContent {
+                    border-top-right-radius: 20px;
+                }
+            }
+            
+        }
+    }
+    
+    .statusStrip {
+        &.nominal {
+            .statusBlock {
+                background-color: $nominal-suds;
+                color: $nominal-suds-text;
+    
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+        
+        &.warning {
+            .basicInfo {
+                border-bottom: 1px solid $warning-suds;
+            }
+            .statusBlock {
+                background-color: $warning-suds;
+                color: $warning-suds-text;
+            }
+            .timeLineFrame {
+                display: block;
+            }
+            
+            .timeLinePoint {
+                background-color: lighten($warning-suds, 20);
+                border-color: $warning-suds;
+                
+            }
+        }
+        
+        &.danger {
+            .basicInfo {
+                border-bottom: 1px solid $danger-suds;
+            }
+            .statusBlock {
+                background-color: $danger-suds;
+                color: $white;
+            }
+            .timeLineFrame {
+                display: block;
+    
+            }
+            }
+    
+        .timeLinePoint {
+                background-color: lighten($danger-suds, 20);
+                border-color: $danger-suds;
+                
+            }
+    
+    }
+    
+    .infoBlock.expirationDate,
+    .infoBlock.amount {
+        max-width: 250px;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: -.01px;
+    }
+    
+    .infoBlock.expirationDate {
+        font-size: 1.4em;
+    }
+    
+    .infoBlock.description {
+        flex: 1 1 0px;
+    }
+    
+    .licenseDetailTable {
+        max-height: 0;
+        overflow: hidden;
+        overflow-y: scroll;
+        transition: all .2s ease;
+        
+        &.open {
+            max-height: 500px;
+        }
+        
+    }
+    
+    .licenseDetailFrame {
+        padding: 2.5em 1em 1em 1em;
+        margin: 1em;
+        background-color: $white;
+        border: 1px solid $gray4;
+        border-radius: 20px;
+        position: relative;
+    
+        .status {
+            color: $primary-color-two;
+            font-weight: 600;
+        
+            &.removed {
+                color: $gray2;
+            }
+        }
+        
+    }
+    
+    .infoActions {
+        width: auto;
+    }
+    
+    .toggleLicenseDetails {
+        .fa {
+            transition: all .2s ease;
+        }
+        
+        &.open {
+            .fa {
+                transform: rotate3d(0, 0, 1, 90deg);
+            }
+        }
+        
+    }
+    
+    .licenseTableCloser {
+        position: absolute;
+        right: .5em;
+        top: .5em;
+        background-color: $danger-suds;
+        color: $white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        padding: 0 5px 0 5px;
+        font-size: 14px;
+        
+        i {
+            margin-right: 3px;
+        }
+    }
+    
+    .bonds {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .bondCard {
+        width: 275px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 1em;
+        background-color: $gray3;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        transition: all .2s ease;
+        position: relative;
+        border: 1px solid #ccc;
+        
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 0;
+            line-height: 1;
+            font-weight: 100;
+        }
+        
+        .data {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        a {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            
+        }
+        
+        .bondType {
+            display: flex;
+            flex-direction: column;
+            background-color: $nominal-suds;
+            align-items: flex-start;
+            padding: 14px 18px 18px 18px;
+            .label {
+                color: $nominal-suds-text;
+                
+            }
+            
+            .data {
+                line-height: 1;
+                color: $nominal-suds-text;
+            }
+            
+        }
+        
+        .bondAmount {
+            padding: 70px 18px 70px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .label {
+                color: $eerie-black;
+                
+            }
+            
+            .data {
+                font-size: 36px;
+                font-weight: 600;
+                line-height: 1;
+            }
+            
+        }
+        
+        .bondActions {
+            margin-top: auto;
+            margin-bottom: 4px;
+        }
+        
+        .downloadBondButton,
+        .releaseBondButton {
+            background-color: $nominal-suds;
+            color: $white;
+            text-decoration: none;
+            padding: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0 4px 4px 4px;
+            border-radius: 8px;
+            transition: all .15s ease;
+            
+            i {
+                margin-right: 5px;
+            }
+            
+            &:hover {
+                background-color: darken($nominal-suds, 10);
+            }
+        }
+        
+        .releaseBondButton {
+            margin-bottom: 0;
+            background-color: $primary-color-two;
+            color: $primary-color-two-text;
+            
+            &:hover {
+                background-color: darken($primary-color-two, 10);
+            }
+        }
+        
+        .bondRelease {
+            background-color: $gray2;
+            color: $gray2-text;
+            padding: 18px 18px 24px 18px;
+            margin: -4px 4px 4px 4px;
+            border-radius: 8px;
+            
+            .label {
+                line-height: 1;
+            }
+            .data {
+                line-height: 1;
+                color: $white;
+            }
+        }
+        
+        &:hover {
+            transform: translateY(-10px) scale3d(1.05, 1.05, 1.05);
+            box-shadow: 0 2px 40px 5px rgba(0, 0, 0, 0.2);
+            background-color: $white;
+        }
+        
+        &.released {
+            box-shadow: none;
+            border: 0;
+            
+            .bondType {
+                background-color: $gray1;
+                .label,
+                .data {
+                    color: #333;
+                }
+            }
+            
+            &:hover {
+                transform: none;
+                box-shadow: none;
+                background-color: $gray3;
+            }
+        }
+    }
+    
+    .oversightInstance {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .oversightInstanceTop {
+        display: flex;
+        justify-content: flex-end;
+        
+        .oversightInstanceActionTab {
+            background-color: lighten(#efefef, 2);
+            border-style: solid;
+            border-color: $gray1;
+            border-width: 1px;
+            border-bottom-color: lighten(#efefef, 2);
+            padding: 12px 20px;
+            font-weight: 600;
+            margin-left: 2px;
+            margin-bottom: -1px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+            
+            &:first-child {
+                background-color: lighten(#efefef, 2);
+                position: relative;
+                
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: $tab-radius;
+                    height: $tab-radius;
+                    left: -21px;
+                    bottom: -1px;
+                    @include beforeCurve(lighten(#efefef, 2), $gray1);
+                }
+                
+            }
+        }
+    }
+    .oversightData {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: lighten(#efefef, 2);
+        padding: 1em 10px;
+        margin-bottom: 1em;
+        border-radius: 20px 0 20px 20px;
+        border: 1px solid $gray1;
+        
+        .dataPoint {
+            margin: 4px 8px;
+            border-radius: 10px;
+            flex: 1 1 40%;
+            box-sizing: border-box;
+            
+            &.last,
+            &.next {
+                background-color: $gray2;
+                color: $white;
+                padding: 6px 10px 10px 10px;
+                position: relative;
+                .label {
+                    font-size: 1.2rem;
+                    line-height: 1;
+                    font-weight: 100;
+                    padding: 0;
+                    margin: 0;
+                }
+                .data {
+                    font-size: 2em;
+                    font-weight: 600;
+                    line-height: 1;
+                    margin-top: -2px;
+                }
+            }
+            
+            &.last {
+                &:after {
+                    font-family: "FontAwesome", cursive;
+                    content: '\f111';
+                    font-size: 42px;
+                    color: $white;
+                    position: absolute;
+                    right: -25px;
+                    top: 14px;
+                    z-index: 99;
+                }
+            }
+            
+            &.next {
+                background-color: $nominal-suds;
+                color: $nominal-suds-text;
+                padding-left: 18px;
+                .label {
+                    color: $nominal-suds-text;
+                }
+                
+                &:before {
+                    font-family: "FontAwesome", cursive;
+                    content: '\f0a9';
+                    font-size: 42px;
+                    color: $primary-color-two;
+                    position: absolute;
+                    left: -27px;
+                    top: 14px;
+                    z-index: 100;
+                }
+            }
+            
+            &.performedBy {
+                padding: 0 10px;
+                background-color: $white;
+                border: 1px solid $gray1;
+                
+                .label {
+                    color: $eerie-black;
+                    line-height: 1;
+                    font-weight: 100;
+                    padding: 0;
+                    margin: 0;
+                }
+                .data {
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 1;
+                    margin-top: -2px;
+                }
+            }
+            
+            &.status {
+                display: flex;
+                background-color: $primary-color-five;
+                align-items: center;
+                padding: 0 10px;
+                .statusIcon {
+                    font-size: 34px;
+                    margin-right: 8px;
+                    &.nominal {
+                        color: $nominal-suds;
+                    }
+                    &.warning {
+                        color: $warning-suds;
+                    }
+                    &.danger {
+                        color: $danger-suds;
+                    }
+                }
+                
+                .statusMessage {
+                    font-size: 34px;
+                    font-weight: 600;
+                }
+                
+            }
+        }
+    }
+}

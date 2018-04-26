@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+
+    <link href="../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Billing Summary</title>
+</head>
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+        <div class="container suds-container subflow">
+            <div class="nrm-edit-form">
+                <div id="renderView" class="billingSummary">
+                    <div class="summaryHeader">
+
+                        <div class="summaryPanel">
+                            <div class="summaryTab">Record Summary</div>
+                            <div class="summaryBody">
+                                <div class="summaryContentRow">
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">
+                                            Region:
+                                        </h5>
+                                        <div class="contentText">
+                                            Southern (08)
+                                        </div>
+                                        <h5 class="contentLabel">
+                                            Forest:
+                                        </h5>
+                                        <div class="contentText">
+                                            Daniel Boone (02)
+                                        </div>
+                                        <h5 class="contentLabel">
+                                            District:
+                                        </h5>
+                                        <div class="contentText">
+                                            Something (16)
+                                        </div>
+
+                                    </div>
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">
+                                            Use Code:
+                                        </h5>
+                                        <div class="contentText">
+                                            Use Code Name (1234)
+                                        </div>
+                                        <h5 class="contentLabel">
+                                            Proponent Type:
+                                        </h5>
+                                        <div class="contentText">
+                                            Limited Liability Corporation (LLC)
+                                        </div>
+                                    </div>
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">
+                                            Recieved / Accepted
+                                        </h5>
+                                        <div class="contentText">
+                                            04/21/2017
+                                        </div>
+                                        <h5 class="contentLabel">
+                                            Date Activity Begins
+                                        </h5>
+                                        <div class="contentText">
+                                            04/22/2017
+                                        </div>
+                                        <h5 class="contentLabel">
+                                            Date Activity Ends
+                                        </h5>
+                                        <div class="contentText">
+                                            04/23/2017
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summaryContentRow">
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">Entry Fee / Service Charge</h5>
+                                        <div class="contentText">
+                                            $3500.00
+                                        </div>
+                                    </div>
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">Multiple Participants</h5>
+                                        <div class="contentText">20 Participants / 20 Spectators</div>
+                                    </div>
+                                </div>
+                                <div class="summaryContentRow">
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">
+                                            Activity Location
+                                        </h5>
+                                        <div class="contentText">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                                accusantium aliquam architecto assumenda cumque esse et impedit iure
+                                                magnam minima, molestias natus officia qui quos repudiandae similique
+                                                suscipit tenetur veritatis.</p>
+                                            <p>Aspernatur at atque delectus eos facere facilis harum hic magnam, nobis
+                                                quae repellat similique tempora. Ad architecto aspernatur corporis
+                                                deleniti ducimus, hic labore, libero, perferendis provident quasi
+                                                ratione recusandae veniam.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summaryContentRow">
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">
+                                            Activity Description
+                                        </h5>
+                                        <div class="contentText">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                                accusantium aliquam architecto assumenda cumque esse et impedit iure
+                                                magnam minima, molestias natus officia qui quos repudiandae similique
+                                                suscipit tenetur veritatis.</p>
+                                            <p>Aspernatur at atque delectus eos facere facilis harum hic magnam, nobis
+                                                quae repellat similique tempora. Ad architecto aspernatur corporis
+                                                deleniti ducimus, hic labore, libero, perferendis provident quasi
+                                                ratione recusandae veniam.</p>
+                                            <p>Adipisci commodi fuga iusto, nisi quaerat sed similique! Accusantium
+                                                aliquam atque, ea eaque eum eveniet illo itaque, maiores nemo nihil
+                                                porro provident quasi quisquam rem saepe totam ullam unde voluptas.</p>
+                                            <p>Dolorum ea numquam odit pariatur quod? Alias, asperiores commodi cum
+                                                neque nihil non voluptatibus. Aperiam et excepturi laboriosam magni
+                                                nostrum odio, quaerat quasi voluptatum. Asperiores ipsum quod rem
+                                                repellendus velit!</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="summaryContentRow">
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">NFS Roads & Right-of-ways </h5>
+                                        <div class="contentText">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                                                beatae cum dicta earum est ex, incidunt ipsam ipsum magnam maxime,
+                                                molestiae nobis non nulla recusandae sed sequi tempora totam
+                                                voluptates.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="summaryContentBlock">
+                                        <h5 class="contentLabel">Use of NFS Lands</h5>
+                                        <div class="contentText">
+                                            <p>
+                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque beatae ex libero, nihil odio optio quas quo quos reiciendis repudiandae sed tempore vel. Doloribus ea iusto maiores quaerat quisquam.</span><span>Ab debitis dolorem expedita id labore laudantium mollitia quaerat sequi voluptas? Consequuntur cupiditate dolorem fugiat illum, iure labore magnam minus natus provident quidem quos repellat repudiandae sequi similique tempore ut.</span>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="screenName">
+                            <div class="name tabHeading soloTab">
+                                PWY123456 - Billing Summary
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Reset
+                            </button>
+
+                            <button class="btn btn-link btn-cancel">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="screenSections" data-view="all">
+                            <div class="tabHeadingRow filters">
+                                <div class="tabHeading sectionFilter" data-filter="all">
+                                    All
+                                </div>
+                                <div class="tabHeading sectionFilter" data-filter="paid">Paid</div>
+                                <div class="tabHeading sectionFilter" data-filter="unpaid">UnPaid</div>
+                            </div>
+                            <div class="sections">
+                                <div class="billingFilterBar">
+                                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                                   <button class="btn btn-primary" disabled>Filters:</button>
+                                    <div class="btn-group" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            Payment Type
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Item 1</a></li>
+                                            <li><a href="#">Item 2</a></li>
+                                            <li><a href="#">Item 3</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            Date Issued
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Item 1</a></li>
+                                            <li><a href="#">Item 2</a></li>
+                                            <li><a href="#">Item 3</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            Date Paid
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Item 1</a></li>
+                                            <li><a href="#">Item 2</a></li>
+                                            <li><a href="#">Item 3</a></li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn-default"><span class="fa fa-refresh"></span> Reset</button>
+                                </div>
+                                </div>
+                                <div class="section">
+                                   <div data-section-type="unpaid">
+                                       <div class="sectionTop">
+                                           <div class="tabHeading sectionLabel">Unpaid</div>
+                                       </div>
+                                       <div class="sectionContent unpaidBills">
+                                           <div class="billBlock">
+                                               <div class="billMeta">
+                                                   <div class="billName">Bill Name</div>
+                                                   <div class="billAmount">$1,400.00</div>
+                                               </div>
+                                               <div class="billActions">
+                                                   <div class="billDate">
+                                                       <div class="dateLabel">Date Issued:</div>
+                                                       <div>11/11/1111</div>
+                                                   </div>
+                                                   <div class="viewBillPayments">
+                                                       <button class="btn btn-suds btn-block"><span class="fa fa-binoculars"></span> Payments</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="billBlock">
+                                               <div class="billMeta">
+                                                   <div class="billName">Bill Name</div>
+                                                   <div class="billAmount">$3,000.00</div>
+                                               </div>
+                                               <div class="billActions">
+                                                   <div class="billDate">
+                                                       <div class="dateLabel">Date Issued:</div>
+                                                       <div>12/12/1212</div>
+                                                   </div>
+                                                   <div class="viewBillPayments">
+                                                       <button class="btn  btn-suds btn-block">
+                                                           <span class="fa fa-binoculars"></span>
+                                                           Payments</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+  
+                                    <div data-section-type="paid">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">Paid</div>
+                                        </div>
+                                        <div class="sectionContent">
+                                            <div class="table">
+                                                <table class="table suds-table table-hover table-striped table-condensed">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Date Paid</th>
+                                                        <th>Date Issues</th>
+                                                        <th>Type</th>
+                                                        <th>Amount</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>44/44/4444</td>
+                                                        <td>33/33/3333</td>
+                                                        <td>Cost Recovery</td>
+                                                        <td>$1,275,00</td>
+                                                        <td class="actionButtons">
+                                                            <button class="btn btn-suds suds-primary viewBillPayments">
+                                                                <span class="fa fa-binoculars"></span>
+                                                                View Bill
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>44/44/4444</td>
+                                                        <td>33/33/3333</td>
+                                                        <td>Cost Recovery</td>
+                                                        <td>$1,275,00</td>
+                                                        <td class="actionButtons">
+                                                            <button class="btn btn-suds suds-primary viewBillPayments">
+                                                                <span class="fa fa-binoculars"></span>
+                                                                View  Bill
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>44/44/4444</td>
+                                                        <td>33/33/3333</td>
+                                                        <td>Cost Recovery</td>
+                                                        <td>$1,275,00</td>
+                                                        <td class="actionButtons">
+                                                            <button class="btn btn-suds suds-primary viewBillPayments">
+                                                                <span class="fa fa-binoculars"></span>
+                                                                View Bill
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paymentViewer">
+                        <div class="closeButton">
+                            <span class="fa fa-times"></span>
+                        </div>
+                        <div class="paymentViewContentBlock">
+                            <div class="billBlock">
+                                <div class="billMeta">
+                                    <div class="billName">Bill Name</div>
+                                    <div class="billAmount">$3,000.00</div>
+                                </div>
+                                <div class="billActions">
+                                    <div class="billDate">
+                                        <div class="dateLabel">Date Issued:</div>
+                                        <div>12/12/1212</div>
+                                    </div>
+                                    <div class="viewBillPayments">
+                                        <button class="btn  btn-suds btn-block">
+                                            <span class="fa fa-binoculars"></span>
+                                            Payments</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paymentTransactions">
+                            <div class="transactionHeader">
+                                Payments
+                            </div>
+                            <table class="table table-striped table-condensed table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Payment Date</th>
+                                    <th>Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>11/13/1111</td>
+                                    <td>$300.00</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    (function ($) {
+        var screenSections = $('.screenSections');
+        var renderView = $('.nrm-edit-form');
+        setTimeout(function () {
+            $('.suds-container').animate({
+                opacity: 1,
+                left: 0
+            }, pageTransitionTime, 'easeOutCirc')
+        }, 500);
+
+        $('.summaryTab').on('click', function () {
+            toggleSummaryPanel();
+        });
+        
+        $('.sectionFilter').on('click', function() {
+            var t = $(this).data("filter");
+            $('.screenSections').attr('data-view', t);
+        });
+        
+        $('.viewBillPayments').on('click', function() {
+//            var p = $('.paymentViewContentBlock');
+//            p.empty();
+//            $(this).closest('.billBlock').clone().appendTo(p);
+            $(this).closest('.billBlock').addClass('viewing');
+            $('.paymentViewer').addClass('open');
+        });
+
+        $('.paymentViewer .closeButton').on('click', function(){
+            $(this).closest('.paymentViewer').removeClass('open');
+//            $('.paymentViewContentBlock').empty();
+            $('.viewing').removeClass('viewing');
+        });
+
+        $('button[type=submit]').on('click', function () {
+            backToCaseFile();
+        });
+
+        renderView.scroll(function () {
+
+            if ($(this).scrollTop() > 52) {
+                var t = $(this).offset().top + 16;
+                $('.stepControls').addClass('fixed').css({
+                    top: t + 'px'
+                });
+
+                $('.screenSections').css({
+                    top: '60px'
+                })
+            } else {
+                $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                $('.screenSections').removeAttr('style');
+            }
+        }) ;
+        
+        
+    })(jQuery);
+
+    var pageTransitionTime = 800;
+    var sectionNavOffsetFromRenderViewTop = $('.summaryHeader').height();
+    var renderViewOffsetFromTop = $('#renderView').offset().top;
+    //    var screenNavOffsetFromRenderViewTop = $('.screenNav').offset().top;
+    var stepControlsOffsetFromTop = $('.stepControls').offset().top;
+
+    var toggleSummaryPanel = function () {
+        var summaryHeader = $('.summaryHeader'),
+            summaryPanel = $('.summaryPanel'),
+            summaryTab = $('.summaryTab'),
+            screenName = $('.screenName'),
+            summaryTabHeight = summaryTab.height(),
+            summaryBodyHeight = $('.summaryBody')[0].scrollHeight,
+            screenNameHeight = screenName.height(),
+            startingScreenNameHeight = summaryHeader.height();
+//        summaryHeader.toggleClass('summaryOpen');
+        if (!summaryHeader.hasClass('summaryOpen')) {
+            summaryHeader.addClass('summaryOpen')
+            summaryPanel.animate({
+                'max-height': summaryTabHeight + summaryBodyHeight + 85 + 'px',
+                'height': '100%'
+            }, 400);
+        } else {
+//            summaryPanel.attr('style', '');
+            summaryPanel.animate({
+                'max-height': '3.55em',
+                'height': '100%'
+            }, 400, function() {
+                summaryHeader.removeClass('summaryOpen')
+//                setTimeout(function() {
+//                    summaryHeader.removeClass('summaryOpen');
+//                }, 100);
+            })
+        }
+    };
+
+    var backToCaseFile = function () {
+        $('.suds-container').animate({
+            opacity: 0,
+            left: 800
+        }, pageTransitionTime, 'easeOutCirc');
+
+        setTimeout(function () {
+            window.location.href = 'applicationCaseFile.html';
+//            history.back();
+        }, pageTransitionTime);
+    }
+
+
+</script>
+</body>
+</html>

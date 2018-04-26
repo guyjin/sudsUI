@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Cost Recovery Monitoring</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+    <div class="container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+            <div class="container ">
+                <div class="recordHeader">
+                    <div class="recordIdBlock">
+                        <div class="blockLabel">
+                            RECORD ID:
+                        </div>
+                        <div class="recordId">
+                            PWY123456
+                        </div>
+                    </div>
+                    <div class="proponentBlock">
+                        <div class="blockLabel">
+                            PROPONENT:
+                        </div>
+                        <div class="proponentName">
+                            Limited Liability Partnership (LLP)
+                        </div>
+                    </div>
+                    <div class="recordStatusBlock">
+                        <div class="blockLabel">
+                            STATUS:
+                        </div>
+                        <div class="recordStatus">
+                            Cost Recovery
+                        </div>
+                    </div>
+                    <div class="summaryBlock" data-toggle="modal">
+                        <i class="fa fa-map-o" aria-hidden="true"></i> Summary
+                    </div>
+
+                </div>
+                <div id="renderView" class="costRecoveryAOApproval">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h4>
+                                Cost Recovery AO Approval
+                            </h4>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h5>prepared by: SUA Name</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="AODecisionControls well">
+                                <button class="btn btn-success">
+                                    ACCEPTED
+                                </button>
+                                or
+                                <button class="btn btn-danger">
+                                    RETURNED
+                                </button>
+                                <div class="aoNameBadge">
+                                    by <strong>Firstname Lastname</strong>, Authorized Officer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h4>
+                                Nepa Analysis &amp; Adjustments
+                            </h4>
+                            <div class="summaryCard">
+                                <div class="editIcon">
+                                    edit <i class="fa fa-pencil-square"></i>
+                                </div>
+                                <div class="summaryInfo">
+                                    <div class="infoRow one">
+                                        <div class="category">
+                                            <span class="categoryLabel">category</span>
+                                            <span class="categoryNumber">
+                                                1
+                                            </span>
+                                        </div>
+                                        <div class="infoBlock">
+                                            <div class="infoBlockLabel">
+                                                Use Code:
+                                            </div>
+                                            <div class="infoBlockText">
+                                                Airport Concessions (###)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <div class="infoBlock">
+                                            <div class="infoBlockLabel">
+                                                Waiver Type:
+                                            </div>
+                                            <div class="infoBlockText">
+                                                Partial
+                                            </div>
+                                        </div>
+                                        <div class="infoBlock">
+                                            <div class="infoBlockLabel">
+                                                Waiver Amount:
+                                            </div>
+                                            <div class="infoBlockText">
+                                                $0.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <div class="infoBlock">
+                                            <div class="infoBlockLabel">
+                                                Nepa Type:
+                                            </div>
+                                            <div class="infoBlockText">
+                                                CE
+                                            </div>
+                                        </div>
+                                        <div class="infoBlock">
+                                            <div class="infoBlockLabel">
+                                                Esimated Hours:
+                                            </div>
+                                            <div class="infoBlockText">
+                                                13.75
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summaryFee">
+                                    <span class="infoBlockLabel">Fee:</span>
+                                    <span class="infoBlockText">$123.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 worksheetEntryCards">
+                            <h4>
+                                Worksheet Entries
+                            </h4>
+                            <div class="worksheetEntries">
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard">
+                                    <div class="editIcon">
+                                        edit <i class="fa fa-pencil-square"></i>
+                                    </div>
+                                    <div class="worksheetDetails">
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Role:</div>
+                                            <div class="worksheetEntryValue">Geologist</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Name:</div>
+                                            <div class="worksheetEntryValue">Smith, David</div>
+                                        </div>
+                                        <div class="worksheetEntry">
+                                            <div class="worksheetEntryLabel">Rate:</div>
+                                            <div class="worksheetEntryValue">$13.75/hr</div>
+                                        </div>
+                                        <div class="worksheetEntryHours">
+                                            <div class="hoursValue">12</div>
+                                            <div class="hoursLabel">Hours</div>
+
+                                        </div>
+                                        <div class="worksheetEntryScopeToggle">
+                                            <span class="open">view scope</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="worksheetEntryScope">
+                                        <div class="scopeContent">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi
+                                                cum deleniti doloribus eaque error et fuga fugiat maxime, minima
+                                                molestias natus nemo odit, quaerat, unde voluptas voluptate. Molestiae,
+                                                vel.</p>
+                                            <p>Aliquam corporis debitis, eos exercitationem nesciunt non nostrum qui
+                                                quidem quo ratione repudiandae saepe sed ut! Aliquam consequatur earum
+                                                eveniet illo nulla. Error et exercitationem nemo placeat quam saepe
+                                                voluptatem!</p>
+                                            <p>Earum facere placeat quod! Ad dolores ducimus illum natus qui quia, quis
+                                                rem tempora! A facere quae qui quidem reiciendis, repellat ullam! Eum
+                                                eveniet ipsam nisi quas rem voluptatem voluptatum.</p>
+                                            <p>Assumenda atque ducimus excepturi explicabo fugit itaque neque nobis quod
+                                                quos repellendus sunt, vel voluptas voluptatibus. Architecto asperiores
+                                                at et eum id, inventore labore natus omnis quae ullam, unde
+                                                voluptatibus.</p>
+                                            <p>A animi est eveniet ex facilis, inventore ipsum perferendis perspiciatis
+                                                quae repudiandae sapiente soluta. Esse est labore pariatur porro quas.
+                                                Consequuntur corporis delectus deserunt maiores neque repellendus sint
+                                                ullam voluptas.</p>
+                                            <p>Animi consectetur cupiditate dignissimos distinctio doloribus, ducimus et
+                                                expedita explicabo hic laborum laudantium maxime minima nemo nihil nobis
+                                                quia quibusdam repellat repellendus, rerum sapiente sit suscipit totam
+                                                vero voluptate voluptates!</p>
+                                            <p>Incidunt quo soluta tempora tempore totam voluptate? Animi doloribus
+                                                ipsam iusto maxime quisquam reprehenderit tempora. Accusamus consequatur
+                                                dicta, doloremque, doloribus dolorum ducimus earum exercitationem
+                                                maiores non quasi reiciendis, sit tenetur?</p>
+                                            <p>A, autem beatae, commodi cum, cumque cupiditate dolor ducimus earum eos
+                                                expedita fugiat iusto labore minima necessitatibus odio optio porro
+                                                possimus quas quidem rem repudiandae sunt veritatis vero vitae
+                                                voluptas.</p>
+                                        </div>
+
+                                        <span class="closeClone">
+                                            <i class="fa fa-times"></i>
+                                            close
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="worksheetCard worksheetCardClone"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 viewSignatures">
+                            <button class="btn btn-primary btn-block">
+                                <i class="fa fa-eye"></i> View Signatures
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+                    <div id="editWorkSheetEntryModal" class="modal fade">
+
+                        <div class="modalContent">
+                            <div class="header">
+                                <h2>Worksheet Entry</h2>
+                                <div class="editCloser">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <form  name="CRWorksheetForm" id="CRWorksheetForm">
+
+
+                                        <div class="form-group">
+                                            <label for="specialistRole">
+                                                Specialist Role
+                                            </label>
+                                            <select name="specialistRole" id="specialistRole" class="form-control" required>
+                                                <option value="">Select Role</option>
+                                                <option value="biologist">Biologist</option>
+                                                <option value="geologist">Geologist</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="specialistName">
+                                                Specialist Name
+                                            </label>
+                                            <input type="text" name="specialistName" id="specialistName" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="processingTimeEst">
+                                                Processing Time Estimate
+                                            </label>
+                                            <input type="number" name="processingTimeEst" id="processingTimeEst" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="monitoringTimeEst">
+                                                Monitoring Time Estimate
+                                            </label>
+                                            <input type="number" name="monitoringTimeEst" id="monitoringTimeEst" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="rate">
+                                                Rate
+                                            </label>
+                                            <input type="text" name="rate" id="rate" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="workScope">
+                                                Description of Work Scope
+                                            </label>
+                                            <textarea name="workScope" id="workScope" cols="80" rows="10" class="form-control" required></textarea>
+                                        </div>
+
+                                    <div class="controls form-group">
+                                        <button type="reset"  class="btn btn-default">
+                                            <i class="fa fa-refresh"></i>
+                                            Reset
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-save"></i>
+                                            Save &amp; Continue
+                                        </button>
+                                    </div>
+                                
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                    <div id="summaryCardModal" class="modal fade">
+                        <div class="modalContent">
+                            <div class="header">
+                                <h2>Edit Summary Entry</h2>
+                                <div class="editCloser">
+                                    <i class="fa fa-times"></i>
+                                </div>
+                            </div>
+                            <form name="CRSummaryForm" id="CRSummaryForm">
+                                <div class="form-group">
+                                    <label for="adjustmentType">Adjustment Type</label>
+                                    <select name="adjustmentType" id="adjustmentType" class="form-control">
+                                        <option value="">Adjustment Type</option>
+                                        <option value="partial">Partial Waiver</option>
+                                        <option value="full">Full Waiver</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adjustmentAmount">Adjustment Amount</label>
+                                    <input type="text" name="adjustmentAmount" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="NEPAType">NEPA Type</label>
+                                    <select name="NEPAType" id="NEPAType" class="form-control">
+                                        <option value="">Select NEPA Category</option>
+                                        <option value="CE">CE</option>
+                                        <option value="EA">EA</option>
+                                        <option value="EIS">EIS</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reasonForChange">Reason for Change</label>
+                                    <textarea name="reasonForChange" id="reasonForChange" cols="80" rows="10" class="form-control" required></textarea>
+                                </div>
+                                <div class="controls form-group">
+                                    <button type="reset"  class="btn btn-default">
+                                        <i class="fa fa-refresh"></i>
+                                        Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-save"></i>
+                                        Save &amp; Continue
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    
+    (function($) {
+        $clone = $('.worksheetCardClone');
+        $lastElement = '';
+        $cloneOpen = false;
+        var lastElement = {
+            'top': 0,
+            'left': 0,
+            'width': 0,
+            'height': 0
+        };
+        
+
+        $(document).on('click', '.editIcon', function() {
+            var target = $(this).parent();
+            openEditModal(target);
+        });
+
+        $('.editCloser').on('click', function() {
+            closeEditModal()
+        });
+        
+        $(document).on('click', '.worksheetEntryScopeToggle', function (){
+            var target = $(this);
+            if($cloneOpen === true) {
+
+                closeClonedCard();
+                setTimeout(function() {
+                    openCloneCard(target)
+                }, 100);
+            } else {
+                openCloneCard(target);
+            }
+
+        });
+
+
+        var openCloneCard = function(target) {
+            $lastElement = $(target).closest('.worksheetCard');
+            var offset = $lastElement.offset();
+            lastElement = {
+                top: offset.top - $(document).scrollTop(),
+                left: offset.left,
+                width: $lastElement.width(),
+                height: $lastElement.height()
+            };
+            $clone.html($lastElement.html());
+            $clone.css({
+                'top': lastElement.top,
+                'left': lastElement.left,
+                'width': lastElement.width,
+                'height': lastElement.height,
+                'zIndex': 10
+            });
+            setTimeout(function(){
+                $clone.css({
+                    'opacity': 1,
+                    'top': 30 + '%',
+                    'left': 20 + '%',
+                    'width': 60 + '%'
+                });
+                $lastElement.css('opacity', 0);
+                $clone.addClass('zoomed');
+                $cloneOpen = true;
+            }, 100);
+
+            setTimeout(function() {
+                $('.worksheetCardClone .scopeContent').css({
+                    'opacity': 1
+                })
+            },400);
+
+            $('.closeClone').on('click', function() {
+                closeClonedCard();
+            });
+        };
+
+        var closeClonedCard = function() {
+            console.log(lastElement);
+            $clone.css({
+                'top': lastElement.top,
+                'left': lastElement.left,
+                'width': lastElement.width,
+                'height': lastElement.height,
+                'opacity': 0
+            });
+
+            setTimeout(function(){
+                $lastElement.css('opacity', 1);
+                $clone.removeClass('zoomed');
+                $clone.css({'zIndex':-1});
+                $clone.empty();
+                $cloneOpen = false;
+            }, 100);
+        };
+
+        var openEditModal = function(target) {
+            if($(target).hasClass('worksheetCard')) {
+                $('#editWorkSheetEntryModal').modal('show');
+            } else if($(target).hasClass('summaryCard')) {
+                $('#summaryCardModal').modal('show')
+            }
+        };
+
+        var closeEditModal = function() {
+            $('.modal.in').modal('hide');
+        }
+
+
+
+    })(jQuery);
+</script>
+</body>

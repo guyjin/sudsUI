@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Cost Recovery Monitoring</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">
+
+    <div class="container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+            <div class="container">
+                <!--This row contains the Stage and Step control Widgets -->
+                <div class="row stageAndSteps">
+                    <div class="col-lg-9 col-md-7 col-sm-6">
+                        <h2 class="nrm-form-title SUDSStageHeader">
+                            Special Use
+                            <div class="dropdown">
+                                <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary" disabled="disabled">
+                                    <span class="stageName">Application Processing</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="">Proposal</a></li>
+                                    <li><a href="" class="disabled">Application Processing</a></li>
+                                    <li><a href="" class="disabled">Authorization</a></li>
+                                    <li><a href="" class="disabled">Closure</a></li>
+                                </ul>
+                            </div>
+                            <small><span class="label label-default nrm-editstate">New</span></small>
+                        </h2>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-6">
+                        <div class="input-group stepHistory">
+                                <span class="input-group-btn">
+                            <button class="btn btn-primary" disabled="disabled" type="button"><span
+                                    class="glyphicon glyphicon-chevron-left"></span> last</button>
+                                </span>
+                            <div class="input-group-btn stepHistoryDropDownToggle">
+                                <button type="button" class="btn btn-primary dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Step Name
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Step Name</a></li>
+                                    <li><a href="#">Another Step Name</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="">Something else that is really super long and takes a lot of space</a>
+                                    </li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                            <!-- /btn-group -->
+                            <span class="input-group-btn">
+                            <button class="btn btn-primary" disabled="disabled" type="button">next <span
+                                    class="glyphicon glyphicon-chevron-right"></span></button>
+                          </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        Record ID: DRY123456 Date Filed: 03-12-2016 Admin Unit: 080212
+                    </div>
+                </div>
+                <div id="renderView" class=" costRecovery">
+                    <div class="row">
+                        <h3 class="col-md-12">
+                            Cost Recovery Monitoring
+                        </h3>
+                    </div>
+                    <form name="costRecoverySetupForm" id="costRecoverySetupForm" method="post">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="cr_StatusCard">
+                                    <div class="statusSection">
+                                        <div class="label">
+                                            Use Code
+                                        </div>
+                                        <div class="statusDataPoint">
+                                            Tailhold (591)
+                                        </div>
+                                    </div>
+                                    <div class="statusSection">
+                                        <div class="label">
+                                            Category
+                                        </div>
+                                        <div class="categoryBadge">
+                                            <div class="badge">
+                                                ?
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="statusSection">
+                                        <div class="label">
+                                            Agency Time (hours)
+                                        </div>
+                                        <div class="statusDataPoint timeRange">
+                                            Unknown
+                                        </div>
+                                    </div>
+                                    <div class="fee">
+                                        <div class="label">
+                                            Fee
+                                        </div>
+                                        <div class="statusDataPoint timeFee">
+                                            $0.00
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="costRecoveryPDF">
+                                    <a href="" disabled="disabled">
+                                        <span class="glyphicon glyphicon-download"></span>
+                                        <span class="buttonLabel">
+                                            Cost Recovery Agreement
+                                            <span class="downloadLabel">Download (PDF)</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+
+                                <div class="form-group">
+                                    <label for="nepaCategory">NEPA Category</label>
+                                    <select name="nepaCategory" id="nepaCategory" class="form-control" required>
+                                        <option value="">Select NEPA Category</option>
+                                        <option value="CE">CE</option>
+                                        <option value="EA">EA</option>
+                                        <option value="EIS">EIS</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="estimatedHours">Estimated Hours</label>
+                                    <div class="formSet">
+                                        <input type="number" name="estimatedHours" id="estimatedHours" placeholder="0" class="form-control">
+                                        <select name="minutes" id="minutes" class="form-control" >
+                                            <option value=".00">.00</option>
+                                            <option value=".25">.25</option>
+                                            <option value=".50">.50</option>
+                                            <option value=".75">.75</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adjustmentType">Adjustment Type</label>
+                                    <select name="adjustmentType" id="adjustmentType" class="form-control adjustments" disabled>
+                                        <option value="">Select Type</option>
+                                        <option value="full">Full Waiver Cost Recovery</option>
+                                        <option value="partial">Partial Waiver Cost Recovery</option>
+                                        <option value="cat6Monitoring" disabled>Reduction, Monitoring Category 6</option>
+                                        <option value="cat6Processing" disabled>Reduction, Processing Category 6</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adjustmentAmount">
+                                        Adjustment Amount
+                                    </label>
+                                    <input type="number" name="adjustmentAmount" id="adjustmentAmount" placeholder="0.00" class="form-control adjustments" disabled>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--
+                            Step controls
+                        -->
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-md-offset-7 stepControls">
+
+                                <button class="btn btn-default  resetQuestions" type="reset" >Reset</button>
+                                <button class="btn btn-primary " type="submit">Save &amp; Continue</button>
+                                <button class="btn btn-danger ">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function(jQuery) {
+        var categories = [
+            {
+                'label': '0-1 Hours',
+                'fee': '$0.00'
+            },
+            {
+                'label': '1-8 Hours',
+                'fee': '$123.00'
+            },
+            {
+                'label': '8-24 Hours',
+                'fee': '$433.00'
+            },
+            {
+                'label': '24-36 Hours',
+                'fee': '$816.00'
+            },
+            {
+                'label': '36-50 Hours',
+                'fee': '$1170.00'
+            },
+            {
+                'label': 'Out of Range',
+                'fee': '$---'
+            }
+
+        ];
+        var badge = $('.badge');
+        var hours = $('#estimatedHours');
+        var minutes = $('#minutes');
+        var timeRange = $('.timeRange');
+        var timeFee = $('.timeFee');
+        var originalFee = '';
+        var adjustedFee = '';
+
+        $('#costRecoverySetupForm').on('reset', function() {
+            badge.text('?').removeClass('hasCategory');
+            timeRange.text('Unknown');
+            timeFee.text('$0.00');
+            originalFee = '';
+            adjustedFee = '';
+        });
+
+        $('.formSet').on('change keyup',function() {
+            checkRange()
+        });
+
+        $('#adjustmentType').on('change', function(){
+            if($(this).val() === '') {
+                $('#adjustmentAmount').val('');
+                checkRange();
+            } else if($(this).val() === 'full') {
+                var newFee = $(timeFee).text().substr(1);
+                $('#adjustmentAmount').val(parseFloat('-' + originalFee).toFixed(2)).attr('disabled', true);
+                $(timeFee).text('$0.00')
+            } else if($(this).val() === 'partial'){
+                checkRange();
+                $('#adjustmentAmount').val('').attr('disabled', false)
+            }
+        });
+
+        $('#adjustmentAmount').on('keyup', function(){
+            if($('#adjustmentType').val() === 'partial' && parseFloat($('#adjustmentAmount').val())) {
+                adjustedFee = (originalFee + (parseFloat($('#adjustmentAmount').val()))).toFixed(2);
+                $(timeFee).text('$' + adjustedFee);
+
+            }
+        });
+
+        function setValues(category) {
+            if(category !== '') {
+                badge.text(category);
+                timeRange.text(categories[category].label);
+                timeFee.text(categories[category].fee);
+                originalFee = parseFloat($(timeFee).text().substr(1));
+                $('.adjustments').attr('disabled',false);
+                if(!badge.hasClass('hasCategory')){
+                    badge.addClass('hasCategory');
+                }
+            } else {
+                badge.text('?');
+                badge.removeClass('hasCategory');
+                timeRange.text('Unknown');
+                timeFee.text('$0.00');
+            }
+        }
+
+        function checkRange() {
+
+            var time = buildTime();
+            var category = 0;
+            if(time < 1) {
+                category = 0;
+            } else if( time.between(1,8)) {
+                category = 1;
+            } else if(time.between(8,24)) {
+                category = 2;
+            } else if(time.between(24, 36)) {
+                category = 3;
+            } else if(time.between(36,50)) {
+                category = 4;
+            } else if(time.between(50,9999999999999999999999999999999999999999999999)){
+                category = 5;
+            }
+            setValues(category);
+
+        }
+
+        function buildTime() {
+            var inputHours = 0;
+            if(hours.val()) {
+                inputHours = hours.val();
+            }
+            var selectedMinutes = minutes.val();
+            return parseFloat(inputHours + selectedMinutes);
+        }
+
+        Number.prototype.between = function(min, max) {
+            return this >= min && this <= max;
+        };
+    })();
+
+
+</script>
+</body>
+</html>

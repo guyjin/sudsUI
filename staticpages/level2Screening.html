@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Level 2 Screening</title>
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+        <div class="container suds-container subflow">
+            <div class="nrm-edit-form">
+                <div id="renderView" class="secondaryScreening">
+                    <div class="summaryHeader">
+                        <div class="screenName">
+                            <div class="name tabHeading soloTab">
+                                Secondary Screening
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Reset
+                            </button>
+
+                            <button class="btn btn-link btn-cancel">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="screenSections">
+                            <p class="direction">
+                                Upon receipt of a request for any proposed use <span class="emphasisNote">other than for noncommercial group use</span>, the authorized officer shall screen the proposal to ensure that the use meets the following minimum requirements
+                                applicable to all special uses:
+                            </p>
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Quick Answer
+                                </div>
+                            </div>
+                            <div class="sections">
+
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">Answer All</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+                                        <div class="answerButtons answerAll">
+                                            <input type="radio" name="questionAll" id="questionAll_Yes">
+                                            <label class="radioLabel btn btn-suds" for="questionAll_Yes" data-answer="Yes">Yes to All</label>
+                                            <input type="radio" name="questionAll" id="questionAll_No">
+                                            <label class="radioLabel btn btn-suds" for="questionAll_No" data-answer="No">No to All</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Secondary Screening Questions
+                                </div>
+                            </div>
+                            <div class="sections">
+
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Nominal Effects?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use would be inconsistent or incompatible with the purposes for which the lands are managed, or with other uses; or
+                                            </p>
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question1" id="question1_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question1_Yes">Yes</label>
+                                            <input type="radio" name="question1" id="question1_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question1_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Regulated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use would not be in the public interest; or
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question2" id="question2_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question2_Yes">Yes</label>
+                                            <input type="radio" name="question2" id="question2_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question2_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proponent is not qualified; or
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question3" id="question3_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question3_Yes">Yes</label>
+                                            <input type="radio" name="question3" id="question3_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question3_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proponent does not or cannot demonstrate technical or economic feasibility of the proposed use or the financial or technical capability to undertake the use and to fully comply with the terms and conditions of the authorization; or
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question4" id="question4_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question4_Yes">Yes</label>
+                                            <input type="radio" name="question4" id="question4_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question4_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                There is no person or entity authorized to sign a special use authorization and/or there is no person or entity willing to accept responsibility for adherence to the terms and conditions of the authorization.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question5" id="question5_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question5_Yes">Yes</label>
+                                            <input type="radio" name="question5" id="question5_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question5_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function($) {
+        var screenSections = $('.screenSections');
+        var renderView = $('.nrm-edit-form');
+        setTimeout(function () {
+            $('.suds-container').animate({
+                opacity: 1,
+                left: 0
+            }, pageTransitionTime, 'easeOutCirc')
+        }, 500);
+
+        $('.answerAll').on('click', 'label', function() {
+            var answer = $(this).data('answer');
+            if(answer === 'Yes') {
+                $('.questionYes').prop('checked', true);
+            } else if(answer === 'No') {
+                $('.questionNo').prop('checked', true);
+            }
+        });
+
+        $('button[type=submit]').on('click', function() {
+            backToCaseFile();
+        });
+
+        $('.resetQuestions').on('click', function() {
+            $('.questionStatus').attr('data-statustype', '');
+            $('input[type=radio]').removeAttr('checked');
+            $('label.btn-primary').removeClass('btn-primary');
+        });
+
+        renderView.scroll(function () {
+
+            if ($(this).scrollTop() > 52) {
+                var t = $(this).offset().top + 16;
+                $('.stepControls').addClass('fixed').css({
+                    top: t + 'px'
+                });
+
+                $('.screenSections').css({
+                    top: '60px'
+                })
+            } else {
+                $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                $('.screenSections').removeAttr('style');
+            }
+        })
+    })(jQuery) ;
+    var pageTransitionTime = 800;
+    var backToCaseFile = function(){
+        $('.suds-container').animate({
+            opacity: 0,
+            left: 800
+        }, pageTransitionTime, 'easeOutCirc');
+
+        setTimeout(function() {
+            window.location.href = 'caseFile.html';
+//            history.back();
+        }, pageTransitionTime);
+    }
+</script>
+        <!--<div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">-->
+
+            <!--<div class="container">-->
+                <!--&lt;!&ndash;This row contains the Stage and Step control Widgets &ndash;&gt;-->
+                <!--<div class="stageAndSteps row">-->
+                    <!--<div class="col-lg-9 col-md-7 col-sm-6">-->
+                        <!--<h2 class="nrm-form-title SUDSStageHeader">-->
+                            <!--Special Use-->
+                            <!--<div class="dropdown">-->
+                                <!--<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary " disabled="disabled">-->
+                                <!--<span class="stageName">Proposal</span>-->
+                                <!--<span class="caret"></span>-->
+                            <!--</button>-->
+                                <!--<ul class="dropdown-menu" aria-labelledby="dLabel">-->
+                                    <!--<li><a href="">Proposal</a></li>-->
+                                    <!--<li><a href="" class="disabled">Application Processing</a></li>-->
+                                    <!--<li><a href="" class="disabled">Authorization</a></li>-->
+                                    <!--<li><a href="" class="disabled">Closure</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--<small><span class="label label-default nrm-editstate">New</span></small>-->
+                        <!--</h2>-->
+                    <!--</div>-->
+                    <!--<div class="col-lg-3 col-md-5 col-sm-6">-->
+                        <!--<div class="input-group stepHistory">-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<button class="btn btn-primary " disabled="disabled" type="button"><span class="glyphicon glyphicon-chevron-left"></span> last</button>-->
+                            <!--</span>-->
+                            <!--<div class="input-group-btn stepHistoryDropDownToggle">-->
+                                <!--<button type="button" class="btn btn-primary  dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Step Name <span class="caret"></span></button>-->
+                                <!--<ul class="dropdown-menu">-->
+                                    <!--<li><a href="#">Step Name</a></li>-->
+                                    <!--<li><a href="#">Another Step Name</a></li>-->
+                                    <!--<li><a href="#">Something else here</a></li>-->
+                                    <!--<li><a href="">Something else that is really super long and takes a lot of space</a></li>-->
+                                    <!--<li><a href="#">Separated link</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; /btn-group &ndash;&gt;-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<button class="btn btn-primary" disabled="disabled" type="button">next <span class="glyphicon glyphicon-chevron-right"></button>-->
+                              <!--</span>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; /input-group &ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;-->
+                <!--Start the questions block-->
+            <!--&ndash;&gt;-->
+                <!--<div id="renderView">-->
+                    <!--<div class="row">-->
+                        <!--<h4 class="col-md-12">-->
+                            <!--Level 2 Screening-->
+                        <!--</h4>-->
+                        <!--<p class="direction col-md-12">-->
+                            <!--Upon receipt of a request for any proposed use <span class="emphasisNote">other than for noncommercial group use</span>, the authorized officer shall screen the proposal to ensure that the use meets the following minimum requirements-->
+                            <!--applicable to all special uses:-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="questions">-->
+                        <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'&ndash;&gt;-->
+                                 <!--&lt;!&ndash;CSS is setup to hide or show the appropriate icon&ndash;&gt;-->
+                            <!--&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="questionStatus" data-statustype="">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-question-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-ok-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove-sign"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="question">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;The proposed use would be inconsistent or incompatible with the purposes for which the lands are managed, or with other uses; or&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="answerButtons">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question1" id="question1_True">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question1_True" class="btn btn-default btn-lg">True</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question1" id="question1_False">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question1_False" class="btn btn-default btn-lg">False</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'&ndash;&gt;-->
+                                 <!--&lt;!&ndash;CSS is setup to hide or show the appropriate icon&ndash;&gt;-->
+                            <!--&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="questionStatus" data-statustype="">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-question-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-ok-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove-sign"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="question">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;The proposed use would not be in the public interest; or&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="answerButtons">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question2_False" id="question2_False_True">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question2_False_True" class="btn btn-default btn-lg">True</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question2_False" id="question2_False_False">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question2_False_False" class="btn btn-default btn-lg">False</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'&ndash;&gt;-->
+                                 <!--&lt;!&ndash;CSS is setup to hide or show the appropriate icon&ndash;&gt;-->
+                            <!--&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="questionStatus" data-statustype="">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-question-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-ok-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove-sign"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="question">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;The proponent is not qualified; or&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="answerButtons">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question3" id="question3_True">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question3_True" class="btn btn-default btn-lg">True</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question3" id="question3_False">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question3_False" class="btn btn-default btn-lg">False</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'&ndash;&gt;-->
+                                 <!--&lt;!&ndash;CSS is setup to hide or show the appropriate icon&ndash;&gt;-->
+                            <!--&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="questionStatus" data-statustype="">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-question-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-ok-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove-sign"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="question">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;The proponent does not or cannot demonstrate technical or economic feasibility of the proposed use or the financial or technical capability to undertake the use and to fully comply with the terms and conditions of the authorization; or&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="answerButtons">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question4" id="question4_True">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question4_True" class="btn btn-default btn-lg">True</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question4" id="question4_False">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question4_False" class="btn btn-default btn-lg">False</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'&ndash;&gt;-->
+                                 <!--&lt;!&ndash;CSS is setup to hide or show the appropriate icon&ndash;&gt;-->
+                            <!--&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="questionStatus" data-statustype="">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-question-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-ok-sign"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove-sign"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="question">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;There is no person or entity authorized to sign a special use authorization and/or there is no person or entity willing to accept responsibility for adherence to the terms and conditions of the authorization.&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="answerButtons">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question5" id="question5_True">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question5_True" class="btn btn-default btn-lg">True</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="radio" name="question5" id="question5_False">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="question5_False" class="btn btn-default btn-lg">False</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--</div>-->
+                    <!--&lt;!&ndash;-->
+                        <!--Step controls-->
+                    <!--&ndash;&gt;-->
+
+                    <!--<div class="row">-->
+                        <!--<div class="col-md-5 col-sm-12 col-md-offset-7 stepControls">-->
+
+                            <!--<button class="btn btn-default btn-lg resetQuestions" type="reset">Reset</button>-->
+                            <!--<button class="btn btn-primary btn-lg" type="submit">Save &amp; Continue</button>-->
+                            <!--<button class="btn btn-danger btn-lg">Cancel</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<script type="text/javascript">-->
+            <!--(function($) {-->
+                <!--$('.answerButtons').on('click', 'label', function() {-->
+                    <!--$(this).closest("div").siblings('.questionStatus').attr('data-statustype', this.innerText.toLowerCase());-->
+                    <!--$(this).siblings('label').removeClass('btn-primary');-->
+                    <!--$(this).addClass('btn-primary');-->
+                <!--});-->
+
+                <!--$('.resetQuestions').on('click', function() {-->
+                    <!--$('.questionStatus').attr('data-statustype', '');-->
+                    <!--$('input[type=radio]').removeAttr('checked');-->
+                    <!--$('label.btn-primary').removeClass('btn-primary');-->
+                <!--})-->
+            <!--})(jQuery)-->
+        <!--</script>-->
+</body>
+
+</html>

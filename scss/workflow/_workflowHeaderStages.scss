@@ -1,0 +1,17 @@
+.SUDSStageHeader {
+  margin-top: 0;
+  // margin-left: -15px;
+  .dropdown {
+    display: inline-block;
+    outline-style: none;
+    a {
+      &.disabled {
+        cursor: not-allowed;
+        &:hover {
+          background-color: #ccc;
+          color: #333;
+        }
+      }
+    }
+  }
+}

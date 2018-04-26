@@ -1,0 +1,304 @@
+#renderView.billingSummary {
+
+  .summaryPanel {
+    top: 18px;
+  }
+  .tabHeadingRow {
+    overflow: visible;
+    .tabHeading {
+      background-color: $gray2;
+      text-transform: uppercase;
+      &:after {
+        display: none;
+      }
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .sections {
+    background-color: $white;
+    padding: 1em;
+    border-radius: 27px;
+  }
+
+  .billingFilterBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
+
+  .btn-toolbar {
+    max-width: 30.625em;
+
+    .btn {
+      border-radius: 0;
+      
+    }
+
+    .btn-group {
+      margin: 0;
+    }
+
+    & > .btn:first-child {
+      border-radius: 20px 0 0 20px;
+      margin: 0;
+    }
+    & > .btn:last-child {
+      border-radius: 0 20px 20px 0;
+      margin: 0;
+    }
+
+  }
+
+  .sectionFilter[data-filter="all"] {
+    &:before {border: 0;
+      background-image: none;
+      background-color: $gray2;
+      width: 30px;
+      height: 30px;
+      left: 0;
+      bottom: -30px;
+      display: block;
+    }
+  }
+
+  .screenSections[data-view="all"] {
+    .sectionFilter[data-filter="all"] {
+      z-index: 1000;
+      font-weight: 600;
+      color: $eerie-black;
+      background-color: $white;
+      background-image: none;
+      &:after {
+        z-index: 20;
+        display: block;
+        @include afterCurve($white);
+        border-color: $white;
+      }
+      &:before {
+        background-color: $white;
+      }
+    }
+  }
+
+  .screenSections[data-view="paid"] {
+    .sectionFilter[data-filter="paid"] {
+      z-index: 1000;
+      font-weight: 600;
+      color: $eerie-black;
+      background-color: $white;
+      background-image: none;
+      &:after {
+        z-index: 20;
+        display: block;
+        @include afterCurve($white);
+        border-color: $white;
+      }
+      &:before {
+        z-index: 20;
+        display: block;
+        @include beforeCurve($white);
+        border-color: $white;
+      }
+    }
+
+    .sectionFilter[data-filter="all"]:before {
+      display: block;
+    }
+
+
+
+    [data-section-type="unpaid"]{
+      display: none;
+    }
+
+  }
+
+  .screenSections[data-view="unpaid"] {
+    .sectionFilter[data-filter="unpaid"] {
+      z-index: 20;
+      font-weight: 600;
+      color: $eerie-black;
+      background-color: $white;
+      background-image: none;
+      &:after {
+        z-index: 20;
+        display: block;
+        @include afterCurve($white);
+        border-color: $white;
+      }
+      &:before {
+        z-index: 20;
+        display: block;
+        @include beforeCurve($white);
+        border-color: $white;
+      }
+    }
+
+    .sectionFilter[data-filter="all"]:before {
+      display: block;
+    }
+    
+    [data-section-type="paid"]{
+      display: none;
+    }
+  }
+
+  .sectionContent {
+    margin-bottom: 2em;
+  }
+
+  .table {
+    td {
+      vertical-align:  middle;
+    }
+  }
+
+  .actionButtons {
+    text-align: right;
+
+    button {
+      border-radius: 10px;
+    }
+  }
+
+  .unpaidBills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .billBlock {
+    display: flex;
+    flex-direction: row;
+    max-width: 48%;
+    min-width:  25em;
+    width: 100%;
+    background-color: $primary-color-one;
+    border-radius: 16px;
+    margin-bottom: 1em;
+    box-sizing: content-box;
+
+    * {
+      opacity: 1;
+      transition: opacity .2s ease;
+    }
+
+    &.viewing {
+      border: 2px dashed $gray2;
+      background-color: $white;
+      * {
+        opacity: 0;
+      }
+    }
+
+    
+  }
+
+  .billMeta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+    padding: .5em .5em .5em 1em;
+
+  }
+
+  .billName,
+  .billAmount {
+    font-weight: 600;
+    font-size: 2.4em;
+    line-height: 1;
+  }
+
+  .billName {
+    font-size: 1.5em;
+  }
+
+  .billActions {
+    background-color: $primary-color-two;
+    color: $primary-color-two-text;
+    border-radius: 16px;
+  }
+
+  .billDate {
+    padding: .5em 10px;
+
+    
+    .dateLabel {
+      font-size:  10px;
+      line-height:1;
+    }
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height:1.2;
+  }
+
+  .viewBillPayments {
+    padding: .5em;
+    button {
+      border-radius: 10px;
+    }
+  }
+
+  .paymentViewer {
+    opacity: 0;
+    background-color: $white;
+    transition: opacity .4s ease .2s;
+    padding: 1em;
+    border-radius: 20px;
+    box-shadow: 0 6px 10px 5px rgba(0,0,0,0.5);
+    position: fixed;
+    width: 80%;
+    height: 60%;
+    left: 10%;
+    top: 20%;
+    z-index: -1000;
+    display: flex;
+    flex-direction: column;
+
+    &.open {
+      opacity: 1;
+      z-index: 1000;
+    }
+
+    .billBlock {
+      max-width: 100%;
+    }
+
+    .closeButton {
+      background-color: $warning-suds;
+      color: $warning-suds-text;
+      box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+      border-radius: 20px;
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $warning-suds-hover;
+        color: $warning-suds-hover-text;
+      }
+    }
+
+    .paymentTransactions {
+      flex: 1 1 auto;
+      overflow-y: scroll;
+    }
+  }
+
+  @media screen and (max-width: 1030px) {
+    .billBlock {
+      max-width: 100%;
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+.btn.btn-suds {
+  border-radius: 5px;
+
+
+  background-color: $gray1;
+  color: $gray1-text;
+  transition: all .2s ease;
+
+  &:hover {
+    background-color: $gray2;
+    color: $gray2-text;
+  }
+
+  &.suds-primary {
+    background-color: $primary-color-two;
+    color: $primary-color-two-text;
+
+    &:hover {
+      background-color: $primary-color-three;
+      color: $primary-color-three-text;
+    }
+  }
+
+  &.suds-success {
+    background-color: $nominal-suds;
+    color: $nominal-suds-text;
+
+    &:hover {
+      background-color: darken($nominal-suds, 15);
+      color: $primary-highlight-hover-text;
+    }
+  }
+  
+  &.suds-danger {
+    background-color: $danger-suds;
+    color: $danger-suds-text;
+
+    &:hover {
+      background-color: $danger-suds-hover;
+      color: $danger-suds-hover-text;
+    }
+  }
+}

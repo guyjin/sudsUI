@@ -1,0 +1,70 @@
+#renderView.applicationCaseFile {
+  .aoName {
+    font-size: 1.8em;
+    font-weight: 600;
+    line-height: 1;
+    margin-left:1.6em;
+  }
+
+  .dateSignedEntry {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+
+  .clauseBlock {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+
+  }
+
+  .clauseSectionTitle {
+    font-weight: 600;
+    font-size: .75em;
+  }
+
+  .clauses {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .clause {
+    margin: .25rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+
+    .FSM {
+      background-color:  $primary-highlight-hover;
+      color: $primary-highlight-hover-text;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+      font-weight: 600;
+      border: 1px solid $primary-highlight-hover;
+      border-radius: 20px 0 0 20px;
+    }
+
+    .designation {
+      display: flex;
+      background-color: $gray3;
+      color: $gray3-text;
+      border: 1px solid $gray2;
+      border-left-width : 0;
+      border-radius: 0 20px 20px 0;
+      padding: 1em;
+
+    }
+  }
+
+  #secondaryClauses {
+    .FSM {
+      background-color: $primary-color-two;
+      color: $primary-color-two-text;
+      border-color: $primary-color-two;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.message {
+  padding: 2em 6em;
+  border: 1px solid $primary-color-one;
+  background-color: $anti-flash-white;
+  color: $eerie-black;
+  position: relative;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.message-info {
+  border-width: 0;
+  color: $primary-color-two;
+  font-style: italic;
+
+  &:before {
+    content: '\f075';
+    font-family: 'FontAwesome', cursive;
+    font-size: 1.6em;
+    position: absolute;
+    left: .8em;
+    top: .25em;
+    font-style: normal;
+  }
+}
+
+.validationMessage {
+  background-color: $danger-suds;
+  color: $danger-suds-text;
+  border-radius: 20px;
+  margin-top: 1em;
+  font-weight: 600;
+  position: relative;
+
+  &:before {
+    font-family: 'FontAwesome', cursive;
+    content:  "\f0d8";
+    color: $danger-suds;
+    position: absolute;
+    top: -1em;
+    font-size:3em;
+    left: 50%;
+    margin: 5px 0 0 -14px;
+  }
+  
+  p {
+    margin:0;
+    padding:1em;
+  }
+}

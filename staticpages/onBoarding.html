@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Create Proposal</title>
+</head>
+<body>
+    <div class="ui-layout-center ui-layout-container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+            <div class="container suds-container">
+                <div class="nrm-edit-form">
+                    <div id="renderView" class="onBoarding"><a name="#home" id="home"></a>
+                        <div class="summaryHeader">
+                            <div class="screenName">
+                                <div class="name tabHeading soloTab">
+                                    Preliminary
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                    See comments in caseFile.html for instructions on setting all the classes and flags to get
+                    the tabs to behave correctly.
+                -->
+                        <div class="screenContent" data-view="case">
+                            <div class="stepControls">
+                                <button class="btn btn-link" type="submit">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Save &amp; Continue
+                            </button>
+                                <button class="btn btn-link resetQuestions" type="reset">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Reset
+                            </button>
+
+                                <button class="btn btn-link btn-cancel">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Cancel
+                            </button>
+                            </div>
+                            <div class="screenNav">
+                                <a href="#" class="caseNavToggle">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="navLabel">Open</span>
+                                </a>
+                                <div class="navList">
+                                    <ul>
+                                        <li>
+                                            <div data-target="#home" class="navAnchorLink homeAnchor"><span class="navText">Home</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div data-target="#proponentType" class="navAnchorLink status Done"><span class="navText">Proponent Type</span></div>
+                                        </li>
+                                        <li>
+                                            <div data-target="#contacts" class="navAnchorLink status Done"><span class="navText">Contacts</span></div>
+                                        </li>
+                                        <li>
+                                            <div data-target="#useCode" class="navAnchorLink status Done"><span class="navText">Use Code</span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="screenSections">
+
+                                <div class="tabHeadingRow ">
+                                    <div class="tabHeading">
+                                        <i class="fa fa-user"></i> Who?
+                                    </div>
+                                </div>
+                                <!--<div class="tabHeadingRow views">-->
+                                <!--<div class="tabHeading viewTab" data-view-target="docs">Docs</div>-->
+                                <!--<div class="tabHeading viewTab" data-view-target="log">Log</div>-->
+
+                                <!--</div>-->
+
+
+                                <div class="sections">
+                                    <div class="section" id="proponentType" data-status="ready">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionStatus statusDone">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                            <div class="tabHeading sectionLabel">Proponent</div>
+                                            <!-- <div class="tabHeading quikEditLink" data-form-target="proponentType">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            Quik-Edit
+                                        </div> -->
+                                        </div>
+                                        <!-- <div class="quikEditForm" data-form-name="proponentType">
+                                            <form id="proponentTypeForm" name="proponentTypeForm" class="quikForm">
+                                                <label for="proponentTypeSelect">
+                                                Proponent Type
+                                            </label>
+                                                <select class="form-control" id="proponentTypeSelect" name="proponentTypeSelect">
+                                                <option value="">Select Proponent Type</option>
+                                                <option value="type1">Type 1</option>
+                                                <option value="type2">Type 2</option>
+                                                <option value="Proponent Type Name String Text, LLC.">LLC</option>
+                                            </select>
+                                            </form>
+                                        </div> -->
+                                        <div class="sectionContent">
+                                            <div class="badgeCard active">
+                                                <div class="badgeCardHeader">
+                                                    <div class="badgeCardIcon"></div>
+                                                    <div class="badgeCardLabel">
+                                                        Type
+                                                    </div>
+                                                    <div class="badgeCardActionTab">
+                                                        <a href="#" class="editDataPointLink" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                                    </div>
+                                                </div>
+                                                <div class="badgeCardContent">
+                                                    <div class="badgeCardData">
+                                                        <div class="badgeCardDataText" data-value="proponentType">
+                                                            Proponent Type Name String Text, LLC.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="section" id="contacts" data-status="done">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionStatus statusDone">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                            <div class="tabHeading sectionLabel">Contacts</div>
+                                            <div class="tabHeading sectionActionLink"><a href="addContactsToProposal.html"><span
+                                                class="glyphicon glyphicon-pencil"></span> Edit</a></div>
+                                        </div>
+                                        <div class="sectionContent">
+                                            <div class="tableContainer contacts">
+                                                <table class="table table-condensed table-hover table-striped contactListTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Business Name</th>
+                                                            <th>Telephone</th>
+                                                            <th>Address</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <span class="contactName">Stark, Tony</span>
+                                                            </td>
+                                                            <td>Stark Enterprises</td>
+                                                            <td>555-555-5555</td>
+                                                            <td>
+                                                                1 Avengers Way Nowhere, MD 45612-1234
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="section" id="useCode" data-status="done">
+                                    <div class="sectionTop">
+                                        <div class="tabHeading sectionStatus statusDone">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="tabHeading sectionLabel">Use Code</div>
+                                        <div class="tabHeading sectionActionLink"><a href="primaryUseCode.html"><span
+                                            class="glyphicon glyphicon-pencil"></span> Edit</a></div>
+                                    </div>
+                                    <div class="sectionContent">
+
+                                        <div class="badgeCards">
+                                            <div class="badgeCard active">
+                                                <div class="badgeCardHeader">
+                                                    <div class="badgeCardIcon"></div>
+                                                    <div class="badgeCardLabel">
+                                                        Primary Use Code
+                                                    </div>
+                                                </div>
+                                                <div class="badgeCardContent">
+                                                    <div class="badgeCardData">
+                                                        <div class="badgeCardDataText">
+                                                            <ul>
+                                                                <li>
+                                                                    BlahBlahBlah Blah (123)
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="badgeCard active">
+                                                <div class="badgeCardHeader">
+                                                    <div class="badgeCardIcon"></div>
+                                                    <div class="badgeCardLabel">
+                                                        Secondary Use Code
+                                                    </div>
+                                                </div>
+                                                <div class="badgeCardContent">
+                                                    <div class="badgeCardData">
+                                                        <div class="badgeCardDataText" data-value="proponentType">
+                                                            <ul>
+                                                                <li>BlahBlahBlah Blah (123)</li>
+                                                                <li>BlahBlahBlah Blah (123)</li>
+                                                                <li>BlahBlahBlah Blah (123)</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content suds-modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <form-group>
+                            <label for="inputText">Input Label</label>
+                            <input type="text" name="" id="" class="form-control">
+                        </form-group>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-suds btn suds-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn-suds suds-primary btn ">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function($) {
+            var screenSections = $('.screenSections');
+            var renderView = $('.nrm-edit-form');
+
+            $('button[type=submit]').on('click', function() {
+                leaveForCaseFile();
+                setTimeout(function() {
+                    visitPage('caseFile.html');
+                }, pageTransitionTime)
+            });
+
+            $('.caseNavToggle').on('click', function() {
+                $('.screenNav').toggleClass('opened');
+                screenSections.toggleClass('open');
+            });
+
+            $('.navAnchorLink').on('click', function(e) {
+                e.preventDefault();
+
+                if ($(this).attr('data-target') === '#home') {
+                    renderView.animate({
+                        scrollTop: 0
+                    }, 500)
+                } else {
+                    renderView.animate({
+                        scrollTop: ($($.attr(this, 'data-target')).offset().top - $($.attr(this,
+                            'data-target')).offsetParent().offset().top) + 130
+                    }, 500);
+                }
+
+
+                if (screenSections.hasClass('open')) {
+                    screenSections.removeClass('open');
+                    $('.screenNav').toggleClass('opened');
+                }
+            });
+
+
+            $('.sectionActionLink').on('click', 'a', function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                leavePage();
+                setTimeout(function() {
+                    visitPage(target);
+                }, pageTransitionTime)
+            });
+
+            $('.section').on('click', '.quikEditLink', function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                var targetForm = $(this).attr('data-form-target');
+                $('[data-form-name=' + targetForm + ']').toggleClass('active');
+            });
+
+
+            $('#proponentTypeForm').on('change', function(e) {
+                e.preventDefault();
+                $('[data-value=proponentType]').html($('#proponentTypeSelect').val());
+                closeQuikEditForm()
+                $('#proponentTypeForm')[0].reset();
+            })
+
+
+            setTimeout(function() {
+                $('.suds-container').animate({
+                    opacity: 1,
+                    left: 0
+                }, pageTransitionTime, 'easeOutCirc')
+            }, 500);
+
+
+            renderView.scroll(function() {
+                if ($(this).scrollTop() > 52) {
+                    var t = $(this).offset().top + 16;
+                    $('.screenNav').addClass('fixed').css({
+                        top: t + 'px'
+                    });
+                } else {
+                    $('.screenNav').removeClass('fixed').css({
+                        top: 'auto'
+                    });
+                }
+
+                if ($(this).scrollTop() > 52) {
+                    var t = $(this).offset().top + 16;
+                    $('.stepControls').addClass('fixed').css({
+                        top: t + 'px'
+                    });
+
+                    $('.screenSections').css({
+                        top: '60px'
+                    })
+                } else {
+                    $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                    $('.screenSections').removeAttr('style');
+                }
+            })
+        })(jQuery);
+        var pageTransitionTime = 800;
+
+        //        var sectionNavOffsetFromRenderViewTop = $('.summaryHeader').height();
+        var sectionNavOffsetFromRenderViewTop = $('.summaryHeader').height();
+        var renderViewOffsetFromTop = $('#renderView').offset().top;
+        var screenNavOffsetFromRenderViewTop = $('.screenNav').offset().top;
+        var stepControlsOffsetFromTop = $('.stepControls').offset().top;
+
+        var leavePage = function() {
+            $('.suds-container').animate({
+                opacity: 0,
+                left: -800
+            }, pageTransitionTime, 'easeOutCirc')
+        };
+
+        var leaveForCaseFile = function() {
+            $('.suds-container').animate({
+                opacity: 0,
+                left: 800
+            }, pageTransitionTime, 'easeOutCirc')
+        };
+
+        var visitPage = function(target) {
+            window.location.href = target;
+        };
+
+        var closeQuikEditForm = function() {
+            $('.quikEditForm.active').animate({
+                opacity: 0,
+            }, 400, function() {
+                $(this).removeClass('active').removeAttr('style');
+            });
+            $('.quikEditLink.active').removeClass('active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+.personsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h4 {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .personCardsContainer {
+        width :100%;
+        .personCard {
+            border: 1px solid $primary-color-two;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.39);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 1em;
+        }
+
+        .personDetails {
+            flex: 1 1 auto;
+            background-color: #e8f1fc;
+            display: flex;
+            flex-direction: column;
+            border-radius: 7px 0 0 7px;
+            overflow: hidden;
+
+            .personInfo {
+                display: flex;
+                flex: 1 1 auto;
+                padding: 5px;
+                flex-direction: row;
+            }
+
+            .personIcon {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid $white;
+                border-radius: 5px;
+                background-color: $nominal-suds;
+                font-size: 1.2em;
+                margin-right: 5px;
+            }
+
+            .personName {
+                font-size: 1.7em;
+                font-weight: 600;
+                line-height: 32px;
+            }
+
+            .personEmail {
+                font-size: .75em;
+                font-style: italic;
+                line-height: 14px;
+                color: #333;
+            }
+
+            .phoneNumbers {
+                padding: 10px;
+                border-bottom-left-radius: 7px;
+                display: flex;
+                flex-wrap: wrap;
+                background-color: #f9fbfd;
+                width:100%;
+            }
+
+            .personPhoneNumber {
+                display: flex;
+                align-items: center;
+                width: 50%;
+
+                @media (max-width: 962px) {
+                    width: 100%;
+
+                }
+            }
+
+            .numberType {
+                background-color: #417505;
+                border-radius: 0 4px 4px 0;
+                color: $white;
+                text-transform: uppercase;
+                font-weight: 600;
+                padding: 3px 10px;
+                font-size: .75em;
+                position: relative;
+                margin-left: 25px;
+                width: 20%;
+                margin-top: 3px;
+
+                &:before {
+                    content: "\f095";
+                    font-family: "FontAwesome", cursive;
+                    background-color: $nominal-suds;
+                    border-radius: 4px 0 0 4px;
+                    border-right: 1px solid $white;
+                    color: $white;
+                    position: absolute;
+                    width: 25px;
+                    height: 24px;
+                    left: -25px;
+                    top: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+            }
+            .theNumber {
+                font-weight: 600;
+                margin-right: 1em;
+                line-height: 1;
+                display: inline-block;
+                margin-top: 3px;
+                margin-left: 5px;
+            }
+
+        }
+
+        .personCardControls {
+           /* width: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;*/
+            display: flex;
+            flex-direction: row;
+
+            button {
+                border: 0;
+                background-color: rgba(201, 210, 221, 0.26);
+                padding: 5px;
+
+                &:first-child {
+                    border-top-right-radius: 7px;
+
+                    .fa-square {
+                        color: #c9939a;
+                    }
+                }
+                &:last-child {
+                    border-bottom-right-radius: 7px;
+
+                    .fa-square {
+                        color: $primary-color-two
+                    }
+                }
+            }
+
+            .buttonText {
+                line-height: 1;
+                font-size: 10px;
+                display: block;
+                margin-top: 2px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    
+}

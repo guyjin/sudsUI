@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Proposal Contacts</title>
+</head>
+
+<body>
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">
+
+        <div class="container">
+            <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+                <div class="container">
+                    <!--This row contains the Stage and Step control Widgets -->
+                    <div class="row stageAndSteps">
+                        <div class="col-lg-9 col-md-7 col-sm-6">
+                            <h2 class="nrm-form-title SUDSStageHeader">
+                                Special Use
+                                <div class="dropdown">
+                                    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary" disabled="disabled">
+                                    <span class="stageName">Proposal</span>
+                                    <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                        <li><a href="">Proposal</a></li>
+                                        <li><a href="" class="disabled">Application Processing</a></li>
+                                        <li><a href="" class="disabled">Authorization</a></li>
+                                        <li><a href="" class="disabled">Closure</a></li>
+                                    </ul>
+                                </div>
+                                <small><span class="label label-default nrm-editstate">New</span></small>
+                            </h2>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-sm-6">
+                            <div class="input-group stepHistory">
+                                <span class="input-group-btn">
+                            <button class="btn btn-primary" disabled="disabled" type="button"><span
+                                    class="glyphicon glyphicon-chevron-left"></span> last</button>
+                                </span>
+                                <div class="input-group-btn stepHistoryDropDownToggle">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Step Name
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Step Name</a></li>
+                                        <li><a href="#">Another Step Name</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li><a href="">Something else that is really super long and takes a lot of space</a>
+                                        </li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /btn-group -->
+                                <span class="input-group-btn">
+                            <button class="btn btn-primary" disabled="disabled" type="button">next <span
+                                    class="glyphicon glyphicon-chevron-right"></button>
+                          </span>
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            Record ID: DRY123456 Date Filed: 03-12-2016 Admin Unit: 080212
+                        </div>
+                    </div>
+
+                    <div id="renderView">
+                        <div class="row">
+                            <h4 class="col-md-12">
+                                Proposal Parameters
+                            </h4>
+                        </div>
+
+
+                        <div class="highlightBox clearfix ">
+                            <div class="col-md-6 col-sm-12">
+                                <label for="proponentType">Type of Proponent</label>
+                                <select name="proponentType" id="proponentType" class="form-control">
+                            </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <label for="startDate">Use Start Date</label>
+                                <input type="text" name="startDate" id="startDate" placeholder="MM/DD/YYYY" class="form-control">
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <label for="endDate">Use End Date</label>
+                                <input type="text" name="endDate" id="endDate" placeholder="MM/DD/YYYY" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="formQuestionBlock">
+                                    <label for="activityLocation">
+                                    Where will the activity be conducted? (<span class="activityCharCount">4000</span>
+                                    characters)
+                                </label>
+                                    <textarea name="activityLocation" id="activityLocation" cols="" rows="10" class="form-control"></textarea>
+                                    <div class="fineprint note">
+                                        <p>HINT: This could include specific mile markers or lakes, landmarks. Township/Section/Range, Forest/District, and adjacent road, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="formQuestionBlock">
+                                    <div class="formQuestionBlock">
+                                        <label for="activityDescription">
+                                        Purpose / Description / Need? (<span class="activityDescCharCount">4000</span>
+                                        characters)
+                                    </label>
+                                        <textarea name="activityDescription" id="activityDescription" cols="" rows="10" class="form-control"></textarea>
+                                        <div class="fineprint note">
+                                            <p>HINT: Provide a summary description of the proposed activity, such as "Using 6 NFS trees as tailholds associated with the Snoopy Timber Sale owned by Roseberg Forest Products."
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="formQuestionBlock">
+                                <div class="col-md-12 col-sm-12">
+                                    <label for="activityNecessity">
+                                    Purpose / Description / Need? (<span class="activityNecessityCharCount">4000</span>
+                                    characters)
+                                </label>
+                                    <textarea name="activityNecessity" id="activityNecessity" cols="" rows="10" class="form-control"></textarea>
+                                    <div class="fineprint note">
+                                        <p>HINT: Provide a summary that explains why this use cannot take place in another location, such as "I want my apiary/bees to benefit from the fireweed that is currently growing on the designated burn area. Fireweed
+                                            is extremely scarce this year outside of the NFS site I selected."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="formQuestionBlock">
+                                <div class="col-md-12 col-sm-12">
+                                    <label for="activityUseFSFacility">
+                                    Purpose / Description / Need? (<span
+                                        class="activityUseFSFacilityCharCount">4000</span>
+                                    characters)
+                                </label>
+                                    <textarea name="activityUseFSFacility" id="activityUseFSFacility" cols="" rows="10" class="form-control"></textarea>
+                                    <div class="fineprint note">
+                                        <p>HINT: This could include use of a campground, boat launch area, pavilion, etc.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colorFrame">
+                            <div class="row">
+                                <div class="formQuestionBlock">
+                                    <div class="col-md-4">
+                                        <label for="roadOrRightOfWayUse">
+                                            Planning to use a Forest Service road or utilities right of way?
+                                        </label>
+                                        <div class="roadOrRightOfWayUse">
+                                            <input type="radio" name="roadOrRightOfWayUse" id="roadOrRightOfWayUse_Yes">
+                                            <label for="roadOrRightOfWayUse_Yes" class="btn btn-default">
+                                                Yes
+                                            </label>
+                                            <input type="radio" name="roadOrRightOfWayUse" id="roadOrRightOfWayUse_No">
+                                            <label for="roadOrRightOfWayUse_No" class="btn btn-default">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <label for="whichForestRoads">
+                                            Which National Forest roads will you be using?
+                                        </label>
+                                        <textarea name="whichForestRoads" id="whichForestRoads" cols="" rows="3" class="form-control" disabled></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="formQuestionBlock">
+                                <div class="col-md-5">
+                                    <label for="rightOfWayDimensions">
+                                    Please enter the dimensions of the right of way in Feet or Miles.
+                                </label>
+                                    <div id="rightOfWayDimensions">
+                                        <label for="rightOfWayFeet">
+                                        Feet:
+                                    </label>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label for="rightOfWayFeetWidth">
+                                                Width
+                                            </label>
+                                                <input type="text" name="rightOfWayFeetWidth" id="rightOfWayFeetWidth" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="rightOfWayFeetLength">
+                                                Length
+                                            </label>
+                                                <input type="text" name="rightOfWayFeetLength" id="rightOfWayFeetLength" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="or">
+                                        OR
+                                    </div>
+                                </div>
+                                <div class="col-md-5" id="milesField">
+                                    <div class=" form-inline ">
+                                        <div class="form-group ">
+                                            <label for="rightOfWayMiles ">
+                                            Miles:
+                                        </label>
+                                            <input type="text " name="rightOfWayMiles " id="rightOfWayMiles " class="form-control ">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="colorFrame ">
+                            <div class="row ">
+                                <div class="formQuestionBlock ">
+                                    <div class="col-md-5 ">
+                                        <label for="fileUploader ">Upload a file</label>
+                                        <input type="file " name="fileUploader " id="fileUploader " class="form-control " />
+
+                                    </div>
+                                    <div class="col-md-5 ">
+                                        <label for="fileTypeList ">File Label</label>
+                                        <select name="fileTypeList " id="fileTypeList " class="form-control " disabled>
+                                        <option value=" ">Select a Label</option>
+                                        <option value=" "></option>
+                                        <option value=" "></option>
+                                        <option value=" "></option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-2 uploadButton ">
+                                        <button class="btn btn-default ">
+                                        <span class="glyphicon glyphicon-floppy-disk "></span>
+                                        Upload
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-12 ">
+                                    <div class="fineprint note ">
+                                        HINT: Upload any additional supporting documentation: an operating / business plan, an insurance certificate, a map, etc.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uploadedFiles ">
+                            <div class="row ">
+                                <div class="col-md-12 ">
+                                    <table class="table table-striped table-bordered table-condensed table-hover ">
+                                        <thead>
+                                            <tr>
+                                                <th>File Name</th>
+                                                <th>Type & Size</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>filename</td>
+                                                <td>.pdf / 8kb</td>
+                                                <td>
+                                                    <button class="btn btn-danger "><span
+                                                    class="glyphicon glyphicon-times "></span> Remove
+                                            </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+            Controls to save or reset this step.
+        -->
+                    <div>
+                        <div class="col-md-5 col-sm-12 col-md-offset-7 stepControls ">
+                            <button class="btn btn-default btn-lg resetQuestions " type="reset ">Reset</button>
+                            <button class="btn btn-primary btn-lg " type="submit " disabled="disabled ">Save &amp; Continue
+                        </button>
+                            <button class="btn btn-danger btn-lg ">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript ">
+        (function(jQuery) {
+            var radioChecked = function() {
+
+            }
+
+            $('.roadOrRightOfWayUse input[type=radio]').on('click', function(e) {
+                if ($(this).prop('checked') === true) {
+                    $('.roadOrRightOfWayUse label').removeClass('btn-primary');
+                    $(this).next('label').addClass('btn-primary');
+
+                    if ($(this).attr('id') === 'roadOrRightOfWayUse_Yes') {
+                        $('#whichForestRoads').prop('disabled', false)
+                    } else {
+                        $('#whichForestRoads').val('').prop('disabled', true);
+                    }
+                }
+            });
+
+            $('#fileUploader').on('change', function() {
+                if ($(this).val() !== '') {
+                    $('#fileTypeList').prop('disabled', false);
+                }
+            })
+        })();
+    </script>
+</body>
+
+</html>

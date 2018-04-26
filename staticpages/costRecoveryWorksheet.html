@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+
+    <link href="../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Cost Recovery Worksheet</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+        <div class="container suds-container subflow">
+
+            <div class="nrm-edit-form">
+                <div id="renderView" class="costRecoveryWorksheet">
+                    <div class="summaryHeader">
+                        <div class="screenName">
+                            <div class="name tabHeading soloTab">
+                                Cost Recovery Worksheet
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Reset
+                            </button>
+
+                            <button class="btn btn-link btn-cancel">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="screenSections">
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Entries
+                                </div>
+                            </div>
+                            <div class="sections">
+                                <div class="section">
+                                    <div class="sectionTop">
+
+                                        <div class="tabHeading sectionActionLink singleton addNewButton">
+                                            <a href="#" data-toggle="modal"><span
+                                                    class="glyphicon glyphicon-plus"></span> Add New Entry</a>
+                                        </div>
+                                    </div>
+                                    <div class="sectionContent">
+                                        <div class="noEntriesFound">
+                                            <div class="message message-info">
+                                                No entries were found
+                                            </div>
+                                        </div>
+                                        <div class="entriesTable">
+                                            <table class="table  table-condensed">
+                                                <thead>
+                                                <tr>
+                                                    <th>Specialist Title</th>
+                                                    <th>Name</th>
+                                                    <th>Processing<br>Time Est.</th>
+                                                    <th>Monitoring<br>Time Est.</th>
+                                                    <th>Rate</th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="entriesRows">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                                Table of entries.  Only shown when there *are* entries
+                            -->
+
+
+                            <!--
+                                End Table of Entries.
+                            -->
+
+                            <!--
+                               Start the summary grid at the bottom of the screen
+                           -->
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Summary
+                                </div>
+                            </div>
+                            <div class="sections">
+                                <div class="section">
+                                    <div class="sectionContent">
+
+                                        <div class="badgeCards summaries">
+                                            <div class="badgeCard active summary processingSummary">
+                                                <div class="badgeCardHeader">
+                                                    <div class="badgeCardIcon"></div>
+                                                    <div class="badgeCardLabel">
+                                                        Processing
+                                                    </div>
+                                                </div>
+                                                <div class="badgeCardContent">
+                                                    <div class="badgeCardData">
+                                                        <div class="badgeCardDataText">
+                                                            <div class="category">
+                                                                <div class="categoryHours">
+                                                                    1 - 8 Hours
+                                                                </div>
+                                                                <div class="categoryLabel">
+                                                                    <span class="categoryText">
+                                                                        category
+                                                                    </span>
+                                                                    <span class="categoryNumber">
+                                                                        1
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="fees">
+                                                                <div class="fee baseFee">
+                                                                    <div class="feeLabel">Fee:</div>
+                                                                    <div class="feeValue standard"></div>
+                                                                </div>
+                                                                <div class="fee indirectCosts">
+                                                                    <div class="feeLabel">Indirect Costs:</div>
+                                                                    <div class="feeValue indirectFeeValue"></div>
+                                                                </div>
+                                                                <div class="fee total">
+                                                                    <div class="feeLabel">Total Fee:</div>
+                                                                    <div class="feeValue standard"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="badgeCard active summary monitoringSummary">
+                                                <div class="badgeCardHeader">
+                                                    <div class="badgeCardIcon"></div>
+                                                    <div class="badgeCardLabel">
+                                                        Monitoring
+                                                    </div>
+                                                </div>
+                                                <div class="badgeCardContent">
+                                                    <div class="badgeCardData">
+                                                        <div class="badgeCardDataText">
+                                                            <div class="category">
+                                                                <div class="categoryHours">
+                                                                    50-60 Hours
+                                                                </div>
+                                                                <div class="categoryLabel">
+                                    <span class="categoryText">
+                                        category
+                                    </span>
+                                                                    <span class="categoryNumber">
+                                        5
+                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="fees">
+                                                                <div class="fee baseFee">
+                                                                    <div class="feeLabel">Fee:</div>
+                                                                    <div class="feeValue standard"></div>
+                                                                </div>
+                                                                <div class="fee indirectCosts">
+                                                                    <div class="feeLabel">Indirect Costs:</div>
+                                                                    <div class="feeValue indirectFeeValue"></div>
+                                                                </div>
+                                                                <div class="fee total">
+                                                                    <div class="feeLabel">Total Fee:</div>
+                                                                    <div class="feeValue standard"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--
+                                End the summary blocks
+                            -->
+
+
+                            <!--
+                                Call to action when there are no other entries
+                            -->
+
+
+                        </div>
+
+
+                    </div>
+                    <div id="addToWorksheetModal" class="modal fade">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Worksheet Entry</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="CRWorksheetForm" id="CRWorksheetForm" class="costRecoveryWorksheetForm">
+                                        <div class="worksheetFormRow">
+                                            <div class="worksheetForm form1">
+                                                <div class="worksheetFormField">
+                                                    <label for="specialistRole">
+                                                        Specialist Role
+                                                    </label>
+                                                    <select name="specialistRole" id="specialistRole"
+                                                            class="form-control suds-select"
+                                                            required>
+                                                        <option value="">Select Role</option>
+                                                        <option value="biologist">Biologist</option>
+                                                        <option value="geologist">Geologist</option>
+                                                    </select>
+                                                </div>
+                                                <div class="worksheetFormField">
+                                                    <label for="specialistName">
+                                                        Specialist Name
+                                                    </label>
+                                                    <input type="text" name="specialistName" id="specialistName"
+                                                           class="form-control suds-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="worksheetForm form2">
+                                                <div class="worksheetFormField">
+                                                    <label for="processingTimeEst">
+                                                        Processing Time Estimate
+                                                    </label>
+                                                    <input type="number" name="processingTimeEst" id="processingTimeEst"
+                                                           class="form-control suds-input" required>
+                                                </div>
+                                                <div class="worksheetFormField">
+                                                    <label for="monitoringTimeEst">
+                                                        Monitoring Time Estimate
+                                                    </label>
+                                                    <input type="number" name="monitoringTimeEst" id="monitoringTimeEst"
+                                                           class="form-control suds-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="worksheetForm form3">
+                                                <div class="worksheetFormField">
+                                                    <label for="rate">
+                                                        Rate
+                                                    </label>
+                                                    <input type="text" name="rate" id="rate"
+                                                           class="form-control suds-input" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="workScope">
+                                                Description of Work Scope
+                                            </label>
+                                            <textarea name="workScope" id="workScope" cols="80" rows="10"
+                                                      class="form-control suds-textarea"
+                                                      required></textarea>
+                                        </div>
+
+
+                                        <div class="controls form-group">
+                                            <button type="reset" class="btn btn-suds">
+                                                <i class="fa fa-refresh"></i>
+                                                Reset
+                                            </button>
+                                            <button type="submit" class="btn btn-suds suds-primary">
+                                                <i class="fa fa-save"></i>
+                                                Save
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="modalContent">-->
+                        <!--<div class="header">-->
+                        <!--<h2>Worksheet Entry</h2>-->
+                        <!--<div class="editCloser">-->
+                        <!--<i class="fa fa-times"></i>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<form name="CRWorksheetForm" id="CRWorksheetForm" class="costRecoveryWorksheetForm">-->
+                        <!--<div class="worksheetFormRow">-->
+                        <!--<div class="worksheetForm form1">-->
+                        <!--<div class="worksheetFormField">-->
+                        <!--<label for="specialistRole">-->
+                        <!--Specialist Role-->
+                        <!--</label>-->
+                        <!--<select name="specialistRole" id="specialistRole" class="form-control"-->
+                        <!--required>-->
+                        <!--<option value="">Select Role</option>-->
+                        <!--<option value="biologist">Biologist</option>-->
+                        <!--<option value="geologist">Geologist</option>-->
+                        <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="worksheetFormField">-->
+                        <!--<label for="specialistName">-->
+                        <!--Specialist Name-->
+                        <!--</label>-->
+                        <!--<input type="text" name="specialistName" id="specialistName"-->
+                        <!--class="form-control" required>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="worksheetForm form2">-->
+                        <!--<div class="worksheetFormField">-->
+                        <!--<label for="processingTimeEst">-->
+                        <!--Processing Time Estimate-->
+                        <!--</label>-->
+                        <!--<input type="number" name="processingTimeEst" id="processingTimeEst"-->
+                        <!--class="form-control" required>-->
+                        <!--</div>-->
+                        <!--<div class="worksheetFormField">-->
+                        <!--<label for="monitoringTimeEst">-->
+                        <!--Monitoring Time Estimate-->
+                        <!--</label>-->
+                        <!--<input type="number" name="monitoringTimeEst" id="monitoringTimeEst"-->
+                        <!--class="form-control" required>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="worksheetForm form3">-->
+                        <!--<div class="worksheetFormField">-->
+                        <!--<label for="rate">-->
+                        <!--Rate-->
+                        <!--</label>-->
+                        <!--<input type="text" name="rate" id="rate" class="form-control" required>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                        <!--<label for="workScope">-->
+                        <!--Description of Work Scope-->
+                        <!--</label>-->
+                        <!--<textarea name="workScope" id="workScope" cols="80" rows="10" class="form-control"-->
+                        <!--required></textarea>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="controls form-group">-->
+                        <!--<button type="reset" class="btn btn-default">-->
+                        <!--<i class="fa fa-refresh"></i>-->
+                        <!--Reset-->
+                        <!--</button>-->
+                        <!--<button type="submit" class="btn btn-primary">-->
+                        <!--<i class="fa fa-save"></i>-->
+                        <!--Save &amp; Continue-->
+                        <!--</button>-->
+                        <!--</div>-->
+
+                        <!--</form>-->
+
+                        <!--</div>-->
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var pageTransitionTime = 800;
+
+    var worksheet = {
+        categories: [
+            {
+                'label': '0-1 Hours'
+            },
+            {
+                'label': '1-8 Hours'
+            },
+            {
+                'label': '8-24 Hours'
+            },
+            {
+                'label': '24-36 Hours'
+            },
+            {
+                'label': '36-50 Hours'
+            },
+            {
+                'label': ''
+            }
+
+        ],
+        checkRange: function (time) {
+            var time = time;
+            var category = 0;
+            if (time < 1) {
+                category = 0;
+            } else if (time.between(1, 8)) {
+                category = 1;
+            } else if (time.between(8, 24)) {
+                category = 2;
+            } else if (time.between(24, 36)) {
+                category = 3;
+            } else if (time.between(36, 50)) {
+                category = 4;
+            } else if (time.between(50, 9999999999999999999999999999999999999999999999)) {
+                category = 5;
+            }
+            return category;
+        },
+        openModal: function () {
+            $('#addToWorksheetModal').modal('show');
+        },
+        closeModal: function () {
+            $('#addToWorksheetModal').modal('hide');
+        },
+        saveEntry: function () {
+            var entry = {
+                "role": $('#specialistRole').val(),
+                "name": $('#specialistName').val(),
+                "processingTime": $('#processingTimeEst').val(),
+                "monitoringTime": $('#monitoringTimeEst').val(),
+                "rate": $('#rate').val(),
+                "scope": $('#workScope').val()
+            };
+
+            entries.addEntry(entry);
+            this.appendEntry(entry, results.entries.length - 1);
+            results.summarize();
+            this.resetForm();
+        },
+        appendEntry: function (entry, index) {
+            var template = $('#row-template').html();
+            var row = $(template).clone();
+            $(row).find('.role').html(entry.role);
+            $(row).find('.name').html(entry.name);
+            $(row).find('.procTimeEst').html(entry.processingTime);
+            $(row).find('.monTimeEst').html(entry.monitoringTime);
+            $(row).find('.rate').html(entry.rate);
+            $(row).find('.scopeSnippet').html(entry.scope.substring(0, 80));
+            $(row).find('.scopeBody').html(entry.scope.substring(81, entry.scope.length));
+            $(row).find('.btn').attr('data-index', index);
+            $('.entriesRows').append(row);
+        },
+        resetForm: function () {
+            $('form#CRWorksheetForm')[0].reset();
+        },
+        loadForEdit: function (index) {
+            $('#specialistRole').val(results.entries[index].role);
+            $('#specialistName').val(results.entries[index].name);
+            $('#processingTimeEst').val(results.entries[index].processingTime);
+            $('#monitoringTimeEst').val(results.entries[index].monitoringTime);
+            $('#rate').val(results.entries[index].rate);
+            $('#workScope').val(results.entries[index].scope);
+        }
+
+
+    };
+
+    var entries = {
+        checkForEntries: function () {
+            return (results.entries.length > 0);
+        },
+        toggleNoEntriesWarning: function () {
+            if (!this.checkForEntries()) {
+                results.showNoEntries();
+            } else if (this.checkForEntries()) {
+                results.hideNoEntries();
+            }
+        },
+        addEntry: function (entry) {
+            results.entries.push(entry)
+        }
+    };
+
+    var results = {
+        entries: [],
+
+        showNoEntries: function () {
+            $('.costRecoveryWorksheet').addClass('noEntries');
+        },
+        hideNoEntries: function () {
+            $('.costRecoveryWorksheet').removeClass('noEntries');
+        },
+        summarizeProcessingCosts: function () {
+            var x = 0;
+            for (i = 0; i < this.entries.length; i++) {
+                x = x + (parseFloat(this.entries[i].processingTime * this.entries[i].rate));
+            }
+            $('.processingSummary .feeValue.standard').html('$' + x.toFixed(2));
+        },
+        summarizeMonitoringCosts: function () {
+            var x = 0;
+            for (i = 0; i < this.entries.length; i++) {
+                x = x + (parseFloat(this.entries[i].monitoringTime * this.entries[i].rate));
+            }
+            $('.monitoringSummary .feeValue.standard').html('$' + x.toFixed(2));
+        },
+        summarizeProcessingTime: function () {
+            var t = 0;
+            for (i = 0; i < this.entries.length; i++) {
+                t = t + (parseFloat(this.entries[i].processingTime));
+            }
+            if(t < 50) {
+                $('.processingSummary .categoryHours').show().text(this.getCategory(t));
+                $('.processingSummary .categoryNumber').text(worksheet.checkRange(t));
+            } else if (t >= 50) {
+                $('.processingSummary .categoryHours').hide();
+                $('.processingSummary .categoryNumber').text(worksheet.checkRange(t));
+            }
+
+
+
+            if (this.checkForIndirectCosts(worksheet.checkRange(t))) {
+                $('.processingSummary .indirectCosts').show();
+                $('.processingSummary .total').show();
+            } else {
+                $('.processingSummary .indirectCosts').hide();
+                $('.processingSummary .total').hide();
+            }
+        },
+        summarizeMonitoringTime: function () {
+            var t = 0;
+            for (i = 0; i < this.entries.length; i++) {
+                t = t + (parseFloat(this.entries[i].monitoringTime));
+            }
+            if(t < 50) {
+                $('.monitoringSummary .categoryHours').show().text(this.getCategory(t));
+                $('.monitoringSummary .categoryNumber').text(worksheet.checkRange(t));
+            } else if (t >= 50) {
+                $('.monitoringSummary .categoryHours').hide();
+                $('.monitoringSummary .categoryNumber').text(worksheet.checkRange(t));
+            }
+
+
+            if (this.checkForIndirectCosts(worksheet.checkRange(t))) {
+                $('.monitoringSummary .indirectCosts').show();
+                $('.monitoringSummary .baseFee').show();
+            } else {
+                $('.monitoringSummary .indirectCosts').hide();
+                $('.monitoringSummary .baseFee').hide();
+            }
+
+        },
+        summarize: function () {
+            this.summarizeProcessingCosts();
+            this.summarizeProcessingTime();
+
+            this.summarizeMonitoringCosts();
+            this.summarizeMonitoringTime();
+
+        },
+        getCategory: function (time) {
+            return worksheet.categories[worksheet.checkRange(time)].label;
+        },
+        checkForIndirectCosts: function (category) {
+            if (category >= 5) {
+                return true;
+            }
+        }
+
+
+    };
+
+    Number.prototype.between = function (min, max) {
+        return this >= min && this <= max;
+    };
+
+    (function ($) {
+        var screenSections = $('.screenSections');
+        var renderView = $('.nrm-edit-form');
+        setTimeout(function () {
+            $('.suds-container').animate({
+                opacity: 1,
+                left: 0
+            }, pageTransitionTime, 'easeOutCirc')
+        }, 500);
+        $('.stepControls button[type=submit]').on('click', function () {
+            toCostMonitoring();
+        });
+
+        $('.addNewButton').on('click', function () {
+            worksheet.openModal();
+        });
+
+        $('.editCloser').on('click', function () {
+            worksheet.closeModal();
+            worksheet.resetForm();
+        });
+
+        $(document).on('keyup', function (e) {
+            if (e.keyCode === 27) {
+                worksheet.closeModal();
+            }
+        });
+
+        $(document).on('click', '.entriesRows .toggleMore', function () {
+            $(this).parent().toggleClass('openScope')
+        });
+
+        $(document).on('click', '.entriesRows .editEntry', function () {
+            var i = $(this).attr('data-index');
+            worksheet.loadForEdit(i);
+            worksheet.openModal();
+        });
+
+        $(document).on('click', '.entriesRows .removeEntry', function () {
+            var i = $(this).attr('data-index');
+            results.entries.splice(i, 1);
+            $(this).closest('tr').next('tr').remove();
+            $(this).closest('tr').remove();
+        });
+
+        $('#CRWorksheetForm').on('submit', function (e) {
+            e.preventDefault();
+            worksheet.saveEntry();
+
+
+            if (entries.checkForEntries()) {
+                entries.toggleNoEntriesWarning();
+                $('#addToWorksheetModal').modal('hide');
+            }
+
+        });
+
+        entries.toggleNoEntriesWarning();
+
+
+        // listen for click on summary button and open summary view.
+        $('.summaryBlock').on('click', function () {
+
+            $.get('summary.html', function (data) {
+                $('#summaryModal').html(data).modal({
+                    keyboard: true,
+                    backdrop: 'static'
+                });
+
+                setTimeout(function () {
+                    $('.summaryOverlay').addClass('loaded');
+                }, 200);
+
+                $('.summaryModalCloseBtn').on('click', function () {
+
+                    $('.summaryOverlay').fadeOut(function () {
+                        $('#summaryModal').html('').modal('hide');
+                        $(this).off('click');
+                    }).removeClass('loaded')
+
+                })
+
+            })
+
+
+        });
+
+        var toCostMonitoring = function () {
+            $('.suds-container').animate({
+                opacity: 0,
+                left: -800
+            }, pageTransitionTime, 'easeOutCirc');
+
+            setTimeout(function () {
+            window.location.href = 'costRecovery.html';
+//                history.back();
+            }, pageTransitionTime);
+        };
+
+        renderView.scroll(function () {
+
+            if ($(this).scrollTop() > 52) {
+                var t = $(this).offset().top + 16;
+                $('.stepControls').addClass('fixed').css({
+                    top: t + 'px'
+                });
+
+                $('.screenSections').css({
+                    top: '60px'
+                })
+            } else {
+                $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                $('.screenSections').removeAttr('style');
+            }
+        })
+    })(jQuery);
+
+
+</script>
+<script id="row-template" type="text/x-custom-template">
+    <tr>
+        <td class="role"></td>
+        <td class="name"></td>
+        <td class="procTimeEst"></td>
+        <td class="monTimeEst"></td>
+        <td class="rate"></td>
+        <td class="editButtons">
+            <button class="btn btn-xs btn-suds suds-primary editEntry" data-index="">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+                EDIT
+            </button>
+            <button class="btn btn-xs btn-suds suds-danger removeEntry" data-index="">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                REMOVE
+            </button>
+        </td>
+
+    </tr>
+    <tr>
+        <td colspan="6" class="scopeRow">
+            <div class="scopeOfWork">
+                <span class="scopeSnippet">
+
+                </span>
+                <span class="scopeBody"></span>
+                <button class="btn btn-link toggleMore"><span class="more">...more</span><span
+                        class="less">...less</span></button>
+            </div>
+        </td>
+    </tr>
+</script>
+
+
+</body>
+
+</html>

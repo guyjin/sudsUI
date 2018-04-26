@@ -1,0 +1,25 @@
+fieldset.phone {
+    .phoneNumbers {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+
+
+        @media (max-width: 992px) {
+
+            .dataPoint {
+                width:600px;
+                flex-wrap: wrap;
+            }
+
+        }
+    }
+
+    @media (max-width: 992px) {
+        .phoneNumbers {
+            width:600px;
+        }
+
+    }
+}

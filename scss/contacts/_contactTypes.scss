@@ -1,0 +1,167 @@
+.contactTypes {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+    form {
+        width: 100%;
+    }
+    
+    ul, li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    ul {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        flex-wrap: wrap;
+    }
+    
+    .contactType {
+        display: flex;
+        margin: 5px;
+        margin-bottom: 1em;
+        box-shadow: 0 0 6px 1px rgba(50, 118, 177, 0);
+        transition: box-shadow .3s ease;
+        border-radius: 5px;
+        
+        input[type=radio] {
+            position: absolute;
+            margin-left: - 5000px;
+        }
+        
+        label {
+            display: flex;
+            align-items: center;
+            background-color: $primary-color-two;
+            color: $primary-color-two-text;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1em;
+            padding: 13px 11px 11px 11px;
+            width: 100%;
+            margin-left: 35px;
+            margin-bottom: 0;
+            position: relative;
+            border-radius: 0 5px 5px 0;
+            box-sizing: content-box;
+            line-height: 1;
+            
+            .typeIcon:before,
+            .typeIcon:after {
+                position: absolute;
+                content: '\f00c';
+                
+                font-family: "FontAwesome", cursive;
+                
+                left: -35px;
+                top: 0;
+                bottom: 0px;
+                width: 40px;
+                font-size: 12px;
+                font-weight: 400;
+                margin-right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                z-index: 10;
+                text-align: center;
+                border-radius: 5px 0 0 5px;
+                border-right: 1px solid $white;
+            }
+            
+            .typeIcon:before {
+                background-color: #d8d8d8;
+                color: #9b9b9b;
+                z-index: 12;
+            }
+            .typeIcon:after {
+                display: none;
+            }
+            
+            &.person {
+                .typeIcon:before {
+                    content: '\f007';
+                }
+            }
+            
+            &.corp {
+                .typeIcon:before {
+                    content: '\f275';
+                }
+            }
+            
+            &.gov {
+                .typeIcon:before {
+                    content: '\f19c';
+                }
+            }
+            
+            &.edu {
+                .typeIcon:before {
+                    content: '\f19d';
+                }
+            }
+            
+            &.trust {
+                .typeIcon:before {
+                    content: '\f155';
+                }
+            }
+            
+            &.association {
+                .typeIcon:before {
+                    content: '\f0c0';
+                }
+            }
+            
+            &.marriedCouple {
+                .typeIcon:before {
+                    content: '\f007';
+                    color: $eerie-black;
+                    z-index: 10;
+                    top: 0px;
+                }
+                .typeIcon:after {
+                    display: flex;
+                    content: '\f007';
+                    background-color: transparent;
+                    border: 0;
+                    color: $gray2;
+                    left: -30px;
+                    top: 3px;
+                    position: absolute;
+                    z-index: 12;
+                }
+            }
+        }
+        
+        input[type=radio]:checked ~ .typeIcon {
+            &:before {
+                content: '\f00c';
+                color: $nominal-suds-text;
+                background-color: $nominal-suds;
+            }
+            &:after {
+                display: none;
+            }
+        }
+        
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0 6px 1px rgba(50, 118, 177, 0.83);
+            border-radius: 20px;
+        }
+    }
+    
+}
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+.stepHistory {
+  float: right;
+  max-width: 500px;
+  min-width: 300px;
+  margin-right: -15px;
+  .btn {
+    outline-style: none;
+  }
+  .stepHistoryDropDownToggle {
+    width: 100%;
+    button {
+      width: 100%;
+      border-radius: 0;
+    }
+    ul.dropdown-menu {
+      right: -70px;
+      left: auto;
+    }
+  }
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    clear: both;
+    line-height: 0;
+    position: relative;
+  }
+}
+
+.stepControls {
+  background-color: $primary-color-one;
+  display: flex;
+  padding: 4px 4px 3px 4px;
+  margin: 0 1em 1em 0;
+  border-radius: 28px;
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  transition: all .3s ease;
+  border: 1px solid #64c5ea;
+  box-shadow: inset 0px 1px 4px 0px rgba(255, 255, 255,1.0);
+  
+  &.fixed {
+    width: 100%;
+    position: fixed;
+    max-width: 50%;
+    z-index: 100;
+    margin: 0 25%;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5), inset 0px 1px 4px 0px rgba(255, 255, 255,1.0);
+  }
+
+  button {
+    
+    border-radius: 26px;
+    font-weight: 600;
+    transition: all .1s ease;
+    border: 1px dashed rgba(255,255,255, 1);
+    margin-right: 10px;
+    padding: 0 10px 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .fa-stack {
+      margin-right: 5px;
+    }
+
+    .fa {
+      font-weight: 400;
+      transition: all .1s ease;
+
+    }
+    &:last-child {
+ 
+      margin-left: auto;
+      margin-right:0;
+    }
+
+    &:hover {
+      background-color: $primary-color-two;
+      color: $primary-color-two-text;
+      border-radius: 20px;
+      text-decoration: none;
+
+      .fa-inverse {
+        color: $primary-color-two;
+      }
+    }
+
+  }
+
+
+
+}
+
+@media (max-width: 992px) {
+  .stepHistory {
+
+  }
+  .stepControls {
+    text-align: center;
+  }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+
+    <link href="../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Under Construction!</title>
+</head>
+<body>
+<div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">
+
+    <div class="container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+            <div class="container">
+                <!--This row contains the Stage and Step control Widgets -->
+                <div class="row stageAndSteps">
+                    <div class="col-lg-9 col-md-7 col-sm-6">
+                        <h2 class="nrm-form-title SUDSStageHeader">
+                            Special Use
+                            <div class="dropdown">
+                                <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="btn btn-primary " disabled="disabled">
+                                    <span class="stageName">Proposal</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="">Proposal</a></li>
+                                    <li><a href="" class="disabled">Application Processing</a></li>
+                                    <li><a href="" class="disabled">Authorization</a></li>
+                                    <li><a href="" class="disabled">Closure</a></li>
+                                </ul>
+                            </div>
+                            <small><span class="label label-default nrm-editstate">New</span></small>
+                        </h2>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-6">
+                        <div class="input-group stepHistory">
+                          <span class="input-group-btn">
+                            <button class="btn btn-primary " disabled="disabled" type="button"><span
+                                    class="glyphicon glyphicon-chevron-left"></span> last</button>
+                          </span>
+                            <div class="input-group-btn stepHistoryDropDownToggle">
+                                <button type="button" class="btn btn-primary  dropdown-toggle" disabled="disabled"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Step Name
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Step Name</a></li>
+                                    <li><a href="#">Another Step Name</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="">Something else that is really super long and takes a lot of space</a>
+                                    </li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                            <span class="input-group-btn">
+                            <button class="btn btn-primary " disabled="disabled" type="button">next <span
+                                    class="glyphicon glyphicon-chevron-right"></span></button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </div>
+                </div>
+                <!--
+                    Start the questions block
+                -->
+                <div id="renderView">
+
+                    <div class="constructionMessageBox animated bounceIn">
+                        <div class="imgBox">
+                            <img src="img/Corridor9875pixani-construction.gif" alt="under construction gif">
+                        </div>
+                        <div class="message">
+                            <p>
+                                <strong>Uh oh!</strong> This step hasn't been completed yet! Please return your
+                                seatbacks and tray tables to their upright and locked position in preparation for that
+                                oh so soft landing while the SUDS hamsters toil night and day to get this page up and
+                                running!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function ($) {
+        $('.answerButtons').on('click', 'label', function () {
+            $(this).closest("div").siblings('.questionStatus').attr('data-statustype', this.innerText.toLowerCase());
+        });
+
+        $('.resetQuestions').on('click', function () {
+            $('.questionStatus').attr('data-statustype', '');
+            $('input[type=radio]').removeAttr('checked');
+        })
+    })(jQuery)
+</script>
+</body>
+</html>

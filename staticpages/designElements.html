@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+        <link href="../css/index.css" rel="stylesheet" media="screen" />
+        <link href="../css/suds.css" rel="stylesheet" media="screen" />
+        <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+        <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+        <title>Cost Recovery Monitoring</title>
+        <style>
+            .elements {
+                display: flex;
+                flex-direction: row;
+                background-color: #fff;
+           
+            }
+
+            .col {
+                width: 33%;
+            }
+
+            .colorBlockRow {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .colorBlock {
+                flex: 1;
+                display: flex;
+                box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+                border-radius: 20px;
+                margin: 1em;
+                overflow: hidden;
+            }
+
+            .block {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2em 0;
+                font-weight: 600;
+            }
+
+            .sudsTabBlock {
+                padding: 1em;
+                background-color: #efefef;
+                border-radius: 20px;
+                margin: 1em;
+            }
+            .buttonRow {
+                margin-bottom:1em;
+                margin-left: 1em;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="ui-layout-center ui-layout-container">
+            <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+                <div class="container suds-container">
+                    <div class="nrm-edit-form">
+                        <div id="renderView" class="designElements">
+                            <div class="elements">
+                                <div class="col">
+                                    <h2>
+                                        Text Styles
+                                    </h2>
+                                    <h1>H1 Heading</h1>
+                                    <h2>H2 Heading</h2>
+                                    <h3>H3 Heading</h3>
+                                    <h4>H4 Heading</h4>
+                                    <h5>H5 Heading</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit <a href="#" class="suds-link">amet</a>, consectetur adipisicing elit. Maiores neque nulla officiis quae quasi. Ad explicabo maiores natus, necessitatibus rerum soluta tempore veniam? Aspernatur deleniti eos in iusto modi reiciendis!
+                                    </p>
+                                    <a href="#" class="suds-link">Link Text</a>
+                                    <br>
+                                    <a href="#" class="suds-link linkHover">Link Text</a> :hover
+
+                                    <ul>
+                                        <li>unordered list item</li>
+                                        <li>unordered list item</li>
+                                        <li>unordered list item</li>
+                                    </ul>
+                                    <ol>
+                                        <li>ordered list item</li>
+                                        <li>ordered list item</li>
+                                        <li>ordered list item</li>
+                                    </ol>
+                                </div>
+                                <div class="col">
+                                    <h2>
+                                        Colors
+                                    </h2>
+                                    <div class="colorBlockRow">
+                                        <div class="colorBlock">
+                                            <div class="block" style="background-color: #7FDBFF;color: #001F3F;">
+                                                #7FDBFF
+                                            </div>
+                                            <div class="block" style="background-color: #0074D9;color: #FFFFFF;">
+                                                #0074D9
+                                            </div>
+                                            <div class="block" style="background-color: #001F3F;color: #7FDBFF;">
+                                                #001F3F
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="colorBlockRow">
+                                        <div class="colorBlock">
+                                            <div class="block" style="background-color: #DDDDDD;color: #0074D9;">
+                                                #DDDDDD
+                                            </div>
+                                            <div class="block" style="background-color: #AAAAAA;color: #111111;">
+                                                #AAAAAA
+                                            </div>
+                                        </div>
+                                        <div class="colorBlock">
+                                            <div class="block" style="background-color: #2ECC40;color: #111111;">
+                                                #2ECC40
+                                            </div>
+                                            <div class="block" style="background-color: #3D9970;color: #FFFFFF;">
+                                                #3D9970
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="colorBlockRow">
+                                        <div class="colorBlock">
+                                            <div class="block" style="background-color: #111111;color: #FFFFFF;">
+                                                #111111
+                                            </div>
+                                            <div class="block" style="background-color: #FFFFFF;color: #0074D9;">
+                                                #FFFFFF
+                                            </div>
+                                        </div>
+                                        <div class="colorBlock">
+                                            <div class="block" style="background-color: #FF4136;color: #111111;">
+                                                #FF4136
+                                            </div>
+                                            <div class="block" style="background-color: #C20A00;color: #FFFFFF;">
+                                                #C20A00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>
+                                        Tab Headers
+                                    </h2>
+                                    <div class="sudsTabBlock">
+                                        <div class="tabHeadingRow">
+                                            <div class="tabHeading active">
+                                                TAB ONE
+                                            </div>
+                                            <div class="tabHeading">
+                                                TAB TWO
+                                            </div>
+                                            <div class="tabHeading">
+                                                TAB THREE
+                                            </div>
+                                        </div>
+                                        <div class="sudsTabContent">
+
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aspernatur at cum doloremque, doloribus eaque error et explicabo, fuga, hic iusto libero odio porro saepe tempora temporibus tenetur voluptas?
+
+                                        </div>
+                                    </div>
+                                    <h2>Buttons</h2>
+                                    <div class="buttonRow">
+                                        <button class="btn btn-suds">Button Label</button>
+                                        <button class="btn btn-suds"><span class="glyphicon glyphicon-plus"></span> Button Label</button>
+                                    </div>
+                                    <div class="buttonRow">
+                                        <button class="btn btn-suds suds-success">Button Label</button>
+                                        <button class="btn btn-suds suds-success"><span class="glyphicon glyphicon-plus"></span> Button Label</button>
+                                    </div>
+                                    <div class="buttonRow">
+                                        <button class="btn btn-suds suds-danger">Button Label</button>
+                                        <button class="btn btn-suds suds-danger"><span class="glyphicon glyphicon-plus"></span> Button Label</button>
+                                    </div>
+                                    <div class="buttonRow">
+                                        <button class="btn btn-suds suds-primary">Button Label</button>
+                                        <button class="btn btn-suds suds-primary"><span class="glyphicon glyphicon-plus"></span> Button Label</button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h2>
+                                        Forms
+                                    </h2>
+                                    <h5>(Inherit from Bootstrap)</h5>
+
+                                    <form action="">
+                                        <label for="sample">Label Text</label>
+                                        <input type="text" id="sample" name="sample" class="form-control error">
+                                        <div class="validationMessage">
+                                            <p>
+                                            Validation Messaging with a long explanation of what went wrong for the user.
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,303 @@
+.contactManager {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-width: 1024px;
+    margin: 0 auto;
+    
+    .tabHeadingRow {
+        position: relative;
+        overflow: visible;;
+    }
+    
+    .contactsTab {
+        position: relative;
+        background-color: $white;
+        z-index: 61;
+        font-weight: 600;
+        box-shadow: inset 0 2px 5px -2px white;
+        border: 1px solid #ccc;
+        border-bottom: 0 solid #ddd;
+        border-radius: 20px 20px 0 0;
+        padding: 10px 15px;
+        
+        &:before,
+        &:after {
+            content: "";
+            width: $tab-radius;
+            height: $tab-radius;
+            position: absolute;
+            bottom: 0.2px;
+            box-sizing: border-box;
+        }
+        
+        &:before {
+            @include beforeCurve($gray3, $gray4);
+            left: -22px;
+        }
+        
+        &:after {
+            @include afterCurve($gray3, $gray4);
+            right: -22px;
+        }
+        
+        &.flushLeft {
+            &:before {
+                display: none;
+            }
+        }
+        
+        &.flushRight {
+            
+            position: absolute;
+            right: 0;
+            
+            &.active {
+                &:after {
+                    background-image: none;
+                    background-color: $white;
+                    right: -1px;
+                    bottom: -16px;
+                    border-right: 1px;
+                    border-right-color: $gray4;
+                    border-right-style: solid;
+                }
+            }
+            
+        }
+        
+        &.active {
+            &:before {
+                @include beforeCurve($white, $gray4);
+            }
+            &:after {
+                @include afterCurve($white, $gray4);
+            }
+        }
+    }
+    
+    .contactManagerTitle {
+        background-color: $gray3;
+        width: 300px;
+        margin-left: 3em;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 1.4em;
+        margin-bottom: -1.2px;
+        
+        &:before {
+            left: -21.4px;
+            bottom: 0px;
+        }
+        
+        &:after {
+            bottom: 0.7px;
+        }
+    }
+    .contactManagerBody {
+        background-color: $gray3;
+        border-radius: 20px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        border: 1px solid $gray4;
+    
+        .tabHeadingRow,
+        .contactContentSection {
+        
+        }
+    }
+    
+    .contactContentSection {
+        border: 1px solid $gray4;
+        border-radius: 0 7px 7px 7px;
+        background-color: $white;
+        padding: 15px;
+        margin-top: -1px;
+        position: relative;
+    }
+    
+    fieldset {
+        border: 1px solid $primary-color-one;
+        background-color: lighten($primary-color-one, 24.0);
+        padding: 16px;
+        border-radius: 13px;
+        margin-bottom: 1em;
+        flex-wrap: wrap;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: margin-bottom .2s ease;
+    }
+    
+    .inputContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        padding: 0 5px;
+        max-width: 50%;
+    
+        &.sos {
+            padding-top: 2em;
+    
+        }
+        
+        &.formControls {
+            flex: 0 1 150px;
+            padding: 0 10px 0 10px;
+            justify-content: space-between;
+            margin-left: auto;
+            max-width: 250px;
+            
+            button {
+                flex: 1 1 auto;
+                margin-left: 5px;
+            }
+        }
+    
+        &.searchBar {
+            max-width: 100%;
+        }
+        
+        &.fullWidth {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 10px;
+        }
+        
+        &.postalCode {
+            width: 50%;
+            border: 1px dashed orange;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: -12px;
+        }
+        
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+    
+            &:before {
+                content: "\f069";
+                font-family: "FontAwesome", cursive;
+                color: $danger-suds;
+                font-weight: 400;
+                font-size: .8em;
+                line-height: 1;
+                top: -3px;
+                display: inline-block;
+                position: relative;
+                margin-right: 3px;
+            }
+        }
+    
+        input {
+            flex: 1 1 auto;
+            border: 1px solid $gray2;
+            padding: 3px 10px 5px;
+            &.customized {
+                flex: 0 1 auto;
+            }
+            
+            &:-ms-input-placeholder {
+                color: $gray2 !important;
+                font-style: italic !important;
+            }
+        }
+        
+        select {
+            padding: 3px 10px 5px;
+            border: 1px solid $gray2;
+        }
+    
+        &.notReq {
+            label {
+                &:before {
+                    content: '';
+                }
+            }
+        }
+        
+    }
+    
+    .vert {
+        flex-direction: column;
+    }
+    
+    .horz {
+        flex-direction: row;
+        
+        label {
+            margin-right: 10px;
+        }
+    }
+    hr {
+        color: $gray1;
+    }
+    
+    .fs-horizontal {
+        display: flex;
+        align-items: center;
+    }
+    
+    .suds-table {
+        border-radius: 10px;
+        
+        td {
+            vertical-align: middle;
+            font-size: 12px;
+        }
+    }
+    
+    .addPersonsControl {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    @import "contacts/contactBreadCrumbs";
+    @import "contacts/contactSearch";
+    @import "contacts/contactTypes";
+    @import "contacts/contactPhones";
+    @import "contacts/contactAddresses";
+    @import "contacts/contactDataPointPills";
+    
+    @import "contacts/contactViewCard";
+    @import "contacts/contactPersonCard";
+    @import "contacts/halfModal";
+    
+    @media screen and (max-width: 600px) {
+        .contactTypes {
+            ul {
+                height: auto;
+                width: 100%;
+                max-width: none;
+            }
+            .contactType {
+                label {
+                    width: 100%;
+                    max-width: none;
+                }
+                
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 0;
+        }
+        
+        .inputContainer {
+            max-width: 100%;
+            width: 100%;
+        }
+        
+    }
+    
+}
+

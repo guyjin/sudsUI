@@ -1,0 +1,60 @@
+.contactBreadCrumbs {
+    
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    overflow: hidden;
+    
+    a {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: $primary-color-two;
+        position: relative;
+        display: inline-block;
+        margin-left: 12px;
+        padding: 2px 2px 0 0;
+        line-height: 1.2;
+        text-decoration: none;
+        border-bottom: 1px solid $primary-color-two;
+        
+        &:hover {
+            text-decoration: none;
+        }
+        
+        &:before {
+            content: '\f0da';
+            font-family: "FontAwesome", cursive;
+            position: absolute;
+            color: $primary-color-two;
+            font-size: 16px;
+            line-height: 1;
+            left: -10px;
+            margin-top: -1px;
+            text-decoration: none;
+        }
+        
+        &:first-child {
+            margin-left: 0;
+            padding-left: 5px;
+            &:before {
+                display: none;
+            }
+        }
+        
+        &:last-child {
+            //background-color: $primary-color-two;
+            //color: $primary-color-two-text;
+            //border-radius: 10px 0 0 10px;
+            //padding-left: 5px;
+            font-weight: 600;
+            color: $eerie-black;
+            text-decoration: none;
+            border-bottom: none;
+        }
+        
+        &:only-child {
+            border-radius: 0;
+        }
+    }
+}

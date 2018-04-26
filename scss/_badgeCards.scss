@@ -1,0 +1,389 @@
+.badgeCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.badgeCard {
+  display: flex;
+  flex-direction: column;
+  background-color: $gray2;
+  color: $gray2-text;
+  border-radius: 20px;
+  padding: 4px;
+  margin: 0 0.5em 0.5em 0.5em;
+  flex: 1 0 30%;
+  min-width: 300px;
+  white-space: initial;
+  box-sizing: content-box;
+  overflow: hidden;
+  opacity: 0.5;
+  pointer-events: none;
+
+  &.noBackground {
+    background-color: transparent;
+  }
+  .badgeCardHeader {
+    display: flex;
+  }
+  &[data-card-type="dates"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f073";
+      }
+    }
+  }
+  &[data-card-type="roads"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f018";
+      }
+    }
+  }
+  &[data-card-type="lands"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f1bb";
+      }
+    }
+  }
+  &[data-card-type="fee"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f155";
+      }
+    }
+  }
+  &[data-card-type="participants"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f0c0";
+      }
+    }
+  }
+  &[data-card-type="location"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f041";
+      }
+    }
+  }
+  &[data-card-type="facility"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f1ad";
+      }
+    }
+  }
+  &[data-card-type="bool"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f059";
+      }
+    }
+  }
+  &[data-card-type="worksheet"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f022";
+      }
+    }
+  }
+  &[data-card-type="processing"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f1b3";
+      }
+    }
+  }
+  &[data-card-type="user"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f007";
+      }
+    }
+  }
+
+  &[data-card-type="upload"] {
+    .badgeCardIcon {
+      &:before {
+        content: "\f0ee";
+      }
+    }
+  }
+  &.active {
+    background-color: $primary-color-one;
+    background-image: linear-gradient(#70c4e4, #7fdbff 20px);
+    box-shadow: inset 0px 1px 4px 0px rgba(255, 255, 255, 1);
+    border: 1px solid #6dbede;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.badgeCardIcon {
+  min-width: 75px;
+  min-height: 50px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: -1px;
+  &:after {
+    content: "";
+    height: 22px;
+    width: 22px;
+    right: -21.65px;
+    position: absolute;
+    bottom: 0.25px;
+    @include simpleAfterCurve($white);
+    border-color: #fff;
+  }
+  &:before {
+    position: relative;
+    content: "\f129";
+    font-family: "FontAwesome", cursive;
+    color: #000;
+    font-size: 1.2em;
+  }
+}
+
+.badgeCardActionTab {
+  min-width: 75px;
+  height: auto;
+  background: $white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px 16px 0 0;
+  margin-top: 1em;
+  bottom: -1px;
+  font-weight: 600;
+  text-transform: lowercase;
+
+  .glyphicon {
+    display: inline-block;
+    margin-top: -3px;
+  }
+  &:before {
+    content: "";
+    height: 19px;
+    width: 20px;
+    left: -15.8px;
+    position: absolute;
+    bottom: -2.6px;
+    background-image: radial-gradient(
+      circle at top left,
+      transparent 15px,
+      #ffffff 16px
+    );
+  }
+  &:after {
+    content: "";
+    height: 29px;
+    width: 29px;
+    right: 0px;
+    position: absolute;
+    bottom: -21px;
+    background-image: radial-gradient(
+      circle at left bottom,
+      transparent 16px,
+      $white 17px
+    );
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  .editDataPointLink {
+    display: block;
+    white-space: nowrap;
+    padding: 0 10px;
+    &:disabled {
+      pointer-events: none;
+    }
+  }
+}
+.badgeCardContent {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 0 16px 16px 16px;
+  padding: 10px;
+  &.noHeader {
+    border-radius: 16px;
+  }
+}
+.badgeCardLabel {
+  padding: 0.66em 0.66em 0.66em 2em;
+  align-items: center;
+  display: flex;
+  font-size: 1em;
+  font-weight: 600;
+  width: auto;
+  flex: 1 1 auto;
+}
+.badgeCardData {
+  display: flex;
+  .badgeBlock {
+    border-radius: 10px 0 0 10px;
+    background-color: $gray2;
+    color: $gray2-text;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 6em;
+    padding: 5px 10px 10px;
+    label {
+      font-size: 11px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .dataPoint {
+      font-size: 3em;
+      font-weight: 600;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .simpleBadgeBlock {
+    display: flex;
+    flex-direction: column;
+    width: 75px;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color-four;
+    background-image: radial-gradient(
+      closest-side at 37px 30px,
+      lighten($primary-highlight-hover, 30%),
+      $primary-highlight-hover
+    );
+    color: $primary-color-four-text;
+    margin-right: 1em;
+    border-radius: 500px;
+    padding: 0.5em;
+    box-shadow: inset 7px 10px 0 3px rgba(255, 255, 255, 0.2),
+      0 2px 7px 0px rgba(0, 0, 0, 0.65);
+    &[data-type-bool="false"] {
+      background-color: $danger-suds;
+      background-image: radial-gradient(
+        closest-side at 37px 30px,
+        lighten($danger-suds-hover, 30%),
+        $danger-suds-hover
+      );
+      font-weight: 600;
+      color: #000;
+    }
+    &[data-type-bool="true"] {
+      background-color: $primary-highlight;
+      font-weight: 600;
+      color: $white;
+    }
+    .dataPoint {
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .dataLabel {
+      background-color: $eerie-black;
+      color: $white;
+    }
+  }
+  .badgeCardDataText {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    margin: 1em;
+    min-width: 0;
+    white-space: initial;
+    justify-content: center;
+    .hilighted {
+      font-family: sans-serif;
+      padding: 3px 10px;
+      text-align: center;
+      background-color: $primary-color-four;
+      color: $primary-color-four-text;
+      font-weight: 600;
+      border-radius: 20px;
+      margin: 0 5px;
+      display: block;
+    }
+    p {
+      margin: 1em 0;
+    }
+  }
+  .badgeCardDataBlock {
+    background-color: $primary-color-two;
+    color: $primary-color-two-text;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 10px;
+    &.standAlone {
+      border-radius: 10px;
+      margin-right: 1em;
+      padding: inherit 10px;
+    }
+    label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .dataPoint {
+      display: flex;
+      flex: 1 1 auto;
+      font-weight: 600;
+      font-size: 3em;
+      line-height: 1;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .badgeAlertBlocks {
+    display: flex;
+    flex-direction: column;
+    .badgeAlertBlock {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 3px 3px 7px 3px;
+      &.danger {
+        background-color: $danger-suds;
+        color: $danger-suds-text;
+      }
+      &.warning {
+        background-color: $warning-suds;
+        color: $warning-suds-text;
+      }
+      &:first-child {
+        border-radius: 0 10px 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 10px 0;
+      }
+      label {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 8px;
+        font-weight: 600;
+      }
+      .dataPoint {
+        display: flex;
+        flex: 1;
+        font-size: 1.8em;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+      }
+    }
+  }
+}
+.directional {
+  margin: 5px auto;
+  text-align: center;
+  color: $primary-color-two;
+}

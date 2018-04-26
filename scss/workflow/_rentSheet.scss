@@ -1,0 +1,168 @@
+#renderView.rentSheetWorksheet {
+
+  .badgeCards {
+    flex-direction: row;
+
+    .badgeCardContent {
+      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 1 auto;
+
+      .badgeCardData {
+        flex-wrap: wrap;
+        flex: 1 1   auto;
+        justify-content: space-between;
+      }
+
+      .badgeCardDataBlock {
+        margin: 0.5em;
+      }
+    }
+  }
+
+  .addNewButton {
+    &:after {
+      display: block;
+      border: none;
+      background-color: #fff;
+    }
+  }
+
+  /*.modal {
+    margin-top: 50px;
+  }
+  .modal-body {
+    .worksheetForm {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2em;
+
+      .worksheetFormField {
+        flex: 1;
+        margin: 0 10px;
+      }
+
+      .worksheetFormFieldOperator {
+        width: 1.5em;
+        padding-top: 2.25em;
+        text-align: center;
+      }
+
+      #kilovolts {
+        width: 100px;
+      }
+
+      #miles {
+        background-color: transparent;
+        border-style: dashed;
+        box-shadow: none;
+      }
+    }
+  }*/
+
+  &.noEntries {
+    .noEntriesFound {
+      display: block;
+    }
+
+    .entriesTable {
+      display: none
+    }
+
+  }
+
+  .noEntriesFound {
+    display: none;
+  }
+  .entriesTable {
+    display: block;
+    margin-bottom: 1em;
+
+    .subtotal {
+      td {
+        font-weight: bold;
+        border-top: 2px solid $gray2;
+        background-color: $gray1;
+      }
+    }
+  }
+
+  .tableCountyLabelTab {
+    background-color: $primary-color-one;
+    color: $primary-color-one-text;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    display: inline-block;
+
+
+
+    &:after {
+      border-color: $primary-color-one;
+      background-image: url('../img/rightOuterCurve_primary1.png');
+    }
+
+    &:before {
+      background-image: none;
+      border-color: transparent;
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      background-color: $primary-color-one;
+    }
+
+  }
+
+  @media (max-width: 992px) {
+    .entriesTable {
+      width:800px;
+    }
+
+  }
+    
+    @import "../rentSheets/recEventRentSheet";
+}
+
+#addToWorksheetModal.rentSheetWorksheet {
+    .modal {
+        margin-top: 50px;
+    }
+    .modal-body {
+        .worksheetForm {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 2em;
+            
+            .worksheetFormField {
+                flex: 1;
+                margin: 0 10px;
+            }
+            
+            .worksheetFormFieldOperator {
+                width: 1.5em;
+                padding-top: 2.25em;
+                text-align: center;
+            }
+            
+            #kilovolts {
+                width: 100px;
+            }
+            
+            #miles {
+                background-color: transparent;
+                border-style: dashed;
+                box-shadow: none;
+            }
+        }
+    }
+    
+}
+
+
+
+

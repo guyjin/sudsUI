@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <script src="dashboard.js"></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="ui-layout-center ui-layout-container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+            <div class="container suds-container static-load">
+                <div class="nrm-edit-form">
+                    <div id="renderView" class="dashBoard">
+                        <div class="topActionBar">
+                            <a href="#" class="searchButton btn btn-suds">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                            <a href="newOrReissue.html" class="btn btn-suds suds-success">
+                                <i class="fa fa-plus"></i> New Authorization
+                            </a>
+                            <div class="searchForm">
+                                <div class="searchField">
+                                    <label for="searchTerm">
+                                        Search For:
+                                    </label>
+                                    <input type="text" name="searchTerm" id="searchTerm" class="form-control">
+                                </div>
+                                <div class="searchField">
+                                    <label for="searchFilter">Search In:</label>
+                                    <input type="text" name="searchFilter" id="searchFilter" class="form-control">
+                                </div>
+                                <div class="controls">
+                                    <input type="submit" value="Search" class="btn suds-btn suds-primary">
+                                    <input type="reset" value="Reset" class="btn suds-btn suds-default">
+                                </div>
+                                <div class="closer">
+                                    <i class="fa fa-times-circle"></i>&nbsp; close
+                                </div>
+                            </div>
+                        </div>
+                        <div class="localeSelectionDisplay">
+                            <a href='#' class='localeSelectorTrigger'>
+                                <i class="fa fa-map"></i>
+                                <i class="fa fa-times"></i> <span>ORG</span>
+                            </a>
+                            <div class="localeDataDisplayField">
+                                <div class="displayFieldCursor leftCursor disabled">
+                                    <i class='fa fa-arrow-circle-left'></i>
+                                </div>
+                                <div class="entitiesRow">
+                                    <div class="dataDisplay">
+                                        <span class='noDataMessage'>
+                                        <i class='fa fa-arrow-left'></i>
+                                        Open Locale Selector
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="displayFieldCursor rightCursor disabled">
+                                    <i class='fa fa-arrow-circle-right'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="localeSelectionWindow">
+                            <div class="list regionList">
+                                <ul>
+                                    <li><a href="#" data-region='AA'>Region <span class='listItemIdentifier'>AA</span></a></li>
+                                    <li><a href="#" data-region='BB'>Region <span class='listItemIdentifier'>BB</span></a></li>
+                                    <li><a href="#" data-region='CC'>Region <span class='listItemIdentifier'>CC</span></a></li>
+                                    <li><a href="#" data-region='DD'>Region <span class='listItemIdentifier'>DD</span></a></li>
+                                    <li><a href="#" data-region='EE'>Region <span class='listItemIdentifier'>EE</span></a></li>
+                                    <li><a href="#" data-region='FF'>Region <span class='listItemIdentifier'>FF</span></a></li>
+                                    <li><a href="#" data-region='HH'>Region <span class='listItemIdentifier'>HH</span></a></li>
+                                    <li><a href="#" data-region='II'>Region <span class='listItemIdentifier'>II</span></a></li>
+                                    <li><a href="#" data-region='JJ'>Region <span class='listItemIdentifier'>JJ</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="list forestList">
+                                <ul data-parent='AA'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">AA##</span></a></li>
+                                </ul>
+                                <ul data-parent='BB'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">BB##</span></a></li>
+                                </ul>
+                                <ul data-parent='CC'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">CC##</span></a></li>
+                                </ul>
+                                <ul data-parent='DD'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">DD##</span></a></li>
+                                </ul>
+                                <ul data-parent='EE'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">EE##</span></a></li>
+                                </ul>
+                                <ul data-parent='FF'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">FF##</span></a></li>
+                                </ul>
+                                <ul data-parent='HH'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">HH##</span></a></li>
+                                </ul>
+                                <ul data-parent='II'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">II##</span></a></li>
+                                </ul>
+                                <ul data-parent='JJ'>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                    <li><a href="#" data-entity='##'>Forest <span class="listItemIdentifier">JJ##</span></a></li>
+                                </ul>
+                                <span class='noSelectionMessage'>Select a Region</span>
+                                <i class="fa fa-times-circle clearList clearForestList"></i>
+                            </div>
+                            <div class="list districtList">
+                                <ul data-parent='AA##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">AA##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">AA##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">AA##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">AA##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">AA##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">AA##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='BB##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">BB##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">BB##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">BB##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">BB##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">BB##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">BB##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='CC##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">CC##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">CC##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">CC##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">CC##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">CC##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">CC##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='DD##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">DD##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">DD##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">DD##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">DD##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">DD##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">DD##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='EE##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">EE##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">EE##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">EE##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">EE##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">EE##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">EE##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='FF##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">FF##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">FF##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">FF##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">FF##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">FF##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">FF##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='HH##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">HH##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">HH##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">HH##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">HH##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">HH##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">HH##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='II##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">II##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">II##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">II##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">II##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">II##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">II##$$6</span></a></li>
+                                </ul>
+                                <ul data-parent='JJ##'>
+                                    <li><a href="#" data-entity='$$1'>District <span class="listItemIdentifier">JJ##$$1</span></a></li>
+                                    <li><a href="#" data-entity='$$2'>District <span class="listItemIdentifier">JJ##$$2</span></a></li>
+                                    <li><a href="#" data-entity='$$3'>District <span class="listItemIdentifier">JJ##$$3</span></a></li>
+                                    <li><a href="#" data-entity='$$4'>District <span class="listItemIdentifier">JJ##$$4</span></a></li>
+                                    <li><a href="#" data-entity='$$5'>District <span class="listItemIdentifier">JJ##$$5</span></a></li>
+                                    <li><a href="#" data-entity='$$6'>District <span class="listItemIdentifier">JJ##$$6</span></a></li>
+                                </ul>
+                                <span class='noSelectionMessage'>Select a Forest</span>
+                                <i class="fa fa-times-circle clearList clearDistrictList"></i>
+                            </div>
+                        </div>
+                        <div class="dashboardDataBlocks">
+                            <span class="noDataMessage">
+                                Welcome! <br> Currently there are no locales selected.
+                                Please select a locale to begin viewing data.
+                            </span>
+                            <div class="dashboardDataBlock">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock notForHighlights">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock notForHighlights">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock notForHighlights">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock notForHighlights">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                            <div class="dashboardDataBlock notForHighlights">
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                                <div class="dataBlockRow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

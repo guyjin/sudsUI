@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+
+    <link href="../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Special Use Contacts</title>
+</head>
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+        <div class="container suds-container subflow">
+            <div class="nrm-edit-form">
+                <div id="renderView" class="contactSelection">
+                    <div class="summaryHeader">
+
+                    <div class="detailSections">
+
+                    </div>
+                    <div class="screenName">
+                        <div class="name tabHeading soloTab">
+                            New Proposal
+                            <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+                            Contacts
+                        </div>
+                    </div>
+                </div>
+                    <div class="screenContent">
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset" >
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Reset
+                            </button>
+
+                            <button class="btn btn-link btn-cancel">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                Cancel
+                            </button>
+                        </div>
+
+                        <div class="screenSections">
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Contacts
+                                </div>
+                            </div>
+                            <div class="sections">
+                                <div class="section">
+                                    <div class="sectionTop">
+                                        <div class="tabHeading sectionLabel">
+                                            Assigned Contacts
+                                        </div>
+                                    </div>
+                                    <div class="sectionContent">
+                                        <div class=" contactList">
+                                            <div class="alert alert-info message message-info">
+                                                Hey! No contacts were found. Use the search below to find and add a contact. You can do it!
+                                            </div>
+                                            <div class="tableContainer contacts">
+                                                <table class="table table-condensed table-hover table-striped contactListTable">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Business Name</th>
+                                                        <th>Telephone</th>
+                                                        <th>Address</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section">
+                                    <div class="sectionTop">
+                                        <div class="tabHeading sectionLabel">
+                                            Contact Search
+                                        </div>
+                                    </div>
+                                    <div class="sectionContent">
+                                        <form name="contactSearchForm" id="contactSearchForm">
+                                            <div>
+                                                
+                                                <input type="text" name="contactSearchField" id="contactSearchField" class="form-control suds-input" placeholder="contact name">
+                                            </div>
+                                            <div class="searchFormControls">
+                                                <button type="submit" class="btn btn-suds suds-primary contactSearchSubmit"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                                <button type="reset" class="btn btn-default btn-suds  contactSearchReset"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+                                            </div>
+                                        </form>
+                                        <div class="searchResults">
+
+                                            <div class="tableFrame">
+                                                <h4>Search Results</h4>
+                                                <caption>Select a contact to add them to the proposal.</caption>
+                                                <div class="tableContainer">
+                                                    <table class="table table-condensed table-hover table-striped searchResultsTable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Business Name</th>
+                                                            <th>Telephone</th>
+                                                            <th>Address</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="selectContactLink">
+                                                                <button class="btn btn-default btn-sm btn-suds">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                                <a href="#">
+                                                                    <span class="contactName">Stark, Tony</span>
+                                                                </a>
+                                                            </td>
+                                                            <td>Stark Enterprises</td>
+                                                            <td>555-555-5555</td>
+                                                            <td>
+                                                                1 Avengers Way Nowhere, MD 45612-1234
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="selectContactLink">
+                                                                <button class="btn btn-default btn-sm btn-suds">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                                <a href="#">
+                                                                    <span class="contactName">Rogers, Steve</span>
+                                                                </a>
+                                                            </td>
+                                                            <td>American Way</td>
+                                                            <td>555-555-5555</td>
+                                                            <td>
+                                                                1 Avengers Way Nowhere, MD 45612-1234
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="selectContactLink">
+                                                                <button class="btn btn-default btn-sm btn-suds">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                                <a href="#">
+                                                                    <span class="contactName">Romanova, Natasha</span>
+                                                                </a>
+                                                            </td>
+                                                            <td>Black Widow Temps</td>
+                                                            <td>555-555-5555</td>
+                                                            <td>
+                                                                1 Avengers Way Nowhere, MD 45612-1234
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        (function($) {
+            var renderView = $('.nrm-edit-form');
+            setTimeout(function () {
+                $('.suds-container').animate({
+                    opacity: 1,
+                    left: 0
+                }, pageTransitionTime, 'easeOutCirc')
+            }, 500);
+
+            $('#contactSearchForm').on('submit', function(e) {
+                e.preventDefault();
+                $('.searchResults').addClass('showResults');
+            });
+
+            $('.stepControls button[type=submit]').on('click', function() {
+                backToOnBoarding();
+            });
+
+            $('.selectContactLink').on('click', function(e) {
+
+                e.preventDefault();
+                var theRow = $(this).closest('tr').clone();
+                if ($('.searchResultsTable tbody tr').length === 1) {
+                    $('.searchResults').removeClass('showResults');
+                    $('.contacts').fadeOut(function() {
+                        $('.searchResultsTable tbody tr').remove();
+
+                    })
+                } else {
+                    $(this).closest('tr').fadeOut(function() {
+                        $(this).remove();
+                    });
+                }
+
+                var name = theRow.find('.selectContactLink')[0].innerText;
+                theRow.find('.selectContactLink')[0].className = 'removeContactLink';
+                theRow.find('.glyphicon-plus')[0].className = 'glyphicon glyphicon-minus';
+
+                theRow.find('.contactName').text(name);
+                $('.contactListTable tbody').append(theRow);
+                $('.contactList .alert').fadeOut(function() {
+                    $('.contacts').fadeIn();
+                    $('.stepControls button[type=submit]').prop('disabled', false);
+                })
+            });
+
+            $('.contactList').on('click', '.removeContactLink', function(e) {
+                e.preventDefault();
+                if ($('.contactListTable tbody tr').length === 1) {
+                    $('.contacts').fadeOut(function() {
+                        $('.contactList .alert').fadeIn();
+                        $('.contactListTable tbody tr').remove();
+                        $('.stepControls button[type=submit]').prop('disabled', true);
+                    })
+                } else {
+                    $(this).closest('tr').fadeOut(function() {
+                        $(this).remove();
+                    })
+                }
+                //            var row = $(e.target).closest('tr').fadeOut(function() {
+                //
+                //                if($('.contactListTable tbody tr').length === 1){
+                //                    $('.contactListTable').fadeOut(function() {
+                //                        $('.contactList .alert').fadeIn();
+                //                    })
+                //                }
+                //            })
+            })
+
+            renderView.scroll(function () {
+
+                if ($(this).scrollTop() > 52) {
+                    var t = $(this).offset().top + 16;
+                    $('.stepControls').addClass('fixed').css({
+                        top: t + 'px'
+                    });
+
+                    $('.screenSections').css({
+                        top: '60px'
+                    })
+                } else {
+                    $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                    $('.screenSections').removeAttr('style');
+                }
+            })
+        })(jQuery);
+        var pageTransitionTime = 800;
+        var backToOnBoarding = function(){
+            $('.suds-container').animate({
+                opacity: 0,
+                left: 800
+            }, pageTransitionTime, 'easeOutCirc');
+
+            setTimeout(function() {
+                window.location.href = 'onBoarding.html';
+            }, pageTransitionTime);
+        }
+    </script>
+</body>
+
+</html>

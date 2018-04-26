@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Level 1 Screening - Non-Commercial Use</title>
+</head>
+
+<body>
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">
+
+        <div class="container">
+            <!--This row contains the Stage and Step control Widgets -->
+            <div class="stageAndSteps row">
+                <div class="col-lg-9 col-md-7 col-sm-6">
+                    <h2 class="nrm-form-title SUDSStageHeader">
+                        Special Use
+                        <div class="dropdown">
+                            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary " disabled="disabled">
+                            <span class="stageName">Proposal</span>
+                            <span class="caret"></span>
+                        </button>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li><a href="">Proposal</a></li>
+                                <li><a href="" class="disabled">Application Processing</a></li>
+                                <li><a href="" class="disabled">Authorization</a></li>
+                                <li><a href="" class="disabled">Closure</a></li>
+                            </ul>
+                        </div>
+                        <small><span class="label label-default nrm-editstate">New</span></small>
+                    </h2>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-6">
+                    <div class="input-group stepHistory">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary " disabled="disabled" type="button"><span class="glyphicon glyphicon-chevron-left"></span> last</button>
+                        </span>
+                        <div class="input-group-btn stepHistoryDropDownToggle">
+                            <button type="button" class="btn btn-primary  dropdown-toggle" disabled="disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Step Name <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Step Name</a></li>
+                                <li><a href="#">Another Step Name</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li><a href="">Something else that is really super long and takes a lot of space</a></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <!-- /btn-group -->
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" disabled="disabled" type="button">next <span class="glyphicon glyphicon-chevron-right"></button>
+                          </span>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+            </div>
+            <!--
+            Start the questions block
+        -->
+            <div id="renderView">
+                <div class="row">
+                    <h4 class="col-md-12">
+                        Level 1 Screening - Non-Commercial Use
+                    </h4>
+                    <p class="direction col-md-12">
+                        Answer all the screening questions either true or false.
+                    </p>
+                </div>
+                <div class="questions">
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                Authorization of the proposed activity is not prohibited by the rules at 36 CFR part 261, subpart B, or by Federal, State, or local law unrelated to the content of expressive activity;
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question1" id="question1_True">
+                            <label for="question1_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question1" id="question1_False">
+                            <label for="question1_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                Authorization of the proposed activity is consistent or can be made consistent with the standards and guidelines in the applicable forest land and resource management plan required under the National Forest Management Act and 36 CFR part 219;
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question2_False" id="question2_False_True">
+                            <label for="question2_False_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question2_False" id="question2_False_False">
+                            <label for="question2_False_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                The proposed activity does not materially impact the characteristics or functions of the environmentally sensitive resources or lands identified in Forest Service Handbook 1909.15, chapter 30;
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question3" id="question3_True">
+                            <label for="question3_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question3" id="question3_False">
+                            <label for="question3_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                The proposed activity will not delay, halt, or prevent administrative use of an area by the Forest Service or other scheduled or existing uses or activities on National Forest System lands, including but not limited to uses and activities authorized under
+                                parts 222, 223, 228, and 251 of this chapter;
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question4" id="question4_True">
+                            <label for="question4_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question4" id="question4_False">
+                            <label for="question4_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                The proposed activity does not violate State and local public health laws and regulations as applied to the proposed site. Issues addressed by State and local public health laws and regulations as applied to the proposed site include but are not limited
+                                to:
+                                <ul>
+                                    <li>The sufficiency of sanitation facilities;</li>
+                                    <li>The sufficiency of waste-disposal facilities;</li>
+                                    <li>The availability of sufficient potable drinking water;</li>
+                                    <li>The risk of disease from the physical characteristics of the proposed site or natural conditions associated with the proposed site; and</li>
+                                    <li>The risk of contamination of the water supply.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question5" id="question5_True">
+                            <label for="question5_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question5" id="question5_False">
+                            <label for="question5_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                The proposed activity will not pose a substantial danger to public safety. Considerations of public safety must not include concerns about possible reaction to the users' identity or beliefs from non-members of the group that is seeking an authorization
+                                and shall be limited to the following:
+                                <ul>
+                                    <li>The potential for physical injury to other forest users from the proposed activity;</li>
+                                    <li>The potential for physical injury to users from the physical characteristics of the proposed site or natural conditions associated with the proposed site;</li>
+                                    <li>The potential for physical injury to users from scheduled or existing uses or activities on National Forest System lands; and</li>
+                                    <li>The adequacy of ingress and egress in case of an emergency.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question6" id="question6_True">
+                            <label for="question6_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question6" id="question6_False">
+                            <label for="question6_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                The proposed activity does not involve military or paramilitary training or exercises by private organizations or individuals, unless such training or exercises are federally funded; and
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question7" id="question7_True">
+                            <label for="question7_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question7" id="question7_False">
+                            <label for="question7_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <!--
+                            Set the data-statustype via jquery when the radio buttons in 'answerButtons' are changed.  options are null (''), 'yes', or 'no'
+                             CSS is setup to hide or show the appropriate icon
+                        -->
+                        <div class="questionStatus" data-statustype="">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                        </div>
+                        <div class="question">
+                            <p>
+                                A person or persons 21 years of age or older have been designated to sign and do sign a special use authorization on behalf of the applicant.
+                            </p>
+                        </div>
+                        <div class="answerButtons">
+                            <input type="radio" name="question8" id="question8_True">
+                            <label for="question8_True" class="btn btn-default btn-lg">True</label>
+                            <input type="radio" name="question8" id="question8_False">
+                            <label for="question8_False" class="btn btn-default btn-lg">False</label>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                    Step controls
+                -->
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-md-offset-7 stepControls">
+
+                        <button class="btn btn-default btn-lg resetQuestions" type="reset">Reset</button>
+                        <button class="btn btn-primary btn-lg" type="submit">Save &amp; Continue</button>
+                        <button class="btn btn-danger btn-lg">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function($) {
+            $('.answerButtons').on('click', 'label', function() {
+                $(this).closest("div").siblings('.questionStatus').attr('data-statustype', this.innerText.toLowerCase());
+                $(this).siblings('label').removeClass('btn-primary');
+                $(this).addClass('btn-primary');
+            });
+
+            $('.resetQuestions').on('click', function() {
+                $('.questionStatus').attr('data-statustype', '');
+                $('input[type=radio]').removeAttr('checked');
+                $('label.btn-primary').removeClass('btn-primary');
+            })
+        })(jQuery)
+    </script>
+</body>
+
+</html>

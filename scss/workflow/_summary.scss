@@ -1,0 +1,110 @@
+.summaryPanel {
+  position: relative;
+  z-index: 1;
+  top: 1em;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 3.55em;
+  height: 100%;
+  box-sizing: border-box;
+
+  &.caseFileSummary {
+    position: static;
+    max-height: none;
+    height: auto;
+
+    .summaryBody {
+      border-radius: 20px;
+      padding-bottom: 0;
+    }
+  }
+
+
+  .summaryTab {
+    background-color: $gray2;
+    color: $gray2-text;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    z-index: 5;
+    width: 12em;
+    bottom: -1px;
+    margin-left: auto;
+    margin-right: 3em;
+    text-align: center;
+    padding: .5em 1em;
+    border-radius: 20px 20px 0 0;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:before {
+      content: "";
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      z-index: 4;
+      left: -22px;
+      bottom: -3px;
+      opacity: 0;
+      background-image: radial-gradient(circle at 0 0, transparent $tab-radius, $gray2 $tab-radius);
+    }
+
+    &:after {
+      content: "";
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      right: -22px;
+      bottom: -3px;
+      z-index: 4;
+      opacity: 0;
+      background-image: radial-gradient(circle at 0 0, transparent $tab-radius, $gray2 $tab-radius);
+    }
+  }
+
+  .summaryBody {
+    padding: 1em .5em;
+    padding-bottom: 6em;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    z-index: 5;
+    background-color: $gray2;
+    color: $primary-color-two-text;
+    font-weight:600;
+  }
+
+  .summaryContentRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .summaryContentBlock {
+      flex: 1 1 30%;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0 .5em 1em .5em;
+      background-color: $white;
+      color: $eerie-black;
+      font-size: .85em;
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+     
+
+      .contentLabel {
+        margin: 0;
+        font-weight: 600;
+
+      }
+      .contentText {
+        font-weight:400;
+      }
+    }
+  }
+}
+
+

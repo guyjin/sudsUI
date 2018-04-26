@@ -1,0 +1,225 @@
+{
+    "metadata": {
+        "package": {
+            "id": "68557a91-4d9b-4ae9-829a-57c5e3684058",
+            "version": 13,
+            "description": "Example data package"
+        }
+    },
+    "lov": {
+        "editableUnit": [
+            {
+                "vpdunitName": "SIX RIVERS NATIONAL FOREST",
+                "id": "0510",
+                "userName": "RDUARTE",
+                "application": true,
+                "billing": true,
+                "authorizedOfficer": true,
+                "suAdmin": true
+            },
+            {
+                "vpdunitName": "TONGASS NATIONAL FOREST",
+                "id": "1005",
+                "userName": "RDUARTE",
+                "application": true,
+                "authorizedOfficer": true
+            },
+            {
+                "vpdunitName": "BEAVERHEAD-DEERLODGE NATIONAL FOREST",
+                "id": "0102",
+                "userName": "RDUARTE",
+                "billing": true,
+                "suAdmin": true
+            },
+            {
+                "vpdunitName": "MT HOOD NATIONAL FOREST",
+                "id": "0606",
+                "userName": "RDUARTE",
+                "billing": true,
+                "suAdmin": true
+            },
+            {
+                "vpdunitName": "MT HOOD NATIONAL FOREST",
+                "id": "0606",
+                "userName": "KCOSENTINO",
+                "application": true,
+                "authorizedOfficer": true
+            },
+            {
+                "vpdunitName": "MT HOOD NATIONAL FOREST",
+                "id": "0606",
+                "userName": "JSIMONITCH"
+            }
+        ],
+        "processingStatus": [
+            {
+                "id": "1",
+                "code": "New",
+                "stage": "Proposal",
+                "authorizedOfficer": true,
+                "displayOrder": 0
+            },
+            {
+                "id": "2",
+                "code": "In Review",
+                "stage": "Proposal",
+                "authorizedOfficer": true,
+                "due": 60,
+                "priorityThreshold": 15,
+                "displayOrder": 10
+            },
+            {
+                "id": "3",
+                "code": "Returned",
+                "stage": "Proposal",
+                "displayOrder": 20
+            },
+            {
+                "id": "4",
+                "code": "Nominal Effects",
+                "stage": "Proposal",
+                "displayOrder": 30
+            },
+            {
+                "id": "5",
+                "code": "Accepted",
+                "stage": "Application",
+                "suAdmin": true,
+                "displayOrder": 40
+            },
+            {
+                "id": "6",
+                "code": "Cost Recovery Processing",
+                "stage": "Cost Recovery Processing",
+                "suAdmin": true,
+                "authorizedOfficer": true,
+                "displayOrder": 50
+            },
+            {
+                "id": "7",
+                "code": "Cost Recovery Payment Pending",
+                "stage": "Cost Recovery Processing",
+                "suAdmin": true,
+                "authorizedOfficer": true,
+                "due": 30,
+                "priorityThreshold": 10,
+                "displayOrder": 60
+            },
+            {
+                "id": "8",
+                "code": "On Hold",
+                "stage": "Cost Recovery Processing",
+                "displayOrder": 70
+            },
+            {
+                "id": "9",
+                "code": "Appealed",
+                "stage": "Cost Recovery Processing",
+                "displayOrder": 80
+            },
+            {
+                "id": "10",
+                "code": "Withdrawn",
+                "stage": "Cost Recovery Processing",
+                "displayOrder": 90
+            },
+            {
+                "id": "11",
+                "code": "NEPA Review",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "authorizedOfficer": true,
+                "displayOrder": 100
+            },
+            {
+                "id": "12",
+                "code": "Denied",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "displayOrder": 110
+            },
+            {
+                "id": "13",
+                "code": "App Approved",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "suAdmin": true,
+                "displayOrder": 120
+            },
+            {
+                "id": "14",
+                "code": "Authorization Drafted",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "suAdmin": true,
+                "displayOrder": 130
+            },
+            {
+                "id": "15",
+                "code": "Payment(s) Pending",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "due": 30,
+                "priorityThreshold": 10,
+                "suAdmin": true,
+                "displayOrder": 140
+            },
+            {
+                "id": "16",
+                "code": "Pending Signature",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "suAdmin": true,
+                "authorizedOfficer": true,
+                "due": 60,
+                "priorityThreshold": 15,
+                "displayOrder": 150
+            },
+            {
+                "id": "17",
+                "code": "Declined",
+                "stage": "NEPA Decision/Cost Recovery Monitoring",
+                "displayOrder": 160
+            },
+            {
+                "id": "18",
+                "code": "Issued",
+                "stage": "Administration",
+                "suAdmin": true,
+                "displayOrder": 170
+            },
+            {
+                "id": "19",
+                "code": "Non-compliance",
+                "stage": "Administration",
+                "suAdmin": true,
+                "displayOrder": 180
+            },
+            {
+                "id": "20",
+                "code": "Revoked",
+                "stage": "Administration",
+                "displayOrder": 190
+            },
+            {
+                "id": "21",
+                "code": "Terminated",
+                "stage": "Administration",
+                "displayOrder": 200
+            },
+            {
+                "id": "22",
+                "code": "Closed",
+                "stage": "Closure",
+                "displayOrder": 210
+            },
+            {
+                "id": "23",
+                "code": "Reissue",
+                "stage": "Closure",
+                "suAdmin": true,
+                "displayOrder": 220
+            },
+            {
+                "id": "24",
+                "code": "Transfer",
+                "stage": "Closure",
+                "displayOrder": 230
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NRM SUDS</title>
+        <!-- Uncomment following block for spatial apps only -->
+        <!--<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.18/dijit/themes/claro/claro.css" />
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.18/esri/css/esri.css"/>-->
+
+        <link rel="stylesheet" type="text/css" href="https://nrmdevb.fs.usda.gov/arcgis_js_api/library/3.18/3.18/dijit/themes/claro/claro.css" />
+        <link rel="stylesheet" type="text/css" href="https://nrmdevb.fs.usda.gov/arcgis_js_api/library/3.18/3.18/esri/css/esri.css">
+        
+        <link href="css/index.css" rel="stylesheet" media="screen"/>
+
+        <!-- 
+           HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries.
+           Do we really need this if our target browser is IE11?
+        -->
+        <!--[if lt IE 9]>
+          <script src="nrmcore/bootstrap/js/html5shiv.js" type="text/javascript"></script>
+          <script src="nrmcore/bootstrap/js/respond.min.js" type="text/javascript"></script>
+          <script src="nrmcore/json2/json2.min.js" type="text/javascript"></script>
+          <script src="nrmcore/json2/json2.js" type="text/javascript"></script>
+        <![endif]-->
+
+
+    </head>
+
+    <body>
+        <div class="ajax-progress"></div>
+
+        <script src="config.js" type="text/javascript"></script>
+
+        <script>
+            dojoConfig.callback = function() {
+                // Load the main module from the app package
+                require(['app'], function(app) {
+                    app.startup();
+                });
+            };
+        </script>
+       <!-- <script src="nrmcore/amd/dojo/dojo.js" type="text/javascript"></script>-->
+        <!-- Spatial apps use the following line INSTEAD OF dojo.js from the previous line -->
+       <!-- <script src="https://js.arcgis.com/3.18/"></script>-->
+
+        <script src="https://nrmdevb.fs.usda.gov/arcgis_js_api/library/3.18/3.18/init.js"></script>
+    </body>
+</html>

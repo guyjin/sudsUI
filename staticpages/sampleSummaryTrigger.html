@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Cost Recovery Monitoring</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" style="margin: 0px; left: 10px; top: 16px; width: auto; height: auto; right: 10px; bottom: 10px; display: block; visibility: visible; position: absolute; z-index: 0;">
+
+    <div class="container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+            <div class="container">
+                <div class="recordHeader">
+                    <div class="recordIdBlock">
+                        <div class="blockLabel">
+                            RECORD ID:
+                        </div>
+                        <div class="recordId">
+                            PWY123456
+                        </div>
+                    </div>
+                    <div class="proponentBlock">
+                        <div class="blockLabel">
+                            PROPONENT:
+                        </div>
+                        <div class="proponentName">
+                            Smith Partners, LLC.
+                        </div>
+                    </div>
+                    <div class="recordStatusBlock">
+                        <div class="blockLabel">
+                            STATUS:
+                        </div>
+                        <div class="recordStatus">
+                            Cost Recovery
+                        </div>
+                    </div>
+                    <div class="summaryBlock" data-toggle="modal">
+                        <i class="fa fa-map-o" aria-hidden="true"></i>
+                        Summary
+                    </div>
+
+                </div>
+                <div id="renderView" class="AOLevel1Screening">
+                 <h1>Sample Header</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque corporis impedit maxime
+                        nam, natus nulla rem reprehenderit tempore ut. Accusantium assumenda dolores eligendi facilis
+                        maiores, minus necessitatibus quae repudiandae.</p>
+                    <p>Alias atque aut consequuntur dolor dolores dolorum earum error est facere incidunt, inventore
+                        iste iure maxime minima molestias odio porro praesentium quam qui quisquam reiciendis
+                        repudiandae sequi similique tenetur voluptatum.</p>
+                    <p>Adipisci, alias aliquid aspernatur at, atque consequatur culpa cum deserunt earum eos, hic
+                        laudantium maiores nobis nostrum nulla numquam possimus quidem quisquam repudiandae rerum
+                        sapiente sit soluta veritatis. Reprehenderit, tempore.</p>
+                    <p>Animi cupiditate eveniet quaerat? Ab adipisci, alias consequatur cumque deserunt doloremque
+                        facilis in ipsa itaque, labore minus non odit perspiciatis quaerat qui quos sed similique
+                        tempora vel velit voluptatem voluptates.</p>
+                    <p>Fugiat impedit non perspiciatis quos rem repudiandae veritatis! Cumque dolores eum magnam quam
+                        repellendus. Ad at enim excepturi ipsa nihil quisquam reiciendis, repellat tenetur. Aut autem
+                        cupiditate et vel? Corporis.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut distinctio fugiat, inventore minus
+                        quasi voluptatem. Accusamus distinctio dolore doloremque ea illum in libero minima odio
+                        provident quaerat, quibusdam similique voluptatum!</p>
+                    <p>Dolorum nulla placeat quas rem repellendus? Alias amet delectus dicta doloremque dolores
+                        exercitationem nisi odit provident quaerat rem. Ab aspernatur deleniti, deserunt excepturi
+                        exercitationem explicabo id provident rem reprehenderit suscipit?</p>
+                    <p>Accusamus alias aliquid aperiam consectetur deleniti dolorum eius et facere, facilis fuga hic id
+                        ipsa labore laudantium molestias, neque nisi perferendis perspiciatis quae quaerat, quod
+                        recusandae reiciendis repellat reprehenderit sequi!</p>
+                    <p>Adipisci architecto blanditiis consectetur debitis dicta dolor enim esse et eveniet excepturi
+                        exercitationem, in iste labore, laborum magni maxime minus omnis quos repellendus sed similique
+                        soluta tenetur totam vero voluptatibus!</p>
+                    <p>Ab, aperiam architecto atque aut beatae blanditiis corporis culpa delectus dignissimos enim
+                        labore laboriosam maiores modi nisi nobis officia officiis praesentium quas quia ratione
+                        reprehenderit sed soluta. Consequatur, corporis quo.</p>
+                    <p>Blanditiis corporis delectus enim fuga inventore ipsum laboriosam minima, quae qui veniam. Aut
+                        eos minima nostrum odio perferendis quaerat quidem rem repellat voluptatem voluptates. Adipisci
+                        dolore eaque enim iste quas!</p>
+                    <p>Ab asperiores aut deserunt dolor, doloremque eum ex, exercitationem, harum hic impedit laudantium
+                        nesciunt nostrum nulla quod sequi sunt tempore ut vel. Deserunt doloribus mollitia placeat
+                        porro! Quisquam, similique suscipit!</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function($) {
+        $('.summaryBlock').on('click', function() {
+
+            $.get('summary.html', function(data) {
+                $('#summaryModal').html(data).modal({
+                    keyboard: true,
+                    backdrop: 'static'
+                });
+
+                setTimeout(function() {
+                    $('.summaryOverlay').addClass('loaded');
+                }, 200);
+
+                $('.summaryModalCloseBtn').on('click', function() {
+
+                    $('.summaryOverlay').fadeOut(function() {
+                        $('#summaryModal').html('').modal('hide');
+                        $(this).off('click');
+                    }).removeClass('loaded')
+
+                })
+
+            })
+
+
+
+        })
+    })(jQuery);
+
+</script>
+<div class="modal fade" id="summaryModal">
+
+</div>
+</body>
+
+</html>

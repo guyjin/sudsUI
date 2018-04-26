@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+
+    <link href="../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Special Use Code</title>
+</head>
+<body>
+<div class="ui-layout-center ui-layout-container">
+        <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+            <div class="container suds-container subflow">
+                <div class="nrm-edit-form">
+                    <div id="renderView" class="useCodeSelection">
+                        <div class="summaryHeader">
+                            <div class="screenName">
+                                <div class="name tabHeading soloTab">
+                                    Use Codes
+                                </div>
+                            </div>
+                        </div>
+                            <div class="screenContent">
+                                <div class="stepControls">
+                                    <button class="btn btn-link" type="submit">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                        Save &amp; Continue
+                                    </button>
+                                    <button class="btn btn-link resetQuestions" type="reset" >
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                        Reset
+                                    </button>
+
+                                    <button class="btn btn-link btn-cancel">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                        Cancel
+                                    </button>
+                                </div>
+
+                                <div class="screenSections">
+                                    <div class="tabHeadingRow">
+                                        <div class="tabHeading">
+                                            Use Codes
+                                        </div>
+                                    </div>
+                                    <div class="sections">
+                                        <div class="section">
+                                            <div class="sectionTop">
+                                                <div class="tabHeading sectionLabel">
+                                                    Primary Use Code
+                                                </div>
+                                            </div>
+                                            <div class="sectionContent">
+                                                <div class="specialUseCodeSelectors" id="codeSelector_0">
+
+                                                    <div>
+                                                        <label for="codeSelect_0">
+                                                            Use Code
+                                                        </label>
+                                                        <select name="codeSelect_0" id="codeSelect_0" class="form-control codeSelect suds-select" disabled="disabled">
+                                                            <option value="">Select Use Code</option>
+                                                            <option value="456">demo code</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <label for="categorySelect_0">
+                                                            Code Category
+                                                        </label>
+                                                        <select name="categorySelect_0" id="categorySelect_0" class="form-control suds-select categorySelect">
+                                                            <option value="">Select Category</option>
+                                                            <option value="123">demo category</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section">
+                                            <div class="sectionTop">
+                                                <div class="tabHeading sectionLabel">
+                                                    Secondary Use Code
+                                                </div>
+                                            </div>
+                                            <div class="sectionContent ">
+                                                <div class="secondaryUseCodes">
+
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-suds btn-default addSpecialUseCodeBtn" disabled="disabled" >
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                        Add A Secondary Code
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+</div>
+<script type="text/javascript">
+
+    (function($) {
+        var screenSections = $('.screenSections');
+        var renderView = $('.nrm-edit-form');
+        setTimeout(function () {                
+                $('.suds-container').animate({
+                    opacity: 1,
+                    left: 0
+                }, pageTransitionTime, 'easeOutCirc')
+            }, 500);
+
+
+        $('.categorySelect').on('change', function() {
+            if($(this).val() !== '') {
+                $('.codeSelect').prop('disabled',false);
+            } else {
+                $('.codeSelect').prop('disabled',true);
+            }
+        });
+
+        $('.codeSelect').on('change', function() {
+            if($(this).val() !== '') {
+                $('.addSpecialUseCodeBtn').prop('disabled', false);
+            } else {
+                $('.addSpecialUseCodeBtn').prop('disabled', true);
+            }
+        });
+
+        $('.addSpecialUseCodeBtn').on('click',function() {
+            
+            var newCode = $('#codeSelector_0').clone(true);
+            var oldId = Number(newCode.attr('id').slice(-1));
+            var newId = 1 + oldId;
+
+            newCode.attr('id', 'codeSelector_' + newId );
+            newCode.find('#categorySelect_' + oldId).attr('id', 'categorySelect_' + newId).prop('selectedIndex',0);
+            newCode.find('#codeSelect_' + oldId).attr('id', 'codeSelect_' + newId).prop('selectedIndex',0).prop('disabled', true);
+            newCode.find('label').first().attr('for', 'categorySelect_' + newId);
+            newCode.find('label').last().attr('for', 'codeSelect_' + newId);
+            newCode.append($('<a/>', {
+                'class': 'btn btn-suds suds-danger',
+                html: '<i class="fa fa-times"></i> remove',
+                click: function(e){
+                    removeUseCode(e);
+                }
+                
+            }));
+            $('.secondaryUseCodes').show(function() {
+                $(this).append(newCode);
+            });
+        });
+        $('button[type=reset]').on('click', function() {
+            $('.secondaryUseCodes .specialUseCodeSelectors').remove();
+            $('#categorySelect_0').val('');
+            $('#codeSelect_0').val('');
+        });
+
+        $('button[type=submit]').on('click', function() {
+             backToOnBoarding();
+        });
+
+        $('.btn-cancel').on('click', function(){
+            backToOnBoarding();
+        });
+
+        renderView.scroll(function () {
+
+            if ($(this).scrollTop() > 52) {
+                var t = $(this).offset().top + 16;
+                $('.stepControls').addClass('fixed').css({
+                    top: t + 'px'
+                });
+
+                $('.screenSections').css({
+                    top: '60px'
+                })
+            } else {
+                $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                $('.screenSections').removeAttr('style');
+            }
+        })
+    })(jQuery);
+    var pageTransitionTime = 800;
+    var sectionNavOffsetFromRenderViewTop = $('.summaryHeader').height();
+    var renderViewOffsetFromTop = $('#renderView').offset().top;
+    //    var screenNavOffsetFromRenderViewTop = $('.screenNav').offset().top;
+    var stepControlsOffsetFromTop = $('.stepControls').offset().top;
+    var removeUseCode = function(e){
+        e.preventDefault();
+        console.log(e.target);
+        if(confirm('Are you sure you want to remove this Use Code?')){
+            $(e.target).parent().remove();
+        }
+    }
+
+    var backToOnBoarding = function(){
+        $('.suds-container').animate({
+            opacity: 0,
+            left: 800
+        }, pageTransitionTime, 'easeOutCirc');
+
+        setTimeout(function() {
+//            window.location.href = 'onBoarding.html';
+              history.back();
+        }, pageTransitionTime);
+    }
+</script>
+</body>
+</html>

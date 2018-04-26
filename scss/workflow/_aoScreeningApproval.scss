@@ -1,0 +1,347 @@
+.AOLevel1Screening {
+    .screeningHeader {
+        .infoViewBar {
+            margin-bottom: 1em;
+        }
+        .infoView {
+            position: relative;
+            .activityType,
+            .useDescription {
+                opacity: 0;
+                z-index: -1000;
+                position: absolute;
+                background-color: $anti-flash-white;
+                border: 1px solid $primary-color-one;
+                top: -12px;
+                transition: opacity .5s ease;
+                max-width: 80em;
+                padding: 1em;
+                border-radius: 5px;
+                box-shadow: 0 4px 11px 2px rgba(0, 0, 0, 0.15);
+                &.open {
+                    opacity: 1;
+                    z-index: 12;
+                }
+                &.pinned {
+                    opacity: 1;
+                    z-index: 1;
+                    position: relative;
+                    box-shadow: none;
+                    border-radius: 0;
+                    border: none;
+                    background-color: $anti-flash-white;
+                    color: #000;
+                    margin-top: 1em;
+                    .actions {
+                        position: absolute;
+                        top: 0.5em;
+                        right: 0.5em;
+                        justify-content: flex-end
+                    }
+                    .pin {
+                        display: none;
+                    }
+                }
+                .actions {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    .screeningResults {
+        padding-bottom: 5em;
+        .answerBlock {
+            display: flex;
+            background-color: $anti-flash-white;
+            border: 1px solid $gray1;
+            margin-bottom: 5px;
+            border-radius: 2px;
+            
+            position: relative;
+            .answerText {
+                background-color: $white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                min-width: 5em;
+                &.True {
+                    color: $primary-highlight;
+                }
+                &.False {
+                    color: $danger-suds;
+                }
+                .fa {
+                    font-size: 2em;
+                }
+            }
+            .question {
+                padding: 1em;
+                display: flex;
+                align-items: center;
+
+                p {
+                  margin: 0;
+                }
+            }
+            .clickMeLabel {
+                background-color: $primary-color-one;
+                color: #fff;
+                font-size: 3em;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: -1000;
+                opacity: 0;
+                transition: opacity .35s ease;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+            &:hover {
+                .clickMeLabel {
+                    z-index: 10;
+                    opacity: .9;
+                    cursor: pointer;
+                }
+            }
+            &.editing {
+                border: 2px dashed $primary-color-one;
+                background: transparent;
+                .answerText,
+                .question,
+                .clickMeLabel {
+                    visibility: hidden;
+                }
+            }
+        }
+
+
+    }
+    .decisionButtons {
+        position: fixed;
+        bottom: 1em;
+        left: 50%;
+        margin-left: -290px;
+        //box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, .5);
+        z-index: 1000;
+        background-color: $primary-color-one;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px;
+        .decisionButton {
+            color: #fff;
+            font-size: 1.3em;
+            font-weight: 600;
+            padding: 1em;
+            &:hover {
+                cursor: pointer;
+            }
+            &.reject {
+                background-color: lighten($danger-suds, 10%);
+              border-radius: 5px 0 0 5px;
+                &:hover {
+                    background-color: darken($danger-suds, 10%);
+                }
+            }
+            &.accept {
+                background-color: lighten($primary-highlight, 10%);
+              border-radius: 0 5px 5px 0;
+                &:hover {
+                    background-color: $primary-highlight;
+                }
+            }
+        }
+    }
+    /*#editingModal {
+        .editForm {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            margin-left: -250px;
+            background-color: #fff;
+            min-height: 200px;
+            max-width: 500px;
+            width: 100%;
+            .header {
+                background-color: #444;
+                color: #fff;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                * {
+                    display: flex;
+                    align-items: center;
+                }
+                h2 {
+                    line-height: 1;
+                    margin: 0;
+                    padding: 1em;
+                    font-weight: 600;
+                    background-color: #444;
+                }
+                .editCloser {
+                    font-size: 2.5em;
+                    width: 2.5em;
+                    display: flex;
+                    justify-content: center;
+                    font-weight: 600;
+                    transition: transform .4s ease, font-size .2s ease;
+                    &:hover {
+                        cursor: pointer;
+                        color: $desire;
+                    }
+                }
+            }
+            .questionText {
+                font-size: 1.6em;
+                padding: 2em;
+            }
+            .reasonLabel {
+              margin: 0 2em;
+              background-color: #444;
+              padding-left: 1em;
+              font-weight: 600;
+              font-size: 1.5em;
+              color:#fff;
+            }
+            .reasonForChange {
+              padding: 1em 3em;
+            }
+            .answerButtons {
+                display: flex;
+                .answer {
+                    flex: 1;
+                    border-width: 1px;
+                    border-style: solid;
+                    color: #333;
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 1.6em;
+                    padding: 1em;
+                    &.answerTrue {
+                        border-color: $primary-highlight;
+                        &.active {
+                            background-color: $primary-highlight;
+                        }
+                    }
+                    &.answerFalse {
+                        border-color: $desire;
+                        &.active {
+                            background-color: $desire;
+                        }
+                    }
+                    &.active {
+                        color: #fff;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }*/
+
+ .stamp {
+    display: none;
+    position: fixed;
+   text-align: center;
+    top: 5vh;
+    z-index: -10000;
+    opacity: 0;
+     height: 90vh;
+     width: 100vw;
+
+    &.show {
+      display: block;
+      opacity: 1;
+      z-index: 10000;
+    }
+
+    svg {
+      margin-left: -20%;
+    }
+  }
+
+}
+
+#editingModal {
+    .modalContent {
+        
+
+        .questionText {
+            font-size: 1.2em;
+          margin-bottom: 2em;
+        }
+        .reasonLabel {
+            margin: 2em 2em;
+            background-color: #444;
+            padding-left: 1em;
+            font-weight: 600;
+            font-size: 1.4em;
+            color:#fff;
+        }
+
+        .answerButtons {
+            display: flex;
+            .answer {
+                flex: 1;
+                border-width: 1px;
+                border-style: solid;
+                color: #333;
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.4em;
+                padding: .75em;
+                margin-bottom: 2em;
+
+                .fa {
+                  display: none;
+                }
+
+                &.answerTrue {
+                    border-color: $primary-highlight;
+                  border-radius: 5px 0 0 5px;
+                    &.active {
+                        background-color: $primary-highlight;
+
+                      .fa {
+                        display: inline-block;
+                      }
+                    }
+                }
+
+                &.saveBtn {
+                    border-color: $danger-suds;
+                }
+
+                &.answerFalse {
+                    border-color: $danger-suds;
+                    border-radius: 0 5px 5px 0;
+                    &.active {
+                        background-color: $danger-suds;
+
+                      .fa {
+                        display: inline-block;
+                      }
+                    }
+                }
+                &.active {
+                    color: #fff;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

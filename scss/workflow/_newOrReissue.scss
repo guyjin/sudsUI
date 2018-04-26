@@ -1,0 +1,38 @@
+.newProposalCheck {
+  display: flex;
+  justify-content: center;
+}
+
+.newOrUsedCard {
+  @extend .card;
+  max-width: 350px;
+  background-color: $white;
+  border: 1px solid $gray1;
+  border-bottom-width: 0;
+
+  .cardIcon {
+    .fa-circle {
+      color: $primary-color-one;
+    }
+    .fa-question {
+      color: $eerie-black;
+    }
+  }
+
+  .direction {
+    color: $primary-color-one-text;
+    
+  }
+
+  .newProposalButtons {
+    margin: 0 -2em -2em -2em;
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5em 0;
+    background-color: $gray3;
+
+    button {
+      line-height: 1;
+    }
+  }
+}

@@ -1,0 +1,326 @@
+
+#renderView.costRecoveryWorksheet {
+  position: relative !important;
+ 
+
+  .crSummaryBtn {
+    line-height: 2;
+    color: white;
+    float: right;
+    font-size: 16px;
+    position: relative;
+    bottom: -25px;
+    right: 11px;
+    width: 30%;
+    z-index: 1000;
+    background-color: rgb(10, 106, 161);
+    padding: 1em;
+    margin-bottom: 25px;
+  }
+
+  h3 {
+    margin-left: 12px;
+    .addNewButton {
+      float: right;
+      font-size: 16px;
+      margin-top: -12px;
+      margin-right: 12px;
+      padding: 1em;
+    }
+  }
+
+  .noEntriesFound {
+    width: 100%;
+    max-width: 20vw;
+    min-width: 400px;
+    position: relative;
+    margin: 0 auto;
+    display: none;
+    justify-content: center;
+
+    .message {
+      flex: 1;
+    }
+
+    .addNewButton {
+      font-weight:600;
+      font-size: 16px;
+      padding: 1rem 2rem;
+    }
+    
+  }
+
+
+  .entriesTable {
+    
+
+    th,td {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 12px;
+      
+      &.scopeRow {
+        text-align: left;
+      }
+
+      &.editButtons {
+        text-align: right;
+      }
+    }
+
+    .scopeOfWork {
+
+
+
+      .scopeSnippet {
+        display: inline;
+        height: 1.5em;
+        overflow: hidden;
+      }
+
+      .scopeBody {
+        display: none;
+      }
+
+      .btn {
+        font-size: inherit;
+      }
+
+      .less {
+        display: none;
+      }
+
+      &.openScope {
+        .scopeSnippet {
+          height: auto;
+        }
+        .scopeBody {
+          display: inline;
+        }
+
+        .more {
+          display: none;
+        }
+        .less {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .summaries {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    
+    width: 100%;
+
+    .summary {
+      min-width: 450px;
+
+      .badgeCardDataText {
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        overflow: hidden;
+        min-height: 145px;
+        min-width: 340px;
+      }
+
+      .category {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        background-color: $primary-highlight;
+        color: $white;
+        max-width: 120px;
+
+        .categoryHours {
+          background-color: $primary-highlight;
+          font-size: 16px;
+          line-height: 1;
+          font-weight: bold;
+          text-align: center;
+          padding: .7em 0 0;
+        }
+
+        .categoryLabel {
+          display: flex;
+          flex: 1 0 auto;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-width: 120px;
+
+          .categoryText {
+            font-size: 16px;
+            text-align: center;
+          }
+          .categoryNumber {
+            font-size: 5em;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1;
+          }
+        }
+
+      }
+
+      .fees {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        background-color: $anti-flash-white;
+
+        .fee {
+          display: flex;
+          flex: 1;
+          border-bottom: 2px solid $white;
+
+          .feeLabel {
+            flex:1 1 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: $primary-color-two;
+            font-size: 18px;
+            padding-right: 10px;
+            padding-left: 10px;
+            max-width: 150px;
+            min-width:130px;
+          }
+
+          .feeValue {
+            background-color: $primary-color-two;
+            color: $white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 24px;
+            min-width: 200px;
+            padding: 0 20px;
+            flex: 1;
+          }
+
+          &.total {
+            border-bottom: 0;
+            background-color: $gray1;
+          }
+        }
+      }
+    }
+
+    .processingSummary {
+      border-color: $danger-suds;
+    }
+
+    .monitoringSummary {
+      border-color:$eerie-black;
+    }
+  }
+
+  &.noEntries {
+    .noEntriesFound {
+      display: flex;
+    }
+
+    .entriesTable,
+    .summaries {
+      display:none
+    }
+
+  }
+}
+
+
+#addToWorksheetModal {
+
+  .modal-dialog {
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .modal-content {
+    max-width: 1000px;
+    border-radius: 20px;
+  }
+
+  .modal-header {
+    h4 {
+      font-size: inherit;
+      line-height: inherit;
+      margin: inherit;
+    }
+  }
+
+  .costRecoveryWorksheetForm {
+
+    display: flex;
+    flex-direction: column;
+
+    .worksheetFormRow {
+      display: flex;
+      margin-bottom: 2em;
+
+      .worksheetForm {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+
+        &.form1 {
+          background-color: #d8d8d8;
+          border-radius: 20px 0 0 20px;
+        }
+
+        &.form2 {
+          background-color: #9B9B9B;
+          color: $white;
+        }
+
+        &.form3 {
+          background-color: #4a4a4a;
+          color: $white;
+          border-radius: 0 20px 20px 0;
+        }
+
+        label {
+          font-size: 16px;
+        }
+      }
+
+      .worksheetFormField {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+
+      }
+
+
+
+      &:nth-child(3) {
+
+        .worksheetForm {
+          padding: 0;
+
+          .worksheetFormField {
+            label {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+      }
+    }
+
+    .controls {
+      button {
+        margin-left: 1em;
+      }
+    }
+  }
+}

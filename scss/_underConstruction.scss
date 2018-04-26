@@ -1,0 +1,14 @@
+.constructionMessageBox {
+  margin: 100px auto 0;
+  max-width: 500px;
+  display: flex;
+  padding: 1em;
+  border-radius: 5px;
+  position: relative;
+  background-color: #efefef;
+
+  .message {
+    margin-left: 1em;
+  }
+}
+

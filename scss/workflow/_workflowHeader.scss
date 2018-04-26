@@ -1,0 +1,118 @@
+.stageAndSteps {
+  margin-right: 5px;
+  
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    clear: both;
+    line-height: 0;
+    display: block;
+  }
+}
+
+.recordHeader {
+  min-height: 4.285714285714286em;
+  background-color: $primary-color-three;
+  color: $white;
+  display: flex;
+  font-family: "Arial", sans-serif;
+
+  .blockLabel {
+    color: $white;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+
+  .recordIdBlock {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 225px;
+    padding: 10px;
+    border-right: 1px solid $white;
+
+    .recordId {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 29px;
+    }
+
+  }
+
+  .proponentBlock {
+    background-color: $primary-color-three;
+    color: $primary-color-three-text;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid $white;
+
+    .proponentName {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight:400;
+      text-transform: uppercase;
+    }
+  }
+
+  .recordStatusBlock {
+    background-color: $primary-color-two;
+    color: $primary-color-two-text;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid $white;
+
+    .recordStatus {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: 400;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+  }
+
+  .summaryBlock {
+    position: relative;
+    width: 216px;
+    background-color: $primary-color-three;
+    color: $primary-color-three-text;
+    font-weight: 400;
+    font-size: 24px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: padding .1s ease, font-size .1s ease;
+
+    i {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      font-size: 26px;
+    }
+  }
+
+
+  circle {
+    fill: $white;
+  }
+}
+
+.nrm-edit-form>.recordHeader {
+  margin-top: -10px;
+}
+
+
+
+@import 'workflowHeaderStages';
+@import 'workflowHeaderSteps';
+

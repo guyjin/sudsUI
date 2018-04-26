@@ -1,0 +1,32 @@
+/* The imported stylesheets will be concatenated into this file during Dojo build optimization  */
+@import url("../nrmcore/layout/layout-default-latest.css"); 
+@import url("../nrmcore/bootstrap/css/bootstrap.css");
+@import url("../nrmcore/font-awesome/css/font-awesome.css");
+@import url("../nrmcore/jquery-datatables/css/jquery.dataTables.css");
+@import url("../nrmcore/jquery-datatables/css/DT_bootstrap.css");
+@import url("../nrmcore/bootstrap/css/bootstrap-theme.css");
+@import url("../nrmcore/bootstrap-datepicker-3x/css/datepicker.css");
+@import url("../nrmcore/pnotify/jquery.pnotify.default.css");
+@import url("../nrmcore/select2/select2.css");
+@import url("../nrmcore/jstree-3.0/themes/default/style.css");
+@import url("../nrmcore/nrm-ui/css/nrm-shuttle.css");
+@import url("../nrmcore/nrm-ui/css/nrm.css");
+
+/* Spatial apps only...*/
+@import url("../nrmcore/nrm-map/nrmMap.css");
+
+/* Suds specific css */
+@import url(suds.css);
+/* 
+    Add application-specific styling in this file below the @import lines
+*/
+
+/* Add bottom margin for .nrm-tabs-container, this will most likely move to nrm.css */
+.nrm-tabs-container {
+    margin-bottom: 15px;
+}
+
+
+div.form-compressed .nrm-tabs-container {
+    margin-bottom: 6px;
+}

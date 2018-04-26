@@ -1,0 +1,12 @@
+{
+	"name": "app",
+	"version":"1.0",
+	"directories": {
+		"lib": "."
+	},
+	"main": "main",
+	"description": "NRM Suds application",
+	"bugs": "[Add URL to TeamForge project issue tracker here]",
+	"homepage": "[Add URL to TeamForge project homepage here]",
+	"dojoBuild": "app.profile.js"
+}

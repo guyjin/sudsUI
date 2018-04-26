@@ -1,0 +1,175 @@
+#recEventRentSheetForm {
+  .eventQuantitySection {
+      display: flex;
+      justify-content: space-between;
+  }
+    
+    .eventQuantitySelectors  {
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        label {
+            border-radius: 50px;
+        }
+    }
+    
+    .tbl {
+        display: table;
+        width: 100%;
+    }
+    
+    .form-section {
+        &.tblRow {
+            display: table-row;
+            
+            &.totals {
+                .form-group {
+                    border-top: 1px dashed #ccc;
+                    padding-top: .5em;
+                }
+            }
+            
+            
+            
+            .colLabel {
+                font-size: 10px;
+                text-transform: uppercase;
+                font-weight:600;
+            }
+            
+            .colAmount {
+                font-weight: 600;
+                font-size: 1.4em;
+            }
+        }
+        
+        .form-group {
+            padding: 0 5px 1em;
+            display: table-cell;
+        }
+    }
+    
+    
+   
+    
+    .btnCell {
+        vertical-align: bottom;
+        padding-bottom: 6px;
+    }
+    
+    .estimateInputs,
+    .finalInputs {
+        display: flex;
+    }
+    
+    .finalInputs {
+        margin-left: 10px;
+    }
+    
+    .rentRate {
+        background-color: $gray4;
+        color: $gray2-text;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+      
+    }
+    
+    .rentRateLabel {
+        background-color: $warning-suds;
+        color: $eerie-black;
+        font-weight: 600;
+        font-size: 1em;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        padding: 2px 17px 0;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .rentRateAmount {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight:600;
+        font-size: 2em;
+        padding: 5px 0;
+    }
+    
+    .rentSummary {
+        display: flex;
+        flex-direction: row;
+        
+        .rentTotal {
+            margin-right: 2em;
+        }
+        
+        .summaryLabel {
+            text-transform: uppercase;
+            
+            &.total {
+                font-weight: 600;
+            }
+        }
+        
+        .summaryAmount {
+            font-size:2em;
+            
+            &.total {
+                font-weight: 600;
+                color: $primary-color-two;
+            }
+        }
+    }
+    
+    .formula {
+        margin-left: auto;
+        button {
+            position: relative;
+            z-index: 10;
+        }
+    }
+    
+    .formulaFrame {
+        display: flex;
+        opacity: 0;
+        z-index: 9;
+        flex-direction: column;
+        flex: 0 1 auto;
+        border-radius: 10px;
+        background-color: lightyellow;
+        box-shadow:   0 2px 3px  rgba(0,0,0,.5);
+        padding: 2em 4em;
+        position: absolute;
+        top: -3em;
+        right: 2em;
+        text-align: center;
+        transition: all .3s ease;
+        
+        &.view {
+            opacity: 1;
+            top: -7em;
+            transition: all .3s ease;
+        }
+        
+        .fa {
+            color: red;
+            position: absolute;
+            right: -.25em;
+            top: -.25em;
+            font-size: 1.5em;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        .numericFormula {
+            font-weight: 600;
+            font-size:1.8em;
+        }
+    }
+}

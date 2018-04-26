@@ -1,0 +1,29 @@
+#renderView.basicInfo {
+  .sections {
+
+
+    &.wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+  }
+  .dates {
+    display: flex;
+    justify-content: flex-start;
+    .date {
+      max-width: 200px;
+    }
+    .dateDivider {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 0 1em;
+
+      i {
+        margin-bottom: 25px;
+      }
+    }
+
+  }
+}

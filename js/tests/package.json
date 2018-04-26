@@ -1,0 +1,10 @@
+{
+	"name": "tests",
+	"version":"1.0",
+	"directories": {
+		"lib": "."
+	},
+	"main": "tests.main",
+	"description": "NRM Suds QUnit tests",
+	"dojoBuild": "tests.profile.js"
+}

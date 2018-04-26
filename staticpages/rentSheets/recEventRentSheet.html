@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+    
+    <link href="../../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
+    <title>Rec Event Rent Sheet</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" id="app">
+        <div class="container suds-container subflow">
+            <div class="nrm-edit-form">
+                <div id="renderView" class="rentSheetWorksheet">
+                    <div class="summaryHeader">
+                        <div class="screenName">
+                            <div class="name tabHeading soloTab">
+                                Rent Sheet
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Reset
+                            </button>
+                            
+                            <button class="btn btn-link btn-cancel">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="screenSections">
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Recreation Event
+                                </div>
+                            </div>
+                            <form name="recEventRentSheetForm" id="recEventRentSheetForm">
+                                <div class="sections">
+                                    <div class="section">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">
+                                                Number of Events
+                                            </div>
+                                            <!--<div class="tabHeading sectionActionLink singleton">-->
+                                            <!--<a href="#"><i class="fa fa-download"></i> Download Agreement (PDF)</a>-->
+                                            <!--</div>-->
+                                        </div>
+                                        <div class="sectionContent">
+                                            
+                                            <div class="eventQuantitySection horz">
+                                                <div class="eventQuantitySelectors">
+                                                    <p>
+                                                        Select the number of events
+                                                    </p>
+                                                    <div class="eventQuantities radioButtonList horz">
+                                                        
+                                                        <div class="radioButtonContainer">
+                                                            <input type="radio" name="eventQuantities" id="singleEvent"
+                                                                value="single" v-model="countType">
+                                                            <label for="singleEvent">
+                                                                Single
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="radioButtonContainer">
+                                                            <input type="radio" name="eventQuantities"
+                                                                id="multipleEvents" value="multiple"
+                                                                v-model="countType">
+                                                            <label for="multipleEvents">
+                                                                Multiple
+                                                            </label>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="rentRate">
+                                                    <div class="rentRateLabel">
+                                                        Rate
+                                                    </div>
+                                                    <div class="rentRateAmount">
+                                                        <span v-if="countType === 'multiple'">3%</span>
+                                                        <span v-if="countType === 'single'">5%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">
+                                                Estimates
+                                            </div>
+                                            <div class="tabHeading sectionActionLink " v-if="countType === 'multiple'" @click.prevent>
+                                                <a href="#"><i class="fa fa-plus"></i> Add Another Event</a>
+                                            </div>
+                                        </div>
+                                        <div class="sectionContent tbl">
+                                            <div class="form-section tblRow">
+                                                
+                                                <div class="form-group " v-if="countType === 'multiple'">
+                                                    <label for="en1">Event Name</label>
+                                                    <input type="text" name="eventName" id="en1"
+                                                        class="form-control suds-input eventName">
+                                                </div>
+                                                <div class="form-group md">
+                                                    <label for="eGR1"
+                                                        class="req">Estimated Gross Revenue</label>
+                                                    <input type="text" name="estGrossRev" id="eGR1"
+                                                        class="form-control suds-input estGrossRev">
+                                                </div>
+                                                <div class="form-group md">
+                                                    <label for="eP1" class="req">Estimated Prize</label>
+                                                    <input type="text" name="estPrize" id="eP1"
+                                                        class="form-control suds-input estPrize">
+                                                </div>
+                                                <div class="form-group btnCell " v-if="countType === 'multiple'">
+                                                    
+                                                    <button class="btn btn-sm btn-suds">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="form-group btnCell" v-if="countType === 'multiple'">
+                                                    <button class="btn suds-primary btn-suds" @click.prevent>
+                                                        <i class="fa fa-plus"></i>
+                                                        Add Another Event
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!--<div class="form-section tblRow " v-if="countType === 'multiple'">-->
+                                            <!---->
+                                            <!--<div class="form-group">-->
+                                            <!--<label for="en1">Event Name</label>-->
+                                            <!--<input type="text" name="eventName" id="en1" class="form-control suds-input eventName">-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group md">-->
+                                            <!--<label for="eGR1"-->
+                                            <!--class="req">Estimated Gross Revenue</label>-->
+                                            <!--<input type="text" name="estGrossRev"  id="eGR1" class="form-control suds-input estGrossRev">-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group md">-->
+                                            <!--<label for="eP1" class="req">Estimated Prize</label>-->
+                                            <!--<input type="text" name="estPrize" id="eP1" class="form-control suds-input estPrize">-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group btnCell">-->
+                                            <!---->
+                                            <!--<button class="btn btn-sm btn-suds">-->
+                                            <!--<i class="fa fa-times"></i>-->
+                                            <!--</button>-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group btnCell">-->
+                                            <!--<button class="btn suds-primary btn-suds">-->
+                                            <!--<i class="fa fa-plus"></i>-->
+                                            <!--Add Another Event-->
+                                            <!--</button>-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!--</div>-->
+                                            <div class="form-section tblRow totals " v-if="countType === 'multiple'">
+                                                <div class="form-group"></div>
+                                                
+                                                <div class="form-group ">
+                                                    <div class="colLabel">
+                                                        Total Estimated Gross Revenue
+                                                    </div>
+                                                    <div class="colAmount">
+                                                        $12,000.00
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="colLabel">
+                                                        Total Estimated Prize Value
+                                                    </div>
+                                                    <div class="colAmount">
+                                                        $6,040.00
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">
+                                                Estimated Rent
+                                            </div>
+                                            <!--<div class="tabHeading sectionActionLink singleton">-->
+                                            <!--<a href="#"><i class="fa fa-download"></i> Download Agreement (PDF)</a>-->
+                                            <!--</div>-->
+                                        </div>
+                                        <div class="sectionContent">
+                                            <div class="rentSummary">
+                                                <div class="rentTotal">
+                                                    <div class="summaryLabel total">
+                                                        Calculated Rent
+                                                    </div>
+                                                    <div class="summaryAmount total">
+                                                        $12,000.00
+                                                        <button class="btn btn-suds suds-primary">
+                                                            <i class="fa fa-pencil"></i>
+                                                            Generate Bill
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="formula">
+                                                    <button class="btn btn-suds" @click.prevent="viewFormula()"><i
+                                                        class="fa fa-eye"></i> View Formula
+                                                    </button>
+                                                    <div class="formulaFrame" @click="hideFormula()"
+                                                        v-bind:class="{view: showFormula}">
+                                                        <i class="fa fa-times-circle"></i>
+                                                        <div class="numericFormula">
+                                                            0.5 x (5000 - 2500) = 125
+                                                        </div>
+                                                        <div class="textFormula">
+                                                            Rate x (Estimated Gross Revenue - Estimated Prize) = Estimated Rent
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    new Vue( {
+                 el     : '#app',
+                 data   : {
+                     countType  : 'single',
+                     showFormula: false
+                 },
+                 methods: {
+                     // loadIn() {
+                     //     this.pageReady = true;
+                     // }
+                     viewFormula: function () {
+                         this.showFormula = true;
+                     },
+                     hideFormula: function () {
+                         this.showFormula = false;
+                     }
+                 }
+             } );
+    var pageTransitionTime = 800;
+    (function ( jQuery ) {
+        var screenSections = $( '.screenSections' );
+        var renderView     = $( '.nrm-edit-form' );
+        setTimeout( function () {
+            $( '.suds-container' ).animate( {
+                                                opacity: 1,
+                                                left   : 0
+                                            }, pageTransitionTime, 'easeOutCirc' )
+        }, 500 );
+        
+        $( '.editWorksheetLink' ).on( 'click', function () {
+            $( '.suds-container' ).animate( {
+                                                opacity: 0,
+                                                left   : 800
+                                            }, pageTransitionTime, 'easeOutCirc' );
+            
+            setTimeout( function () {
+                window.location.href = 'costRecoveryWorksheet.html';
+//                history.back();
+            }, pageTransitionTime );
+        } );
+        
+        
+        $( '.stepControls button[type=submit]' ).on( 'click', function () {
+            backToCaseFile();
+        } );
+    })();
+    
+    var backToCaseFile = function () {
+        $( '.suds-container' ).animate( {
+                                            opacity: 0,
+                                            left   : 800
+                                        }, pageTransitionTime, 'easeOutCirc' );
+        
+        setTimeout( function () {
+            window.location.href = '../caseFile.html';
+//            history.back();
+        }, pageTransitionTime );
+    }
+
+
+</script>
+</body>
+</html>

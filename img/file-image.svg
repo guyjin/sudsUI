@@ -1,0 +1,15 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m26,28l-20,0l0,-4l6,-10l8.219,10l5.781,-4l0,8z"/>
+  <path id="svg_2" d="m26,15c0,1.657 -1.343,3 -3,3s-3,-1.343 -3,-3s1.343,-3 3,-3c1.657,0 3,1.343 3,3z"/>
+  <path id="svg_3" d="m28.681,7.159c-0.694,-0.947 -1.662,-2.053 -2.724,-3.116s-2.169,-2.03 -3.116,-2.724c-1.612,-1.182 -2.393,-1.319 -2.841,-1.319l-15.5,0c-1.378,0 -2.5,1.121 -2.5,2.5l0,27c0,1.378 1.122,2.5 2.5,2.5l23,0c1.378,0 2.5,-1.122 2.5,-2.5l0,-19.5c0,-0.448 -0.137,-1.23 -1.319,-2.841zm-4.138,-1.702c0.959,0.959 1.712,1.825 2.268,2.543l-4.811,0l0,-4.811c0.718,0.556 1.584,1.309 2.543,2.268zm3.457,24.043c0,0.271 -0.229,0.5 -0.5,0.5l-23,0c-0.271,0 -0.5,-0.229 -0.5,-0.5l0,-27c0,-0.271 0.229,-0.5 0.5,-0.5c0,0 15.499,0 15.5,0l0,7c0,0.552 0.448,1 1,1l7,0l0,19.5z"/>
+  <rect id="svg_4" height="5.997953" width="13.662003" y="17.999319" x="-39.814291" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text  stroke="#000" transform="matrix(1.0717690168280143,0,0,0.48075693845748896,30.19317811233142,19.730077357031405) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="8" id="docTypeExtension" y="10.002049" x="4" stroke-width="0" fill="#000000">JPG</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="8" id="svg_7" y="13.334244" x="4.503915" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">JPG</text>
+ </g>
+</svg>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+    
+    <link href="../../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
+    
+    <title>Case File</title>
+</head>
+
+<body>
+
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" id="app">
+        
+        <div class="container suds-container" :class="{'static-load': pageReady}">
+            <div class="nrm-edit-form">
+                <div id="renderView">
+                    <div class="contactManager">
+                        <div class="contactsTab contactManagerTitle">
+                            Contact Management
+                        </div>
+                        <div class="contactManagerBody">
+                            <div class="tabHeadingRow">
+                                <div class="contactsTab flushLeft active">
+                                    Contact Search
+                                </div>
+                            </div>
+                            <div class="contactContentSection">
+                                <div class="contactBreadCrumbs">
+                                    <a href="index.html">Search</a>
+                                </div>
+                                <form v-on:submit="submitSearch" v-on:reset="returnSearch=false">
+                                    <fieldset class="fs-horizontal">
+                                        <div class="inputContainer horz searchBar">
+                                            <label for="searchTerm">Search Term</label>
+                                            <input type="text" name="searchTerm" id="searchTerm"
+                                                class="suds-input suds"/>
+                                        </div>
+                                        <div class="inputContainer formControls horz">
+                                            <button class="btn btn-suds btn-sm suds-default" type="reset">
+                                                <i class="fa fa-refresh"></i>
+                                                Reset
+                                            </button>
+                                            <button class="btn btn-suds btn-sm suds-primary" type="submit">
+                                                <i class="fa fa-search"></i>
+                                                Search
+                                            </button>
+
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <div class="contactSearchResults" :class="{'open': returnSearch}">
+                                    <div class="table">
+                                        <table
+                                            class="table table-striped table-bordered table-condensed table-hover suds-table">
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Business Name / Trust</th>
+                                                <th>Telephone</th>
+                                                <th>Address</th>
+                                                <th>Email</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>Doe, Jane</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+                                                    <a href="contactView.html"
+                                                        class="btn btn-suds btn-xs suds-primary btn-xs">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doe, John</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+    
+                                                    <a href="contactView.html" class="btn btn-suds btn-xs suds-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doe, Jane</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+    
+                                                    <a href="contactView.html" class="btn btn-suds btn-xs suds-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doe, John</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+    
+                                                    <a href="contactView.html" class="btn btn-suds btn-xs suds-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doe, Jane</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+    
+                                                    <a href="contactView.html" class="btn btn-suds btn-xs suds-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doe, John</td>
+                                                <td>Business, Inc</td>
+                                                <td>555-555-5555</td>
+                                                <td>123 Street Way Placetown, St. 11111</td>
+                                                <td>email@email.com</td>
+                                                <td>
+                                                    <a href="editSoleProprietor.html"
+                                                        class="btn btn-suds btn-xs suds-default">
+                                                        <i class="fa fa-wrench"></i>
+                                                        Edit
+                                                    </a>
+    
+                                                    <a href="contactView.html" class="btn btn-suds btn-xs suds-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="actionCall">
+                                        <p>
+                                            Don't see the contact you're looking for?
+                                        </p>
+                                        <a href="contactType.html" class="btn suds-success btn-suds">
+                                            <i class="fa fa-plus"></i> Add a New Contact
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/contacts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+    
+    <link href="../../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
+    <title>Contact Management</title>
+</head>
+
+<body>
+
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" id="app">
+        
+        <div class="container suds-container" :class="{'static-load': pageReady}">
+            <div class="nrm-edit-form">
+                <div id="renderView">
+                    <div class="contactManager">
+                        <div class="contactsTab contactManagerTitle">
+                            Contact Management
+                        </div>
+                        <div class="contactManagerBody">
+                            <div class="tabHeadingRow">
+                                <div class="contactsTab flushLeft active">
+                                    New Contact - LLP
+                                </div>
+                            </div>
+                            <div class="contactContentSection">
+                                <div class="contactBreadCrumbs">
+                                    <a href="index.html">Search</a>
+                                    <a href="contactType.html">Contact Type</a>
+                                    <a href="contactLLP.html">LLP</a>
+                                </div>
+                                
+                                <form name="createPersonForm" id="createPersonForm">
+                                    <div class="personHalfModal" :class="{ 'open': halfModalOpen}">
+                                        <div class="hMCloser" @click.prevent="closeHalfModal">
+                                            
+                                            <span class="fa-stack fa-lg">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </div>
+                                        <fieldset class="fs-horizontal">
+                                            <div class="inputContainer vert">
+                                                <label for="firstName">First Name</label>
+                                                <input type="text" name="firstName" id="firstName"
+                                                    class="suds-input form-control" placeholder="first name"
+                                                    v-model="person.firstName"/>
+                                            </div>
+                                            <div class="inputContainer vert notReq">
+                                                <label for="mi">M.I.</label>
+                                                <input type="text" name="mi" id="mi" class="suds-input form-control"
+                                                    size="1" maxlength="1" v-model="person.initial"/>
+                                            </div>
+                                            <div class="inputContainer vert">
+                                                <label for="lastName">Last Name</label>
+                                                <input type="text" name="lastName" id="lastName"
+                                                    class="suds-input form-control" placeholder="last name"
+                                                    v-model="person.lastName"/>
+                                            </div>
+                                            <div class="inputContainer vert notReq">
+                                                <label for="suffix">Suffix</label>
+                                                <select name="suffix" id="suffix" class="suds-select form-control"
+                                                    v-model="person.suffix">
+                                                    <option value="">Select Suffix</option>
+                                                    <option value="Dr">Dr</option>
+                                                    <option value="Phd">Phd</option>
+                                                    <option value="Jr">Jr</option>
+                                                    <option value="Esq">Esq</option>
+                                                </select>
+                                            </div>
+                                            <div class="inputContainer vert">
+                                                <label for="email">Email Address</label>
+                                                <input type="text" name="email" id="email"
+                                                    class="suds-input form-control"
+                                                    placeholder="email@email.com" v-model="person.emailAddress"/>
+                                            </div>
+                                            <div class="inputContainer vert fullWidth notReq">
+                                                <label for="url">URL</label>
+                                                <input type="text" name="url" id="url" class="suds-input form-control"
+                                                    placeholder="http://www.url.net" v-model="person.url"/>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="phone">
+                                            
+                                            <div class="phoneNumbers" v-if="person.phoneNumbers.length > 0">
+                                                <div class="dataPointPill addedPhoneNumber"
+                                                    v-for="(number, phoneIndex) in person.phoneNumbers">
+                                                    <div class="dataPointIcon dataPointIcon_phone"></div>
+                                                    <div class="dataPointType">
+                                                        {{number.type}}
+                                                    </div>
+                                                    <div class="dataPoint">
+                                                    <span class="intlCode"
+                                                        v-if="number.intlCode">+{{number.intlCode}}&nbsp;</span>
+                                                        <span class="areaCode"
+                                                            v-if="number.areaCode">({{number.areaCode}})&nbsp;</span>
+                                                        {{number.number}}
+                                                        <span class="extension"
+                                                            v-if="number.ext">&nbsp;xt.{{number.ext}}</span>
+                                                    </div>
+                                                    <div class="dataPointControls">
+                                                        
+                                                        <button class="btn btn-suds removeBtn"
+                                                            @click.prevent="removePersonPhoneNumber(phoneIndex)">
+                                                            <i class="fa fa-times"></i>
+                                                            <span>Remove</span>
+                                                        </button>
+                                                        <button class="btn btn-suds suds-primary"
+                                                            @click.prevent="editPersonPhoneNumber( phoneIndex)">
+                                                            <i class="fa fa-pencil"></i>
+                                                            Edit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                            <div class="form-group horz">
+                                                <div class="inputContainer vert">
+                                                    <label for="type">Type</label>
+                                                    <select name="type" id="type" class="suds-select form-control"
+                                                        v-model="phoneNumber.type" @change="validatePhone">
+                                                        <option value="">Select Type</option>
+                                                        <option value="mobile">mobile</option>
+                                                        <option value="home">home</option>
+                                                        <option value="work">work</option>
+                                                    </select>
+                                                </div>
+                                                <div class="inputContainer vert notReq">
+                                                    <label for="intlCode">Int'l Code</label>
+                                                    <input type="text" name="intlCode" id="intlCode"
+                                                        class="suds-input form-control" maxlengt="3" size="3"
+                                                        placeholder="011" v-model="phoneNumber.intlCode"/>
+                                                </div>
+                                                <div class="inputContainer vert">
+                                                    <label for="areaCode">Area Code</label>
+                                                    <input type="text" name="areaCode" id="areaCode"
+                                                        class="suds-input form-control" maxlengt="3" size="3"
+                                                        placeholder="303" v-model="phoneNumber.areaCode"/>
+                                                </div>
+                                                <div class="inputContainer vert">
+                                                    <label for="phoneNumber">Phone Number</label>
+                                                    <input type="text" name="phoneNumber" id="phoneNumber"
+                                                        class="suds-input form-control" placeholder="555-555-5555"
+                                                        v-model="phoneNumber.number" @change="validatePhone"/>
+                                                </div>
+                                                <div class="inputContainer vert notReq">
+                                                    <label for="ext">Extension</label>
+                                                    <input type="text" name="ext" id="ext"
+                                                        class="suds-input form-control"
+                                                        size="6" maxlength="6" placeholder="55555"
+                                                        v-model="phoneNumber.ext"/>
+                                                </div>
+                                                <div class=" controls">
+                                                    
+                                                    <button class="btn btn-suds btn-sm suds-primary"
+                                                        :disabled="!phoneNumberValid"
+                                                        @click.prevent="addPersonPhoneNumber">
+                                                       
+                                                        <span v-if="!phoneEditMode">
+                                                            <i class="fa fa-plus"></i>
+                                                        Add
+                                                        </span>
+                                                        <span v-if="phoneEditMode">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                        Update
+                                                        </span>
+                                                    </button>
+                                                    <button class="btn btn-suds btn-sm"
+                                                        @click.prevent="resetPhoneNumber">
+                                                        <i class="fa fa-refresh"></i>
+                                                        RESET
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        
+                                        </fieldset>
+                                        <hr>
+                                        <button class="btn suds-primary btn-suds" @click.prevent="addPerson">
+                                            <i class="fa fa-plus"></i>
+                                            Add This Person
+                                        </button>
+                                    </div>
+                                </form>
+                                <form name="createContactForm" id="createContactForm">
+                                    
+                                    <!-- Business Name -->
+                                    <fieldset class="partnershipName">
+                                        <div class="form-inline">
+                                            <div class="form-group ">
+                                                <div class="inputContainer">
+                                                    <label for="llpName">LLP Name</label>
+                                                    <input type="text" name="llpName" id="llpName"
+                                                        placeholder="LLP name" class="suds-input form-control">
+                                                </div>
+                                                <div class="inputContainer horz sos">
+                                                    <label for="sos">
+                                                        <input type="checkbox" name="sos" id="sos" class="">
+                                                        Secretary of State Verified
+                                                    </label>
+                                                    <a href="#" class="btn btn-sm btn-suds suds-primary">
+                                                        <i class="fa fa-link"></i>
+                                                        Go to Verification Tool
+                                                    </a>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    
+                                    <!-- Agent Name -->
+                                    <fieldset class="agent">
+                                        <div class="inputContainer vert fullWidth">
+                                            <label for="agent">Agent Name</label>
+                                            <input type="text" name="agent" id="agent" class="suds-input form-control"
+                                                placeholder="agent name"/>
+                                        </div>
+                                    </fieldset>
+                                    
+                                    <!-- Persons -->
+                                    
+                                    <fieldset class="persons">
+                                        
+                                        <div class="personsList">
+                                            <h4 v-if="persons.length === 0">NO PEOPLE ADDED</h4>
+                                            
+                                            <div class="personCard" v-for="(person, index) in persons">
+                                                <div class="personDetails">
+                                                    <div class="personInfo">
+                                                        <div class="personIcon">
+                                                            <i class="fa fa-user"></i>
+                                                        </div>
+                                                        <div class="personText">
+                                                            <div class="personName">
+                                                                {{person.lastName}}, {{person.suffix}}, {{person.firstName}}
+                                                                <span class="deceased" v-if="person.deceased">
+                                                                        deceased
+                                                                    </span>
+                                                            </div>
+                                                            <div class="personEmail">
+                                                                <i class="fa fa-envelope-o">
+                                                                
+                                                                </i>
+                                                                {{person.emailAddress}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="phoneNumbers">
+                                                        <div class="personPhoneNumber"
+                                                            v-for="(number, index) in person.phoneNumbers">
+                                                            <span class="numberType">{{number.type}}</span>
+                                                            <span class="theNumber">
+                                                                    <span
+                                                                        v-if="number.intlCode">+{{number.intlCode}}</span> ({{number.areaCode}}) {{number.number}} <span
+                                                                v-if="number.ext">xt. {{number.ext}}</span>
+                                                                </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="personCardControls">
+                                                    <button @click.prevent="removePerson(index)">
+                                                                 <span class="fa-stack">
+                                                                  <i class="fa fa-square fa-stack-2x"></i>
+                                                                  <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                        <span class="buttonText">Remove</span>
+                                                    </button>
+                                                    <button @click.prevent="editPerson(index)">
+                                                                 <span class="fa-stack">
+                                                                  <i class="fa fa-square fa-stack-2x"></i>
+                                                                  <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                        <span class="buttonText">Edit</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <button class="btn btn-suds suds-primary" @click.prevent="openHalfModal">
+                                                <i class="fa fa-plus"></i>
+                                                ADD A PERSON
+                                            </button>
+                                        </div>
+                                    </fieldset>
+                                    
+                                    
+                                    <!--Address block-->
+                                    <fieldset class="address">
+                                        <div class="addresses" v-if="addresses.length > 0">
+                                            <div class="dataPointPill " v-for="(address, index) in addresses">
+                                                <div class="dataPointIcon dataPointIcon_addr"></div>
+                                                <div class="dataPointType">
+                                                    <span v-if="address.type !== 'Other'">{{address.type}}</span><span
+                                                    v-if="address.type === 'Other'">{{address.otherType}}</span>
+                                                </div>
+                                                <div class="dataPoint">
+                                                    <div class="streetAddress">
+                                                        <div class="addr1" v-if="address.addr1">{{address.addr1}}</div>
+                                                        <div class="addr2" v-if="address.addr2">{{address.addr2}}</div>
+                                                    </div>
+                                                    <div class="cityState">
+                                                        <div class="locale">
+                                                            {{address.city}},{{address.state}}
+                                                        </div>
+                                                        <div class="postalCode">
+                                                            {{address.postalCode}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="deptContact" v-if="address.dept">
+                                                        <div class="dept">{{address.dept}}</div>
+                                                        <div class="contact"
+                                                            v-if="address.billingContactFirstName || address.billingContactLastName">{{address.billingContactFirstName}} {{address.billingContactLastName}}
+                                                        </div>
+                                                    </div>
+                                                
+                                                
+                                                </div>
+                                                <div class="dataPointControls">
+                                                    
+                                                    <button class="btn btn-suds removeBtn"
+                                                        @click.prevent="removeAddress(index)">
+                                                        <i class="fa fa-times"></i>
+                                                        <span>Remove</span>
+                                                    </button>
+                                                    <button class="btn btn-suds suds-primary"
+                                                        @click.prevent="editAddress(index)">
+                                                        <i class="fa fa-pencil"></i>
+                                                        Edit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="inputContainer">
+                                                <label for="addressType">Address Type</label>
+                                                <select name="addressType" id="addressType"
+                                                    class="suds-select form-control" v-model="address.type"
+                                                    @change="validateAddress">
+                                                    <option value="">Select Address Type</option>
+                                                    <option value="billing">Billing</option>
+                                                    <option value="HQ">Headquarters</option>
+                                                    <option value="Local Office">Local Office</option>
+                                                    <option value="Operations">Operations</option>
+                                                    <option value="Work">Work</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="inputContainer notReq" v-if="address.type === 'Other'">
+                                                <label for="other">Other Address Type</label>
+                                                <input type="text" name="other" id="other"
+                                                    class="suds-input form-control" v-model="address.otherType"
+                                                    placeholder="Other Address Type">
+                                            </div>
+                                            <div class="inputContainer notReq">
+                                                <label for="dept">
+                                                    Department Name
+                                                </label>
+                                                <input type="text" name="dept" id="dept" class="suds-input form-control"
+                                                    placeholder="department" v-model="address.dept"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group" v-if="address.type === 'billing'">
+                                            <div class="inputContainer notReq">
+                                                <label for="billingContactFirstName">Billing Contact First Name</label>
+                                                <input type="text" name="billingContactFirstName"
+                                                    id="billingContactFirstName" class="suds-input form-control"
+                                                    placeholder="first name" v-model="address.billingContactFirstName">
+                                            </div>
+                                            <div class="inputContainer notReq">
+                                                <label for="billingContactLastName">
+                                                    Billing Contact Last Name
+                                                </label>
+                                                <input type="text" name="billingContactLastName"
+                                                    id="billingContactLastName" class="suds-input form-control"
+                                                    placeholder="last name" v-model="address.billingContactLastName"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="inputContainer">
+                                                <label for="country">
+                                                    Country
+                                                </label>
+                                                <!--<input type="text" name="country" id="country" class="suds-input">-->
+                                                <select name="country" id="country" class="suds-select form-control"
+                                                    v-model="address.country">
+                                                    <option value="">Select Country</option>
+                                                    <option value="us">United States of America</option>
+                                                    <option value="wk">Wakanda</option>
+                                                    <option value="sk">Sokovia</option>
+                                                    <option value="lt">Latveria</option>
+                                                    <option value="gn">Genosha</option>
+                                                    <option value="md">Madripoor</option>
+                                                    <option value="ng">Niganda</option>
+                                                </select>
+                                            </div>
+                                            <div class="inputContainer postalCode">
+                                                <label for="postalCode">
+                                                    Postal Code
+                                                </label>
+                                                <input type="text" name="postalCode" id="postalCode"
+                                                    class="suds-input form-control" placeholder="enter postal code"
+                                                    v-model="address.postalCode" @change="setCityState">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="inputContainer">
+                                                <label for="address1">Address 1</label>
+                                                <input type="text" name="address1" id="address1"
+                                                    class="suds-input form-control" placeholder="address1"
+                                                    v-model="address.addr1" @change="validateAddress">
+                                            </div>
+                                            
+                                            <div class="inputContainer notReq">
+                                                <label for="address2">Address 2</label>
+                                                <input type="text" name="address2" id="address2"
+                                                    class="suds-input form-control" placeholder="address2"
+                                                    v-model="address.addr2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="inputContainer">
+                                                <label for="city">
+                                                    City
+                                                </label>
+                                                <input type="text" name="city" id="city" class="suds-input form-control"
+                                                    placeholder="city" v-model="address.city"/>
+                                            </div>
+                                            <div class="inputContainer">
+                                                <label for="state">
+                                                    State
+                                                </label>
+                                                <!--<input type="text" name="state" id="state" class="suds-input">-->
+                                                <select name="state" id="state" class="suds-select form-control"
+                                                    v-model="address.state">
+                                                    <option value="">Select State</option>
+                                                    <option value="CO">Colorado</option>
+                                                </select>
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="inputContainer formControls notReq">
+                                                <label for="">&nbsp;</label>
+                                                <button class="btn btn-suds btn-sm suds-primary"
+                                                    :disabled="!addressValid" @click.prevent="addAddress">
+                                                    <i class="fa fa-plus" v-if="!addressEditMode"></i>
+                                                    <i class="fa fa-floppy-o" v-if="addressEditMode"></i>
+                                                    <span v-if="!addressEditMode">Add</span><span
+                                                    v-if="addressEditMode">Update</span> Address
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="url">
+                                        <div class="inputContainer vert fullWidth notReq">
+                                            <label for="url">URL</label>
+                                            <input type="text" name="url" id="url" class="suds-input form-control"
+                                                placeholder="http://www.url.net"/>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="comments">
+                                        <div class="inputContainer vert fullWidth notReq">
+                                            <label for="comments">Comments ({{commentCount()}} characters)</label>
+                                            <textarea name="comments" id="comments" class="suds-textarea form-control"
+                                                placeholder="Comments" rows="12" v-model="comments"
+                                                maxlength="200"></textarea>
+                                        </div>
+                                    </fieldset>
+                                    <div class="inputContainer formControls horz">
+                                        <button class="btn btn-suds btn-sm suds-primary" type="submit"
+                                            :disabled="!formIsValid">
+                                            <i class="fa fa-floppy-o"></i>
+                                            Save Contact
+                                        </button>
+                                        <button class="btn btn-suds btn-sm suds-default" type="reset">
+                                            <i class="fa fa-refresh"></i>
+                                            Reset
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/contacts.js"></script>
+
+</body>
+
+</html>

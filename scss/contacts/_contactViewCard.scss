@@ -1,0 +1,187 @@
+.contactViewCard {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    .contactViewSideBar {
+        max-width: 200px;
+        padding: 0 2rem 0 0;
+    }
+    
+    .contactViewData {
+        flex: 1 1 200px;
+        padding: 0 0 0 2rem;
+        .viewHeader {
+            display: flex;
+        }
+    }
+    
+    .contactEntity {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        margin-top: 1.6em;
+        padding-bottom: 1.6rem;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid #ccc;
+        
+        .contactTypeHeading,
+        .entityNameHeading,
+        .entitySecondaryNameHeading {
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+        }
+        
+        .contactTypeHeading {
+            font-weight: 600;
+        }
+        
+        .entityNameHeading {
+            font-size: 2em;
+            line-height: 1.3;
+        }
+        
+        .entitySecondaryNameHeading {
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-size: 1.3em;
+            font-weight: 100;
+        }
+        
+        .entityLinks {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+            a {
+                flex: 0 1 46%;
+                text-align: left;
+                margin-bottom: 1em;
+            }
+        }
+        
+        .businessUrl {
+            margin-top: 0;
+        }
+        
+    }
+    
+    .contactVerification {
+        
+        flex-direction: row;
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: -40px;
+        
+        #sosVerify {
+            display: none;
+            pointer-events: none;
+            
+            &:checked ~ label {
+                border-color: $primary-highlight-hover;
+                width: 270px;
+                
+                .unverified {
+                    display: none;
+                }
+                .verified {
+                    display: flex;
+                }
+            }
+            
+        }
+        
+        label {
+            height: 40px;
+            width: 290px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: red;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            line-height: 1;
+            align-items: center;
+            overflow: hidden;
+            transition: all .3s ease;
+            
+            .sos {
+                padding: 1em;
+                white-space: nowrap;
+            }
+            
+            .verified, .unverified {
+                color: $white;
+                text-transform: uppercase;
+                padding: 1em;
+                font-weight: 600;
+            }
+            
+            .verified {
+                background-color: $primary-highlight-hover;
+                display: none;
+            }
+            
+            .unverified {
+                background-color: red;
+            }
+        }
+    }
+    
+    .contactTypeIcon {
+        width: 175px;
+        height: 175px;
+        border: 5px solid $primary-color-two;
+        border-radius: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $primary-color-two;
+        font-size: 8em;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    
+    .editLink {
+        a {
+            font-weight: 600;
+            color: $white;
+            text-align: left;
+            text-transform: uppercase;
+        }
+    }
+    
+    .entityPhoneNumbers,
+    .entityAddresses {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 3rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .authorizations {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        
+        .authID {
+            flex: 1 1 20%;
+            background-color: $gray3;
+            color: $gray3-text;
+            padding: .5em 1em;
+            margin: .5em;
+            border-radius: 25px;
+            transition: background-color .2s ease, color .2s ease;
+    
+            &:hover {
+                background-color: $primary-color-two;
+                color: $primary-color-two-text;
+                font-weight: 600;
+                text-decoration: none;
+            }
+        }
+    }
+}

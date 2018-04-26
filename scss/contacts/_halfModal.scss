@@ -1,0 +1,61 @@
+.personHalfModal {
+    opacity: 0;
+    border: 2px solid $gray2;
+    box-shadow: 0 0 18px 8px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 98%;
+    z-index: -100;
+    border-radius: 20px;
+    padding: 1em;
+    top: .5em;
+    left: .7em;
+    transform: scale3d(.7, .7, .7);
+    transition: opacity .2s ease, transform .2s ease, z-index 0s 0.2s linear;
+    
+    fieldset {
+        width: 100%;
+    }
+    
+    &.open {
+        opacity: 1;
+        z-index: 100;
+        transform: scale3d(1, 1, 1);
+        transition: opacity .2s .1s ease, transform .2s .1s ease;
+    }
+    
+    .controls {
+        display: flex;
+        flex-direction: row;
+        padding: 1.8em 0 .25em 0;
+    }
+    
+    .hMCloser {
+        position: absolute;
+        right: -18px;
+        top: -18px;
+        
+        .fa-circle {
+            color: $danger-suds;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: color .2s ease;
+        }
+        
+        .fa-times {
+            color: $white;
+        }
+        
+        &:hover {
+            cursor: pointer;
+            .fa-circle {
+                color: $danger-suds-hover;
+                
+            }
+        }
+        
+    }
+}

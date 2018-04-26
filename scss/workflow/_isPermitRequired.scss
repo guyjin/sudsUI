@@ -1,0 +1,29 @@
+.criteriaCheck {
+  @import 'questions';
+
+  .questions {
+    &:first-of-type {
+      .questionCard {
+        width: calc(48% - 1em);
+      }
+    }
+  }
+
+  .checkResults {
+    display: none;
+    border-radius: 20px;
+    background-image: none;
+    border: 0;
+    margin: 0 1.5em 0px .5em;
+  }
+
+  .screenContent {
+    padding-bottom: 1em;
+
+    .screenSections {
+      margin-bottom: 0;
+    }
+  }
+
+
+}

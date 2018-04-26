@@ -1,0 +1,52 @@
+.costRecovery {
+  margin-bottom: 2em;
+
+  .circleBadges {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .svgBadge {
+
+    &.fee,
+    &.agencyHours,
+    &.useCode {
+       .badgeField {
+         text {
+           font-size: 2em;
+         }
+       }
+    }
+
+    &.fee {
+      .badgeField {
+        circle {
+          fill: green;
+        }
+      }
+    }
+
+    &.agencyHours {
+      .badgeField {
+        circle {
+          fill: $primary-color-three;
+        }
+      }
+    }
+  }
+
+  .categoryFields,
+  .estimatedHoursFields,
+  .adjustmentFields {
+    display: flex;
+    justify-content: space-between;
+    .form-group {
+      margin: 10px;
+      flex:1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+
+}

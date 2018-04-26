@@ -1,0 +1,257 @@
+.suds-container {
+    form {
+        .error {
+            box-shadow: 0 0 4px $danger-suds-hover;
+        }
+    }
+    .suds-input[type="text"],
+    .suds-input[type="number"],
+    .suds-input[type="password"],
+    .suds-input[type="radio"],
+    .suds-select {
+        border-radius: 50px;
+    }
+    
+    
+    
+    .suds-input[type="radio"] {
+    
+    }
+    
+    .radioButtonList {
+        display: flex;
+    }
+    
+    .radioButtonContainer {
+        
+        
+        label {
+            line-height:1;
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: $gray1;
+            color: $gray1-text;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px 7px 25px;
+            display: inline-block;
+            margin: 0 1em 0 -26px;
+            position: relative;
+            z-index: 9;
+            transition: all .3s ease;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        input[type='radio'] {
+            border: none;
+            position: relative;
+            z-index: 10;
+            margin-left:5px;
+        }
+        
+        input[type='radio']:checked + label {
+            background-color: $primary-color-two;
+            color: $primary-color-two-text;
+        }
+    }
+    
+    // styles for NRM date widget.
+    
+    .input-group.date {
+        .suds-input[type="date"] {
+            border-radius: 50px 0 0 50px;
+            height: 2.83em;
+            font-size: 12px;
+        }
+        
+        .input-group-btn {
+            button {
+                border-radius: 0 50px 50px 0;
+            }
+        }
+    }
+    
+    .suds-textarea {
+        border-radius: 20px;
+    }
+    
+    .answerButtons {
+        margin-left: -1em;
+        input[type="radio"] {
+            position: relative;
+            left: -9999em;
+            
+            &:checked {
+                + .radioLabel {
+                    @extend .suds-primary;
+                    &:before {
+                        content: "\00a0\f058";
+                    }
+                }
+            }
+        }
+        
+        .radioLabel {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 175px;
+            &:before {
+                content: "\00a0\f10c";
+                font-family: "FontAwesome", cursive;
+                margin-right: 3px;
+            }
+        }
+    }
+    
+    .checkList {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+        .checkListItem {
+            label {
+                line-height: 1.2;
+                max-width: 300px;
+                width: 100%;
+            }
+            
+            input[type="checkbox"] {
+                position: absolute;
+                visibility: hidden;
+            }
+            
+            .check {
+                position: relative;
+                &:before {
+                    font-family: FontAwesome, cursive;
+                    content: "\f096";
+                    font-size: 18px;
+                    color: $gray2;
+                }
+            }
+            
+            input:checked + span.check {
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: -3px;
+                    font-family: FontAwesome, cursive;
+                    content: "\f00c";
+                    color: $primary-highlight;
+                    font-size: 1em;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    
+    .requiredFlag {
+        font-weight: bold;
+        color: maroon;
+        font-size: 24px;
+        line-height: 1;
+        margin-top: -5px;
+    }
+}
+
+/*Added by Amer*/
+#editDataPointModal {
+    .answerButtons {
+        margin-left: -1em;
+        input[type="radio"] {
+            position: relative;
+            left: -9999em;
+            
+            &:checked {
+                + .radioLabel {
+                    @extend .suds-primary;
+                    &:before {
+                        content: "\00a0\f058";
+                    }
+                }
+            }
+        }
+        
+        .radioLabel {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 175px;
+            &:before {
+                content: "\00a0\f10c";
+                font-family: "FontAwesome", cursive;
+                margin-right: 3px;
+            }
+        }
+    }
+}
+
+#mapShape {
+    border-radius: 30px 0 0 30px;
+    height: 2.83333em;
+}
+
+#mapShape-btn {
+    border-radius: 0 30px 30px 0;
+}
+
+
+
+.form-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-group {
+    margin-right: .5em;
+
+    
+    &:last-child {
+        margin-right: 0;
+    }
+    //
+    //&.md {
+    //    max-width: 200px;
+    //}
+    //
+    //&.lg {
+    //    max-width: 300px;
+    //}
+}
+
+label {
+    font-size: 14px;
+    position: relative;
+    display: block;
+    line-height:1;
+     &.req {
+         
+         &:before {
+             content: "\f069";
+             font-family: "FontAwesome", cursive;
+             color: $danger-suds;
+             font-weight: 400;
+             font-size: .8em;
+             line-height: 1;
+              margin-right: 3px;
+             //display: inline-block;
+             position: relative;
+             //right: 1em;
+            top:-2px;
+         }
+     }
+}
+
+.controls {
+    padding: 1em 0 1em 1em;
+    display: flex;
+    justify-content: flex-end;
+    input {
+        margin-left: 1em;
+    }
+}

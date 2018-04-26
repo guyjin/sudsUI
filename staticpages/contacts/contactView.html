@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css"/>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css"/>
+    
+    <link href="../../css/index.css" rel="stylesheet" media="screen"/>
+    <link href="../../css/suds.css" rel="stylesheet" media="screen"/>
+    <script src="../../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
+    <title>Contact Management - Contact View</title>
+</head>
+
+<body>
+
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center" id="app">
+        
+        <div class="container suds-container" :class="{'static-load': pageReady}">
+            <div class="nrm-edit-form">
+                <div id="renderView">
+                    <div class="contactManager">
+                        <div class="contactsTab contactManagerTitle">
+                            Contact Management
+                        </div>
+                        <div class="contactManagerBody">
+                            <div class="tabHeadingRow">
+                                <div class="contactsTab flushLeft active">
+                                    View Contact - SOLE PROPRIETOR
+                                </div>
+                                <div class="contactsTab flushRight  active">
+                                    <a href="contactEditor.html"><span class="glyphicon glyphicon-pencil"></span> Edit Contact</a>
+                                </div>
+                            </div>
+                            <div class="contactContentSection">
+                                <div class="contactBreadCrumbs">
+                                    <a href="index.html">Search</a>
+                                    <a href="contactView.html">Contact View</a>
+                                </div>
+                                <div class="contactViewCard">
+                                    <div class="contactViewSideBar">
+                                        <div class="contactTypeIcon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="editLink">
+                                            <a href="editSoleProprietor.html"
+                                                class="btn btn-suds suds-danger btn-block">
+                                                <i class="fa fa-pencil"></i> Edit
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="contactViewData">
+                                        <div class="viewHeader">
+                                            <div class="contactEntity">
+                                                <h4 class="contactTypeHeading">Sole Proprietor</h4>
+                                                <h2 class="entityNameHeading">Lastname, Firstname MI., Dr.</h2>
+                                                <h3 class="entitySecondaryNameHeading">Business / Trust Name Long Name, LLC.</h3>
+                                                
+                                                <div class="entityLinks">
+                                                    <a href="" class="btn btn-suds suds-primary btn-block">
+                                                        <i class="fa fa-envelope"></i>
+                                                        email@email.com
+                                                    </a>
+                                                    
+                                                    <a href="" class="btn btn-suds suds-success businessUrl btn-block">
+                                                        <i class="fa fa-globe"></i>
+                                                        businessname.com
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- Check the box yes/no to mark the pill as Verified or Unverified -->
+                                            <div class="contactVerification ">
+                                                <input type="checkbox" name="sosVerify" id="sosVerify" checked disabled>
+                                                <label for="sosVerify">
+                                                    <span class="sos">Secretary of State</span>
+                                                    <span class="verified">Verified</span>
+                                                    <span class="unverified">Unverified</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="entityPhoneNumbers">
+                                            <div class="dataPointPill addedPhoneNumber">
+                                                <div class="dataPointIcon dataPointIcon_phone"></div>
+                                                <div class="dataPointType">
+                                                    Mobile
+                                                </div>
+                                                <div class="dataPoint">
+                                                    <span class="intlCode">+011&nbsp;</span>
+                                                    <span class="areaCode">(555)&nbsp;</span>
+                                                    555-5555
+                                                    <span class="extension">&nbsp;xt.123456</span>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="dataPointPill addedPhoneNumber">
+                                                <div class="dataPointIcon dataPointIcon_phone"></div>
+                                                <div class="dataPointType">
+                                                    Office
+                                                </div>
+                                                <div class="dataPoint">
+                                                    <span class="intlCode">+011&nbsp;</span>
+                                                    <span class="areaCode">(555)&nbsp;</span>
+                                                    555-5555
+                                                    <span class="extension">&nbsp;xt.123456</span>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="dataPointPill addedPhoneNumber">
+                                                <div class="dataPointIcon dataPointIcon_phone"></div>
+                                                <div class="dataPointType">
+                                                    Home
+                                                </div>
+                                                <div class="dataPoint">
+                                                    <span class="intlCode">+011&nbsp;</span>
+                                                    <span class="areaCode">(555)&nbsp;</span>
+                                                    555-5555
+                                                    <span class="extension">&nbsp;xt.123456</span>
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="entityAddresses">
+                                            <div class="addresses">
+                                                <div class="dataPointPill ">
+                                                    <div class="dataPointIcon dataPointIcon_addr"></div>
+                                                    <div class="dataPointType">
+                                                        <span>Billing</span>
+                                                    </div>
+                                                    <div class="dataPoint">
+                                                        <div class="streetAddress">
+                                                            <div class="addr1">123 Main St.</div>
+                                                            <div class="addr2">Ste. B</div>
+                                                        </div>
+                                                        <div class="cityState">
+                                                            <div class="locale">
+                                                                Anywhereville, XY
+                                                            </div>
+                                                            <div class="postalCode">
+                                                                12345
+                                                            </div>
+                                                        </div>
+                                                        <div class="deptContact">
+                                                            <div class="dept">Accounting</div>
+                                                            <div class="contact">John Smith</div>
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="dataPointPill ">
+                                                    <div class="dataPointIcon dataPointIcon_addr"></div>
+                                                    <div class="dataPointType">
+                                                        <span>HQ</span>
+                                                    </div>
+                                                    <div class="dataPoint">
+                                                        <div class="streetAddress">
+                                                            <div class="addr1">123 Main St.</div>
+                                                            <div class="addr2">Ste. B</div>
+                                                        </div>
+                                                        <div class="cityState">
+                                                            <div class="locale">
+                                                                Anywhereville, XY
+                                                            </div>
+                                                            <div class="postalCode">
+                                                                12345
+                                                            </div>
+                                                        </div>
+                                                        <div class="deptContact">
+                                                            <div class="dept">Accounting</div>
+                                                            <div class="contact">John Smith</div>
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="dataPointPill ">
+                                                    <div class="dataPointIcon dataPointIcon_addr"></div>
+                                                    <div class="dataPointType">
+                                                        <span>Local </span>
+                                                    </div>
+                                                    <div class="dataPoint">
+                                                        <div class="streetAddress">
+                                                            <div class="addr1">123 Main St.</div>
+                                                            <div class="addr2">Ste. B</div>
+                                                        </div>
+                                                        <div class="cityState">
+                                                            <div class="locale">
+                                                                Anywhereville, XY
+                                                            </div>
+                                                            <div class="postalCode">
+                                                                12345
+                                                            </div>
+                                                        </div>
+                                                        <div class="deptContact">
+                                                            <div class="dept">Accounting</div>
+                                                            <div class="contact">John Smith</div>
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="dataPointPill ">
+                                                    <div class="dataPointIcon dataPointIcon_addr"></div>
+                                                    <div class="dataPointType">
+                                                        <span>PR</span>
+                                                    </div>
+                                                    <div class="dataPoint">
+                                                        <div class="streetAddress">
+                                                            <div class="addr1">123 Main St.</div>
+                                                            <div class="addr2">Ste. B</div>
+                                                        </div>
+                                                        <div class="cityState">
+                                                            <div class="locale">
+                                                                Anywhereville, XY
+                                                            </div>
+                                                            <div class="postalCode">
+                                                                12345
+                                                            </div>
+                                                        </div>
+                                                        <div class="deptContact">
+                                                            <div class="dept">Accounting</div>
+                                                            <div class="contact">John Smith</div>
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4>Authorizations</h4>
+                                        <div class="authorizations">
+    
+                                            <a href="../caseFile.html" class="authID">TR123556A</a>
+                                            <a href="../caseFile.html" class="authID">TR123756B</a>
+                                            <a href="../caseFile.html" class="authID">TR1235456C</a>
+                                            <a href="../caseFile.html" class="authID">TR12323456D</a>
+                                            <a href="../caseFile.html" class="authID">TR1236556E</a>
+                                            <a href="../caseFile.html" class="authID">TR12654987356F</a>
+                                            <a href="../caseFile.html" class="authID">TR123556A</a>
+                                            <a href="../caseFile.html" class="authID">TR123756B</a>
+                                            <a href="../caseFile.html" class="authID">TR1235456C</a>
+                                            <a href="../caseFile.html" class="authID">TR12323456D</a>
+                                            <a href="../caseFile.html" class="authID">TR1236556E</a>
+                                            <a href="../caseFile.html" class="authID">TR12654987356F</a>
+                                            <a href="../caseFile.html" class="authID">TR123556A</a>
+                                            <a href="../caseFile.html" class="authID">TR123756B</a>
+                                            <a href="../caseFile.html" class="authID">TR1235456C</a>
+                                            <a href="../caseFile.html" class="authID">TR12323456D</a>
+                                            <a href="../caseFile.html" class="authID">TR1236556E</a>
+                                            <a href="../caseFile.html" class="authID">TR12654987356F</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/contacts.js"></script>
+
+</body>
+
+</html>

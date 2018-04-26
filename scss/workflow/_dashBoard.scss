@@ -1,0 +1,321 @@
+#renderView.dashBoard {
+    background-color: $white;
+    color: #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .topActionBar {
+        display: flex;
+        flex-shrink: 0;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .searchButton {
+        transition: all .1s ease-in-out;
+        &.searchOpen {
+            background-color: $primary-color-one;
+            color: $primary-color-one-text;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+    .searchForm {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-color-one;
+        border-radius: 0 20px 20px 20px;
+        top: 34px;
+        left: 0px;
+        right: 100%;
+        padding: 0em;
+        height: 0;
+        max-height: 1000px;
+        z-index: 10;
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+        &.searchOpen {
+            height: auto;
+            padding: 2em;
+            right: 0;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        }
+        .closer {
+            position: absolute;
+            right: 10px;
+            top: 3px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .fa {
+                font-size: 16px;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .localeSelectionDisplay {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .localeSelectorTrigger {
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: $gray2;
+        color: $gray2-text;
+        border-radius: 20px 20px 0 0;
+        margin-right: 2px;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+        span {
+            display: inline-block;
+            margin-left: 3px;
+        }
+        .fa-times {
+            display: none;
+        }
+        &.active {
+            background-color: $primary-color-two;
+            color: $primary-color-two-text;
+            .fa-times {
+                display: inline;
+            }
+            .fa-map {
+                display: none;
+            }
+        }
+    }
+    .localeDataDisplayField {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+    }
+    .displayFieldCursor {
+        width: 20px;
+        background-color: $eerie-black;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            cursor: pointer;
+        }
+        &.disabled {
+            background-color: $gray2;
+            color: $gray3;
+        }
+        &.leftCursor {
+            border-top-left-radius: 20px;
+        }
+        &.rightCursor {
+            border-top-right-radius: 20px;
+        }
+    }
+    .entitiesRow {
+        overflow: hidden;
+        flex: 1 1 auto;
+        background-color: $gray2;
+        padding: 3px 0 0 0;
+        height: 5rem;
+        position: relative;
+    }
+    .dataDisplay {
+        position: absolute;
+        background-color: $white;
+        flex: 1 1 auto;
+        height: 5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        left: 0px;
+        right: 0px;
+        border-radius: 10px 10px 0 0;
+        transition: all .4s ease;
+        &.hasHighlighted {
+            background-color: $gray1;
+        }
+        .entityBlock {
+            display: inline-block;
+            background-color: $primary-color-one;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all .4s ease;
+            &:hover {
+                cursor: pointer;
+            }
+            &.highlighted {
+                margin-bottom: 0;
+                padding-bottom: 10px;
+                background-color: $white;
+                border-radius: 10px 10px 0 0;
+            }
+        }
+    }
+    .noDataMessage {
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-left: 4em;
+    }
+    .localeSelectionWindow {
+        border: 2px solid $primary-color-two;
+        background-color: $white;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        padding: 5px 0;
+        border-radius: 0 0 20px 20px;
+        height: 0;
+        opacity: 0;
+        z-index: 10;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+        display: flex;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 104px;
+        &.opened {
+            height: 440px;
+            opacity: 1;
+            .list {
+                opacity: 1;
+            }
+        }
+        .list {
+            border: 1px solid $gray1;
+            padding: 5px;
+            margin: 0px 2px 0 5px;
+            opacity: 0;
+            transition: opacity .2s .3s ease-in-out;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            min-width: 110px;
+            position: relative;
+            &:last-child {
+                margin-right: 5px;
+            }
+            ul,
+            li {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                margin: 5px;
+                padding: 10px;
+                display: block;
+                background-color: $gray1;
+                color: $eerie-black;
+                font-weight: 600;
+                font-size: 12px;
+                transition: all .1s ease;
+                text-decoration: none;
+                text-transform: uppercase;
+                border-radius: 10px;
+                &:hover {
+                    background-color: $primary-color-one;
+                    color: $primary-color-one-text;
+                }
+                &.selected {
+                    background-color: $primary-color-two;
+                    color: $primary-color-two-text;
+                }
+            }
+            &.regionList {
+                border-bottom-left-radius: 15px;
+            }
+            &.forestList,
+            &.districtList {
+                flex: 1 1 auto;
+                ul {
+                    display: none;
+                    opacity: 0;
+                    transition: opacity .2s ease;
+                    &.selected {
+                        background-color: transparent;
+                        display: block;
+                        opacity: 1;
+                        &~.clearList {
+                            color: $eerie-black;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            &.districtList {
+                border-bottom-right-radius: 15px;
+            }
+            .clearList {
+                font-size: 1.4em;
+                position: absolute;
+                right: 5px;
+                top: 3px;
+                color: $gray1;
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+    .dashboardDataBlocks {
+        background-color: $white;
+        border: 1px solid $gray2;
+        border-width: 0 2px 2px 2px;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        border-radius: 0 0 15px 15px;
+        align-items: center;
+        justify-content: center;
+        overflow-y: scroll;
+        padding-top: 2em;
+        .dashboardDataBlock {
+            background-color: $gray3;
+            display: none;
+            flex-direction: column;
+            padding: 10px 10px 5px 10px;
+            margin: 0 2em 2em 2em;
+            border-radius: 10px;
+            opacity: 0;
+            width: 90%;
+            transition: all .3s ease;
+        }
+        .dataBlockRow {
+            background-color: $gray1;
+            display: block;
+            height: 1.2em;
+            margin-bottom: 5px;
+        }
+        &.localeSelected {
+            justify-content: flex-start;
+            .dashboardDataBlock {
+                opacity: 1;
+                display: block;
+            }
+        }
+        .noDataMessage {
+            width: 400px;
+            background-color: $gray3;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+    }
+}

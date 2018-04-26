@@ -1,0 +1,342 @@
+
+#renderView.costRecoveryAOApproval {
+  .AODecisionControls {
+    display: flex;
+    align-items: center;
+    font-size: 1.142em; // 16px;
+    background-color: $anti-flash-white;
+    background-image: none;
+    border-radius: 0;
+    border: 0;
+
+    .btn {
+      margin: 0 .5em;
+      
+    }
+  }
+
+  h4 {
+    text-transform: uppercase;
+  }
+
+
+
+  .summaryCard {
+    @extend .card;
+    //border: 2px solid $lightgrey;
+    background-color: #fcfcfc;
+    display: flex;
+    position: relative;
+
+    .summaryInfo {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .infoRow {
+      display: flex;
+      border-bottom: 1px solid $gray1;
+
+      &:last-child {
+        border-bottom-width: 0;
+      }
+    }
+
+    .infoBlock {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      padding: 1em;
+      border-left: 1px solid;
+
+
+
+      &:first-child {
+        border-left-width: 0;
+      }
+    }
+
+    .infoBlockLabel {
+      color: $eerie-black;
+      font-size: .857em;  // 12px;
+      line-height:1;
+      text-transform: uppercase;
+    }
+
+    .infoBlockText {
+      font-size: 2.286em;  // 32px
+      line-height:1;
+      font-weight: 600;
+      color: $eerie-black;
+    }
+
+    .category {
+      background-color: $white;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 80px;
+      max-width: 80px;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s;
+      transition-timing-function: cubic-bezier(.25,.8,.25,1);
+
+      .categoryLabel {
+        @extend .infoBlockLabel;
+        transition: color 0.3s;
+        transition-timing-function: cubic-bezier(.25,.8,.25,1);
+      }
+
+      .categoryNumber {
+        @extend .infoBlockText;
+        @include transition($what: color);
+      }
+    }
+
+    .summaryFee {
+      background-color: $anti-flash-white;
+      border-left: 1px solid $eerie-black;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 250px;
+    }
+
+    &:hover {
+      @include box-shadow-up();
+      cursor: pointer;
+
+      .category {
+        background-color: $primary-color-three;
+
+        .categoryLabel, .categoryNumber {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .editIcon {
+    position: absolute;
+    color: $primary-color-one;
+    right: 1px;
+    top: 1px;
+
+    padding: 2px;
+    line-height: 1.2;
+    font-weight: 600;
+    border-radius: 3px 0 0 3px;
+    display: flex;
+    @include transition();
+
+    i {
+      margin-left: .2em;
+    }
+  }
+
+  .worksheetEntries {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .worksheetCard {
+    @extend .card;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: calc(25% - 2em);
+    flex-direction: column;
+    background-color: #fcfcfc;
+    //min-width: 15.35714285714286em;  //215px
+    margin: 1em;
+
+    .editIcon:hover {
+      bottom: 1.5em;
+    }
+
+
+    .worksheetEntry {
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+    }
+
+    .worksheetEntryLabel {
+      font-size:  0.857em; // 12px;
+      line-height: 1;
+      color: $eerie-black;
+      text-transform: uppercase;
+    }
+
+    .worksheetEntryValue {
+      font-size: 1.429em; // 20px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .worksheetEntryHours {
+      background-color: #D3D3D3;
+      border-top: 1px solid $danger-suds;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5em 0;
+      @include transition($what: background-color);
+
+      .hoursValue {
+        font-size: 3.429em; // 48px;
+        font-weight:600;
+        line-height: 1;
+        @include transition($what: color);
+      }
+
+      .hoursLabel {
+        font-size:1em; // 14px
+        font-weight:600;
+        text-transform: lowercase;
+        line-height: 1;
+        @include transition($what: color);
+      }
+
+    }
+
+    .worksheetEntryScope {
+      display: none;
+
+      .scopeContent {
+        flex:1;
+        overflow-y: scroll;
+        padding: 1em;
+      }
+    }
+
+    .worksheetEntryScopeToggle {
+      
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 3em;
+      height: 3em;
+      background-color: $primary-color-three;
+      color: $white;
+      text-transform: lowercase;
+
+      .open {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        font-weight:600;
+        font-size: 16px;
+        line-height:18px;
+      }
+      .close {
+        display: none;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      cursor: pointer;
+
+      
+    }
+
+  }
+
+  .worksheetCardClone {
+    display: flex;
+    opacity: 0;
+    position: fixed;
+    margin: 0;
+    z-index: -1;
+    @include box-shadow-up();
+    border: 1px solid $gray1;
+    flex-direction: column;
+    @include transition ($interval: 0.5s);
+    border-radius: 10px;
+    overflow: hidden;
+
+    .worksheetEntryScope {
+      .scopeContent {
+        opacity: 0;
+        @include transition(opacity .4s ease);
+      }
+    }
+
+    &.zoomed {
+      flex-direction: row;
+
+
+      .worksheetEntryScope {
+        display: flex;
+        flex: 1;
+
+      }
+
+
+      .worksheetEntryScopeToggle {
+        display: none;
+      }
+      .closeClone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: $eerie-black;
+        font-size: 16px;
+        font-weight: 200;
+        padding: 10px;
+        color: $white;
+        opacity: 1;
+        text-shadow: none;
+      }
+
+      .editIcon {
+        right: 75px;
+      }
+
+      .worksheetDetails {
+        background-color: #d3d3d3;
+        min-width: 215px;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid $danger-suds;
+      }
+      .worksheetEntryHours {
+        flex: 1;
+        border-width: 0;
+      }
+    }
+
+
+
+
+
+  }
+
+  @media screen and (max-width: 1200px) {
+    .worksheetCard {
+      flex-basis: calc(33% - 2em);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .worksheetCard {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: calc(50% - 2em);
+    }
+  }
+
+
+
+}
+

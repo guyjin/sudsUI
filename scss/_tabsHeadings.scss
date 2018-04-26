@@ -1,0 +1,244 @@
+$tab-radius: 12px;
+
+@function color-factory($targetColor) {
+    @return "#" + $targetColor;
+}
+
+//
+//@function afterCurve-factory($targetColor) {
+//  @return '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3A%23' + $targetColor + '%3B%7D%3C/style%3E%3C/defs%3E%3Cpath%20class%3D%22a%22%20d%3D%22M0%2C9V29H20A20%2C20%2C0%2C0%2C1%2C0%2C9Z%22%20transform%3D%22translate%280%20-10%29%22/%3E%3C/svg%3E'
+//}
+//
+//@function beforeCurve-factory($targetColor) {
+//  @return '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3A%23' + $targetColor + '%3B%7D%3C/style%3E%3C/defs%3E%3Cpath%20class%3D%22a%22%20d%3D%22M20%2C9V29H0A20%2C20%2C0%2C0%2C0%2C20%2C9Z%22%20transform%3D%22translate%280%20-10%29%22/%3E%3C/svg%3E'
+//}
+
+.tabHeadingRow {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 0 1em 0 1em;
+    margin-left: -1em;
+    
+    .tabHeading {
+        &:first-child {
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.tabHeading {
+    padding: 1rem 20px;
+    font-size: 16px;
+    background-color: #ddd;
+    font-weight: 600;
+    margin: 5px 0px -1px 0;
+    border-radius: 12px 12px 0 0;
+
+    //box-shadow: 0px -1px 6px 0px rgba(0,0,0,0.5);
+    position: relative;
+    color: $primary-color-three;
+    //@for $i from 1 through 3 {
+    //  &:nth-child(#{$i}){
+    //    z-index: calc(10 - #{$i});
+    //  }
+    //}
+    &:after,
+    &:before {
+        content: "";
+        width: $tab-radius;
+        height: $tab-radius;
+        position: absolute;
+        bottom: -1px;
+        box-sizing: border-box;
+    }
+    &:after {
+        right: -10px;
+        @include afterCurve($white);
+        border-color: $white;
+    }
+    &:before {
+        left: -10px;
+        @include beforeCurve($white);
+    }
+    &.active {
+        z-index: 1000;
+        font-weight: 600;
+        color: $eerie-black;
+        background-color: $white;
+        background-image: none;
+        &:after {
+            z-index: 20;
+            @include afterCurve($white);
+        }
+        &:before {
+            z-index: 20;
+            @include beforeCurve($white);
+        }
+    }
+    &.sectionStatus {
+        padding: 0.5rem 20px;
+        font-size: 24px;
+        margin-right: 1px;
+        &:before {
+            content: "";
+            width: 22px;
+            height: 22px;
+            background-color: $white;
+            background-image: none;
+            position: absolute;
+            left: 0;
+            bottom: -21px;
+            border-width: 0;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    &.sectionLabel {
+        &:before {
+            //@include beforeCurve($white);
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: $white;
+            position: absolute;
+            left: 0;
+            bottom: -11px;
+            border-bottom: none;
+            border-right: none;
+        }
+        &:after {
+            @include afterCurve($white, $gray4);
+            bottom: 0.65px;
+            right: -11.999px;
+            border-color: $white;
+        }
+    }
+    
+    &.statusError {
+        color: $warning-suds;
+    }
+    &.statusNotReady {
+        color: $gray2;
+    }
+    &.statusReady {
+        color: $primary-highlight;
+    }
+    &.statusDone {
+        color: $primary-color-two;
+    }
+    
+    &:first-child {
+        &.sectionLabel {
+            &:before {
+                content: "";
+                width: 22px;
+                height: 22px;
+                background: $white;
+                position: absolute;
+                left: 0;
+                bottom: -21px;
+            }
+        }
+    }
+}
+
+.screenSections {
+    .tabHeadingRow {
+        position: relative;
+        z-index: 60;
+        .tabHeading {
+            border: 1px solid $gray5;
+            
+            &:after {
+                @include afterCurve($gray1, $gray5);
+                border-color: $gray1;
+                bottom: 0px;
+                right: -12px;
+            }
+        }
+    }
+}
+
+.sectionTop {
+ margin-left: auto;
+.tabHeading {
+    border-style: solid;
+    border-color: $gray4;
+    border-width: 1px 1px 0 1px;
+
+    &:first-child {
+
+        &:before {
+            @include beforeCurve($white);
+            border-left: 1px solid $gray4;
+            left: -1px;
+        }
+        &:after {
+            @include afterCurve($white, $gray4);
+            bottom: 0;
+        }
+        &.sectionActionLink {
+            &:after {
+                content: "";
+                width: 22px;
+                height: 22px;
+                background: $white;
+                position: absolute;
+                right: -1px;
+                bottom: -21px;
+                display: block;
+                border-right: 1px solid $gray4;
+            }
+            &:before {
+                @include beforeCurve($white, $gray4);
+                border-color: $white;
+            }
+            &:first-child {
+                &:before {
+                    left: -22px;
+                }
+            }
+        }
+        &.addNewButton {
+            margin-left: auto;
+        }
+        &.costRecoveryPDF {
+            margin-left: auto;
+        }
+
+    }
+    
+    &.sectionActionLink {
+        margin-left: auto;
+        border-bottom: 1px solid $white;
+    
+        &:before {
+            @include beforeCurve($white, #c7c7c7);
+            bottom: -1.9px;
+            left: -11.8px;
+        }
+    
+        &:after {
+        
+            background-color: $white;
+            border-right: 1px solid $gray5;
+            right: -1px;
+            bottom: -20px;
+        }
+    }
+}
+}
+
+.sectionContent {
+border: 1px solid #c7c7c7;
+}
+
+.sudsTabContent {
+padding: 1em;
+border-radius: 0 20px 20px 20px;
+background-color: $white;
+}

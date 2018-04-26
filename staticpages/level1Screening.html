@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Level 1 Screening</title>
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+        <div class="container suds-container subflow">
+            <div class="nrm-edit-form">
+                <div id="renderView" class="criteriaCheck">
+                    <div class="summaryHeader">
+                        <div class="screenName">
+                            <div class="name tabHeading soloTab">
+                                Initial Screening
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+                        <div class="stepControls">
+                            <button class="btn btn-link" type="submit">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Save &amp; Continue
+                            </button>
+                            <button class="btn btn-link resetQuestions" type="reset">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Reset
+                            </button>
+
+                            <button class="btn btn-link btn-cancel">
+                                            <span class="fa-stack ">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="screenSections">
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Quick Answer
+                                </div>
+                            </div>
+                            <div class="sections">
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                        <!--<div class="tabHeading sectionLabel">Answer All</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+                                        <div class="answerButtons answerAll">
+                                            <input type="radio" name="questionAll" id="questionAll_Yes">
+                                            <label class="radioLabel btn btn-suds" for="questionAll_Yes" data-answer="Yes">Yes to All</label>
+                                            <input type="radio" name="questionAll" id="questionAll_No">
+                                            <label class="radioLabel btn btn-suds" for="questionAll_No" data-answer="No">No to All</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <div class="tabHeadingRow">
+                                <div class="tabHeading">
+                                    Screening Questions
+                                </div>
+                            </div>
+                            <div class="sections">
+                                
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Nominal Effects?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use is consistent with the laws, regulations, orders, and policies establishing or governing National Forest System lands, with other applicable Federal law, and with applicable State and local health and sanitation laws.
+                                            </p>
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question1" id="question1_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question1_Yes">Yes</label>
+                                            <input type="radio" name="question1" id="question1_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question1_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Regulated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use is consistent or can be made consistent with standards and guidelines in the applicable forest land and resource management plan prepared under the National Forest Management Act and 36 CFR part 219.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question2" id="question2_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question2_Yes">Yes</label>
+                                            <input type="radio" name="question2" id="question2_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question2_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not pose a serious or substantial risk to public health or safety.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question3" id="question3_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question3_Yes">Yes</label>
+                                            <input type="radio" name="question3" id="question3_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question3_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not create an exclusive or perpetual right of use or occupancy.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question4" id="question4_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question4_Yes">Yes</label>
+                                            <input type="radio" name="question4" id="question4_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question4_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not unreasonably conflict or interfere with administrative use by the Forest Service, other scheduled or authorized existing uses of the National Forest System, or use of adjacent non-National Forest System lands.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question5" id="question5_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question5_Yes">Yes</label>
+                                            <input type="radio" name="question5" id="question5_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question5_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proponent does not have any delinquent debt owed to the Forest Service under terms and conditions of a prior or existing authorization, unless such debt results from a decision on an administrative appeal or from a fee review and the proponent is current with the payment schedule.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question6" id="question6_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question6_Yes">Yes</label>
+                                            <input type="radio" name="question6" id="question6_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question6_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve gambling or providing of sexually oriented commercial services, even if permitted under State law.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question7" id="question7_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question7_Yes">Yes</label>
+                                            <input type="radio" name="question7" id="question7_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question7_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve gambling or providing of sexually oriented commercial services, even if permitted under State law.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question8" id="question8_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question8_Yes">Yes</label>
+                                            <input type="radio" name="question8" id="question8_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question8_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve military or paramilitary training or exercises by private organizations or individuals, unless such training or exercises are federally funded.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question9" id="question9_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question9_Yes">Yes</label>
+                                            <input type="radio" name="question9" id="question9_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question9_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <!--<div class="sectionTop">-->
+                                    <!--<div class="tabHeading sectionLabel">-->
+                                    <!--Situated?-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="sectionContent">
+
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve disposal of solid waste or disposal of radioactive or other hazardous substances.
+                                            </p>
+
+                                        </div>
+                                        <div class="answerButtons">
+                                            <input type="radio" name="question10" id="question10_Yes" class="questionYes">
+                                            <label class="radioLabel btn btn-suds" for="question10_Yes">Yes</label>
+                                            <input type="radio" name="question10" id="question10_No" class="questionNo">
+                                            <label class="radioLabel btn btn-suds" for="question10_No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="alert alert-info checkResults">
+                            Based on your selections, an Authorization will be required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <script type="text/javascript">
+        (function($) {
+            var screenSections = $('.screenSections');
+            var renderView = $('.nrm-edit-form');
+            setTimeout(function () {
+                $('.suds-container').animate({
+                    opacity: 1,
+                    left: 0
+                }, pageTransitionTime, 'easeOutCirc')
+            }, 500);
+
+            $('.answerAll').on('click', 'label', function() {
+                var answer = $(this).data('answer');
+                if(answer === 'Yes') {
+                    $('.questionYes').prop('checked', true);
+                } else if(answer === 'No') {
+                    $('.questionNo').prop('checked', true);
+                }
+            });
+
+
+            $('.answerButtons').each(function(index,eachObj) {
+                var questionCn = $(eachObj).attr('data-question-cn'),
+                    questionYes =  $(eachObj).find('.questionYes'),
+                    questionNo = $(eachObj).find('.questionNo');
+
+                if (questionYes){
+                    questionYes.prop("checked",true)
+                }
+
+            });
+            $('button[type=submit]').on('click', function() {
+                backToCaseFile();
+            });
+
+            $('.resetQuestions').on('click', function() {
+                $('.questionStatus').attr('data-statustype', '');
+                $('input[type=radio]').removeAttr('checked');
+                $('label.btn-primary').removeClass('btn-primary');
+            });
+            renderView.scroll(function () {
+
+                if ($(this).scrollTop() > 52) {
+                    var t = $(this).offset().top + 16;
+                    $('.stepControls').addClass('fixed').css({
+                        top: t + 'px'
+                    });
+
+                    $('.screenSections').css({
+                        top: '60px'
+                    })
+                } else {
+                    $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                    $('.screenSections').removeAttr('style');
+                }
+            })
+        })(jQuery) ;
+        var pageTransitionTime = 800;
+        var backToCaseFile = function(){
+            $('.suds-container').animate({
+                opacity: 0,
+                right: 800
+            }, pageTransitionTime, 'easeOutCirc');
+
+            setTimeout(function() {
+            window.location.href = 'level2Screening.html';
+//                history.back();
+            }, pageTransitionTime);
+        }
+    </script>
+</body>
+
+</html>

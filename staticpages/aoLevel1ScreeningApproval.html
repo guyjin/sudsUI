@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <title>Cost Recovery Monitoring</title>
+
+</head>
+
+<body>
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+        <div class="container">
+            <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+                <div class="container ">
+                    <div class="recordHeader">
+                        <div class="recordIdBlock">
+                            <div class="blockLabel">
+                                RECORD ID:
+                            </div>
+                            <div class="recordId">
+                                PWY123456
+                            </div>
+                        </div>
+                        <div class="recordStatusBlock">
+                            <div class="blockLabel">
+                                STATUS:
+                            </div>
+                            <div class="recordStatus">
+                                Screening Approvals
+                            </div>
+                        </div>
+                        <div class="summaryBlock" data-toggle="modal">
+                            <i class="fa fa-map-o" aria-hidden="true"></i> Summary
+                        </div>
+
+                    </div>
+                    <div id="renderView" class="AOLevel1Screening">
+                        <div class="screeningHeader">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>
+                                        AO Screening Approvals
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btn-group infoViewBar" role="group" aria-label="Detailed Information">
+                                        <button type="button" class="btn btn-default" data-target="activityType">
+                                            Type of Activity        
+                                        </button>
+                                        <button class="btn btn-default" type="button" data-target="useDescription">
+                                            Use Description    
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 infoView">
+                                    <div class="useDescription">
+                                        <div class="actions">
+                                            <button class="pin btn btn-primary btn-sm" data-target="useDescription">
+                                                <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                                                pin
+                                            </button>
+
+                                            <button class="closer btn btn-default btn-sm" data-target="useDescription">
+                                                <i class="fa fa-remove" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <h4>Use Description</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A cum dolorum enim est expedita, explicabo ipsa laudantium neque nihil odit, praesentium, quia sint sit ut vero. Ipsam, labore, necessitatibus! Voluptatum.</p>
+                                        <p>Aliquid architecto assumenda commodi consectetur corporis culpa, cum debitis dicta, dignissimos dolorem dolorum eius illum ipsa non nulla quis quo reiciendis repellendus! Adipisci debitis harum nobis quae recusandae,
+                                            repudiandae temporibus?
+                                        </p>
+                                        <p>Aut delectus deserunt eos facilis fuga labore nesciunt, optio velit veniam! Distinctio excepturi nemo nesciunt quisquam vitae. Doloremque enim excepturi illum labore sunt? Aspernatur est, et expedita ratione rerum
+                                            soluta?
+                                        </p>
+                                    </div>
+                                    <div class="activityType">
+                                        <div class="actions">
+                                            <button class="pin btn btn-primary btn-sm" data-target="activityType">
+                                                <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                                                pin
+                                            </button>
+
+                                            <button class="closer btn btn-default btn-sm" data-target="activityType">
+                                                <i class="fa fa-remove" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <h4>Activity Type</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi, aperiam atque culpa cum eligendi harum iure iusto obcaecati odio, officia placeat repellat repudiandae rerum, saepe sequi velit vero voluptate.</p>
+                                        <p>Facere modi nisi quis rem rerum. Amet culpa enim omnis optio tempore ullam! Autem consequatur culpa eligendi enim error ex facilis ipsa itaque libero omnis, saepe sequi totam unde, voluptate.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="direction">
+                                        If you want to change any of the screening answers, click on the question to enable editing.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>
+                                        Level 1 Screening
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="screeningResults">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use is consistent with the laws, regulations, orders, and policies establishing or governing National Forest System lands, with other applicable Federal law, and with applicable State and local health and sanitation laws.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'>true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use is consistent or can be made consistent with standards and guidelines in the applicable forest land and resource management plan prepared under the National Forest Management Act and 36 CFR part 219.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not pose a serious or substantial risk to public health or safety.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not create an exclusive or perpetual right of use or occupancy.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use will not unreasonably conflict or interfere with administrative use by the Forest Service, other scheduled or authorized existing uses of the National Forest System, or use of adjacent non-National Forest System lands.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proponent does not have any delinquent debt owed to the Forest Service under terms and conditions of a prior or existing authorization, unless such debt results from a decision on an administrative appeal or from a fee review and the proponent is
+                                                current with the payment schedule.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve gambling or providing of sexually oriented commercial services, even if permitted under State law.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve military or paramilitary training or exercises by private organizations or individuals, unless such training or exercises are federally funded.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                    <div class="answerBlock">
+                                        <div class="answer">
+                                            <div class="answerText True">
+                                                <i class="fa fa-check" aria-hidden="true"></i><span class='textBlock'> true</span>
+                                            </div>
+                                        </div>
+                                        <div class="question">
+                                            <p>
+                                                The proposed use does not involve disposal of solid waste or disposal of radioactive or other hazardous substances.
+                                            </p>
+                                        </div>
+                                        <div class="clickMeLabel">
+                                            Edit Answer
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row decisionButtons">
+                                <div class='reject decisionButton' data-answer="reject">
+
+                                    Reject this Level 1 Screening
+
+                                </div>
+                                <div class='accept decisionButton' data-answer="accept">
+
+                                    Accept this Level 1 Screening
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="modal fade" id="editingModal">
+                            <div class="modalContent">
+                                <div class="header">
+                                    <h2>Edit Answer</h2>
+                                    <div class="editCloser">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <form name="editQuestionForm" id="editQuestionForm">
+
+                                    <div class="questionText">
+
+                                    </div>
+
+                                    <div class="form-group reasonForChange">
+                                        <label for="changeReason">Reason for Change</label>
+                                        <textarea name="changeReason" id="changeReason"  rows="10" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="answerButtons">
+                                        <div class="answer answerTrue">
+                                            <i class="fa fa-check"></i>
+                                            True
+                                        </div>
+                                        <div class="answer answerFalse">
+                                            <i class="fa fa-check"></i>
+                                            False
+                                        </div>
+                                    </div>
+                                    <div class="form-group controls">
+                                        <button type="reset"  class="btn btn-default">
+                                            <i class="fa fa-refresh"></i>
+                                            Reset
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-save"></i>
+                                            Save &amp; Continue
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="acceptedStamp stamp">
+                            <svg width="100%" height="100%" viewBox="0 0 793 911">
+                                <g id="approvalStamp" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AO-Approval-Level-1-Approved" transform="translate(-95.000000, -361.000000)">
+                                        <g id="Accepted-Stamp" transform="translate(491.234964, 816.092243) rotate(308.000000) translate(-491.234964, -816.092243) translate(17.234964, 683.592243)">
+                                            <rect id="Rectangle-9" stroke="#417505" stroke-width="24" x="12" y="12" width="924" height="241"></rect>
+                                            <text id="ACCEPTED" font-family="Arial-BoldMT, Arial" font-size="155" font-weight="bold" fill="#417505">
+                                                <tspan x="47.7121582" y="187">ACCEPTED</tspan>
+                                            </text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="rejectedStamp stamp">
+                            <svg width="100%" height="100%" viewBox="0 0 793 911">
+                                <g id="SUDS---AO-Level-1-Approval" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AO-Approval-Level-1-Rejected" transform="translate(-95.000000, -361.000000)">
+                                        <g id="Rejected-Stamp" transform="translate(491.234964, 816.092243) rotate(308.000000) translate(-491.234964, -816.092243) translate(17.234964, 683.592243)">
+                                            <rect id="Rectangle-9" stroke="#E63946" stroke-width="24" x="12" y="12" width="924" height="241"></rect>
+                                            <text id="REJECTED" font-family="Arial-BoldMT, Arial" font-size="163" font-weight="bold" fill="#E63946">
+                                                <tspan x="39.2404785" y="187">REJECTED</tspan>
+                                            </text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function($) {
+            // watch the small button bar at the top for clicks
+            var infoViewBar = $(".infoViewBar");
+            $(infoViewBar).on('click', 'button', function() {
+                // grab the data value
+                var target = $(this).attr('data-target');
+                // make sure everything gets closed
+                $('.infoView div').removeClass('open');
+                // use the data-target value to find the correct info block and assign the class to open it.
+                $("." + target).addClass('open');
+            });
+            // watch the close button in the infoview box
+            $('.infoView .closer').on('click', function() {
+                var target = $(this).attr('data-target');
+                // remove any of the classes that might be attached to the box
+                // so the box will close and revert to it's starting state.
+                $(this).parents('.' + target).removeClass('open pinned');
+            });
+            // watch 'pin' button, on click remove the 'open' class and assign 'pinned'
+            $('.infoView .pin').on('click', function() {
+                var target = $(this).attr('data-target');
+                $(this).parents('.' + target).removeClass('open').addClass('pinned');
+            });
+
+            // watch answer blocks for a click
+            $('.answerBlock').on('click', function() {
+                // grab the question text and the answer that was given
+                var q = $(this).children('.question').text();
+                var a = $(this).children('.answer').children('.answerText');
+
+                // open the modal
+                $('#editingModal').modal();
+                // assign the answer block a class to change it's appearance beneath the modal
+                $(this).addClass('editing');
+
+                //examine the answer value and set the buttons to reflect it.
+                if (a.hasClass('True')) {
+                    $('#editingModal .answerTrue').addClass('active');
+                } else if (a.hasClass('False')) {
+                    $('#editingModal .answerFalse').addClass('active');
+                }
+
+                // Insert the question into the modal box
+                $('#editingModal .questionText').text(q);
+            });
+
+            // watch form for Submit
+
+            $('#editQuestionForm').on('submit', function(e) {
+                e.preventDefault();
+                $('#editingModal').modal('hide');
+            });
+
+                //close the modal
+            $('.editCloser').on('click', function() {
+                $('#editingModal').modal('hide');
+            });
+
+            // watch for the modal to close
+            $('#editingModal').on('hide.bs.modal', function() {
+                // remove all the extra classes from the buttons
+                $('#editingModal .active').removeClass('active');
+                // remove class from the answer block being edited.
+                $('.editing').removeClass('editing');
+            });
+
+            // Watch for a click on one of the answer buttons in the modal
+            $('#editingModal .answer').on('click', function() {
+                // grab the text value and remove all the white-space
+                var t = $(this).text().trim();
+                // remove the 'active' class from whatever button has it
+                $('#editingModal .active').removeClass('active');
+                // add 'active' class to the button that was clicked.
+                $(this).addClass('active');
+
+                // Update the answer block's actual answer with the new value by removing all the classes and re-adding the right ones
+                // and then updating the text
+                $('.editing').children('.answer').children('.answerText').removeClass().addClass('answerText').addClass(t).children('.textBlock').text(t.toLowerCase());
+                // update the icon font to show the correct symbol for true or false
+                if (t.toLowerCase() === 'true') {
+                    $('.editing').children('.answer').children('.answerText').children('i').removeClass().addClass('fa fa-check');
+                } else {
+                    $('.editing').children('.answer').children('.answerText').children('i').removeClass().addClass('fa fa-times');
+                }
+
+
+            });
+
+            // watch for clicks on the accept/reject buttons
+            $('.decisionButton').on('click', function() {
+                var decision = $(this).attr('data-answer');
+                $('.stamp').removeClass('show');
+                if(decision === 'accept') {
+                    $('.acceptedStamp').addClass('show');
+                } else if(decision === 'reject') {
+                    $('.rejectedStamp').addClass('show');
+                }
+            });
+
+            // listen for click on summary button and open summary view.
+            $('.summaryBlock').on('click', function() {
+
+                $.get('summary.html', function(data) {
+                    $('#summaryModal').html(data).modal({
+                        keyboard: true,
+                        backdrop: 'static'
+                    });
+
+                    setTimeout(function() {
+                        $('.summaryOverlay').addClass('loaded');
+                    }, 200);
+
+                    $('.summaryModalCloseBtn').on('click', function() {
+
+                        $('.summaryOverlay').fadeOut(function() {
+                            $('#summaryModal').html('').modal('hide');
+                            $(this).off('click');
+                        }).removeClass('loaded')
+
+                    })
+
+                })
+
+
+
+            })
+        })(jQuery);
+    </script>
+    <div class="modal fade" id="summaryModal">
+
+    </div>
+
+</body>
+
+</html>

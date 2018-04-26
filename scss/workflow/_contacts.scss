@@ -1,0 +1,59 @@
+.contactSelection {
+  display: flex;
+  flex-direction: column;
+  
+  .contactList {
+
+
+  }
+  .tableContainer {
+    
+    &.contacts {
+      display: none;
+    }
+  }
+
+
+
+    
+  .removeContactLink {
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+  .contactName {
+    margin-left: 1em;
+  }
+
+  #contactSearchForm {
+    display: flex;
+    
+  }
+
+  #contactSearchField {
+    min-width: 300px;
+  }
+  .searchFormControls {
+    margin-left: 1em;
+    
+  }
+  .searchResults {
+    .tableFrame {
+      overflow: hidden;
+      max-height: 0;
+      transition: all 1s ease;
+      margin-top: 1em;
+    }
+    &.showResults {
+      .tableFrame {
+        max-height: 900em;
+      }
+    }
+    .selectContactLink {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <link href="../css/index.css" rel="stylesheet" media="screen" />
+    <link href="../css/suds.css" rel="stylesheet" media="screen" />
+    <script src="../nrmcore/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../nrmcore/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <title>Authority Selection</title>
+
+</head>
+
+<body>
+<div class="ui-layout-center ui-layout-container">
+    <div class="ui-layout-center ui-layout-data ui-layout-pane ui-layout-pane-center">
+
+            <div class="container suds-container subflow">
+                <div class="nrm-edit-form">
+
+                    <div id="renderView" class="authoritySelection">
+                        <div class="summaryHeader">
+                            <div class="screenName">
+                                <div class="name tabHeading soloTab">
+                                    Authority Selection
+                                </div>
+                            </div>
+                        </div>
+                        <div class="screenContent">
+                            <div class="stepControls">
+                                <button class="btn btn-link" type="submit">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    Save &amp; Continue
+                                </button>
+                                <button class="btn btn-link resetQuestions" type="reset" >
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    Reset
+                                </button>
+
+                                <button class="btn btn-link btn-cancel">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="screenSections">
+                                <div class="tabHeadingRow">
+                                    <div class="tabHeading">
+                                        PRIMARY USE CODE: ### - Name of Use Code
+                                    </div>
+                                </div>
+                                <div class="sections">
+                                    <div class="section">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">
+                                                Authorities
+                                            </div>
+                                        </div>
+                                        <div class="sectionContent">
+                                            <p class="direction">
+                                                Click the Authority combination for this Use Code
+                                            </p>
+                                            <div class="badgeCards">
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+                                                            <div class="infoText authorityName">FLPMA</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="authInfo">
+                                                        <div class="infoRow">
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Type</div>
+                                                                    <div class="infoText">Permit</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Max Term</div>
+                                                                    <div class="infoText">20/yrs</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Template</div>
+                                                                    <div class="infoText">FS-2700-4b (Forest)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+
+                                                            <div class="infoText authorityName">Wilderness Act of 1964</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="authInfo">
+                                                        <div class="infoRow">
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Type</div>
+                                                                    <div class="infoText">Permit</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Max Term</div>
+                                                                    <div class="infoText">16/yrs</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Template</div>
+                                                                    <div class="infoText">FS-2700-3c</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+
+                                                            <div class="infoText authorityName">Mineral Leasing Act</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="authInfo">
+                                                        <div class="infoRow">
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Type</div>
+                                                                    <div class="infoText">Permit</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Max Term</div>
+                                                                    <div class="infoText">20/yrs</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Template</div>
+                                                                    <div class="infoText">FS-2700-4b (Forest)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+                                                            <div class="infoText authorityName">Act of May 26, 2000<br>(16 U.S.C. 460I-6b)</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="authInfo">
+                                                        <div class="infoRow">
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Type</div>
+                                                                    <div class="infoText">Permit</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Max Term</div>
+                                                                    <div class="infoText">20/yrs</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infoBlock">
+                                                                <div class="info">
+                                                                    <div class="infoLabel">Template</div>
+                                                                    <div class="infoText">FS-2700-4b (Forest)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tabHeadingRow">
+                                    <div class="tabHeading">
+                                        SECONDARY USE CODE: ### - Use Code Name
+                                    </div>
+                                </div>
+                                <div class="sections">
+                                    <div class="section">
+                                        <div class="sectionTop">
+                                            <div class="tabHeading sectionLabel">
+                                                Authorities
+                                            </div>
+                                        </div>
+                                        <div class="sectionContent">
+                                            <p class="direction">
+                                                Click the Authority combination for this Use Code
+                                            </p>
+                                            <div class="badgeCards">
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+
+                                                            <div class="infoText authorityName">Act of May 26, 2000<br>(16 U.S.C. 460I-6b)</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="authorityCard">
+                                                    <div class="authName">
+                                                        <div class="info">
+
+                                                            <div class="infoText authorityName">American Antiquities Act, Archaeological Resource Protection Act</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+
+    (function($) {
+        var screenSections = $('.screenSections');
+        var renderView = $('.nrm-edit-form');
+        setTimeout(function () {
+            $('.suds-container').animate({
+                opacity: 1,
+                left: 0
+            }, pageTransitionTime, 'easeOutCirc')
+        }, 500);
+        
+        $(document).on('click', '.authorityCard', function() {
+            toggleCard($(this));
+        });
+
+        $(document).on('click', 'button[type=reset]', function(){
+            resetCards();
+        })
+
+        $('button[type=submit]').on('click', function() {
+            backToOnBoarding();
+        });
+
+        renderView.scroll(function () {
+
+            if ($(this).scrollTop() > 52) {
+                var t = $(this).offset().top + 16;
+                $('.stepControls').addClass('fixed').css({
+                    top: t + 'px'
+                });
+
+                $('.screenSections').css({
+                    top: '60px'
+                })
+            } else {
+                $('.stepControls').removeClass('fixed').removeAttr('style');
+
+                $('.screenSections').removeAttr('style');
+            }
+        })
+    })(jQuery);
+    var pageTransitionTime = 800;
+    var sectionNavOffsetFromRenderViewTop = $('.summaryHeader').height();
+    var renderViewOffsetFromTop = $('#renderView').offset().top;
+//    var screenNavOffsetFromRenderViewTop = $('.screenNav').offset().top;
+    var stepControlsOffsetFromTop = $('.stepControls').offset().top;
+
+    var backToOnBoarding = function(){
+        $('.suds-container').animate({
+            opacity: 0,
+            left: 800
+        }, pageTransitionTime, 'easeOutCirc');
+
+        setTimeout(function() {
+//            window.location.href = 'onBoarding.html';
+            history.back();
+        }, pageTransitionTime);
+    }
+
+    var toggleCard = function(target) {
+        //$(target).parent('.cards').children('.selected').removeClass('selected');
+        target.toggleClass('selected');
+    }
+
+    var resetCards = function() {
+        $('.authorityCard.selected').removeClass('selected');
+    }
+</script>
+</body>
