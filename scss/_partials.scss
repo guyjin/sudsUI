@@ -48,7 +48,7 @@
 
 .tableContainer {
     border: 1px solid $gray1;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
     table.table {
         margin-bottom: 0 !important;
@@ -78,170 +78,137 @@
 
 $table-corner-radius: 10px;
 .suds-table {
-  thead {
-    tr {
-
-      th {
-        border-bottom: 0;
-        background-color: $primary-color-one;
-        color: $primary-color-one-text;
-
-        &:first-child {
-          border-top-left-radius: $table-corner-radius;
-          padding-left: 10px;
+    thead {
+        tr {
+            th {
+                border-bottom: 0;
+                background-color: $primary-color-one;
+                color: $primary-color-one-text;
+                &:first-child {
+                    border-top-left-radius: $table-corner-radius;
+                    padding-left: 10px;
+                }
+                &:last-child {
+                    border-top-right-radius: $table-corner-radius;
+                }
+            }
         }
-
-        &:last-child {
-          border-top-right-radius: $table-corner-radius;
-        }
-      }
     }
-  }
-
-  tbody {
-    tr {
-      td:first-child {
-        padding-left: 10px;
-      }
-    }
-    tr:last-child {
-      td {
-        &:first-child {
-          border-bottom-left-radius: $table-corner-radius;
+    tbody {
+        tr {
+            td:first-child {
+                padding-left: 10px;
+            }
         }
-        &:last-child {
-          border-bottom-right-radius: $table-corner-radius;
+        tr:last-child {
+            td {
+                &:first-child {
+                    border-bottom-left-radius: $table-corner-radius;
+                }
+                &:last-child {
+                    border-bottom-right-radius: $table-corner-radius;
+                }
+            }
         }
-      }
     }
-  }
 }
 
-
 .sudsPill {
-  display: inline-flex;
-  width: auto;
-  margin: 0 10px;
-
-  .sudsPillMessage {
-    background-color: $gray1;
-    color: $gray1_text;
-    border-radius: 30px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    //box-shadow: inset 0 2px 3px 1px rgba(255,255,255,0.8), 0 2px 5px 1px rgba(0,0,0,0.2);
-    padding: 0 5px;
-    border: 1px solid $gray1;
-    margin: 0 auto;
-  }
-
-.sudsPillIcon {
-    padding: 10px;
-    padding-left: 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $gray1-text;
-    border-radius: 30px;
-    font-size: 22px;
-    line-height: 1;
-    flex: 1 0 auto;
-  }
-
-  .sudsPillMessageText {
-    margin-right: 10px;
-    padding: 0 15px;
-    flex: 1 1 auto;
-  }
-
-  .sudsPillActionLink {
-    border-color: $gray1;
-    margin: 5px 0;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-  }
-
-  &.sudsPill_warning {
-
+    display: inline-flex;
+    width: auto;
+    margin: 0 10px;
     .sudsPillMessage {
-      border-color: $warning-suds;
-      background-color: $warning-suds;
-      color: $white;
+        background-color: $gray1;
+        color: $gray1_text;
+        border-radius: 30px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; //box-shadow: inset 0 2px 3px 1px rgba(255,255,255,0.8), 0 2px 5px 1px rgba(0,0,0,0.2);
+        padding: 0 5px;
+        border: 1px solid $gray1;
+        margin: 0 auto;
     }
-
     .sudsPillIcon {
-
-      color: $white;
+        padding: 10px;
+        padding-left: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $gray1-text;
+        border-radius: 30px;
+        font-size: 22px;
+        line-height: 1;
+        flex: 1 0 auto;
     }
-
+    .sudsPillMessageText {
+        margin-right: 10px;
+        padding: 0 15px;
+        flex: 1 1 auto;
+    }
     .sudsPillActionLink {
-      border-color: $warning-suds;
+        border-color: $gray1;
+        margin: 5px 0;
+        display: flex;
+        flex: 1 0 auto;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
     }
-  }
-
-  &.sudsPill_primary {
-
-    .sudsPillMessage {
-      background-color: $primary-color-two;
-      color: $primary-color-two-text;
-      border-color: $primary-color-two;
+    &.sudsPill_warning {
+        .sudsPillMessage {
+            border-color: $warning-suds;
+            background-color: $warning-suds;
+            color: $white;
+        }
+        .sudsPillIcon {
+            color: $white;
+        }
+        .sudsPillActionLink {
+            border-color: $warning-suds;
+        }
     }
-
-    .sudsPillIcon {
-      
-      color: $white;
+    &.sudsPill_primary {
+        .sudsPillMessage {
+            background-color: $primary-color-two;
+            color: $primary-color-two-text;
+            border-color: $primary-color-two;
+        }
+        .sudsPillIcon {
+            color: $white;
+        }
+        a {
+            color: $white;
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+        .sudsPillActionLink {
+            border-color: $warning-suds;
+            color: $white;
+        }
     }
-
-    a {
-      color: $white;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: none;
-      }
+    &.sudsPill_success {
+        .sudsPillMessage {
+            background-color: $primary-highlight-hover;
+            color: $primary-highlight-hover-text;
+        }
+        .sudsPillIcon {
+            color: $white;
+        }
+        a {
+            color: $white;
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+        .sudsPillActionLink {
+            border-color: $primary-highlight-hover;
+            color: $white;
+        }
     }
-
-
-    .sudsPillActionLink {
-      border-color: $warning-suds;
-      color: $white;
-    }
-  }
-
-  &.sudsPill_success {
-
-    .sudsPillMessage {
-      background-color: $primary-highlight-hover;
-      color: $primary-highlight-hover-text;
-    }
-
-    .sudsPillIcon {
-      color: $white;
-      
-    }
-
-    a {
-      color: $white;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: none;
-      }
-    }
-
-
-    .sudsPillActionLink {
-      border-color: $primary-highlight-hover;
-      color: $white;
-    }
-  }
-
-
 }
 
 .horz {
@@ -251,5 +218,3 @@ $table-corner-radius: 10px;
 .vert {
     flex-direction: column;
 }
-
-

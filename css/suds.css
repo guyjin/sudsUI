@@ -42,31 +42,23 @@
   background-color: #ddd;
   font-weight: 600;
   margin: 5px 0px -1px 0;
-  border-radius: 12px 12px 0 0;
+  border-radius: 10px 10px 0 0;
   position: relative;
   color: #001f3f; }
   .tabHeading:after, .tabHeading:before {
     content: "";
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
     position: absolute;
-    bottom: -1px;
+    bottom: -13px;
     box-sizing: border-box; }
   .tabHeading:after {
-    right: -10px;
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    right: -8px;
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
   .tabHeading:before {
-    left: -10px;
-    background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0; }
+    left: -8px;
+    background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px); }
   .tabHeading.active {
     z-index: 1000;
     font-weight: 600;
@@ -74,19 +66,15 @@
     background-color: #ffffff;
     background-image: none; }
     .tabHeading.active:after {
+      bottom: -13px;
+      right: -8px;
       z-index: 20;
-      background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0; }
+      background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px); }
     .tabHeading.active:before {
+      bottom: -13px;
+      left: -8px;
       z-index: 20;
-      background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0; }
+      background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px); }
   .tabHeading.sectionStatus {
     padding: 0.5rem 20px;
     font-size: 24px;
@@ -114,14 +102,7 @@
     border-bottom: none;
     border-right: none; }
   .tabHeading.sectionLabel:after {
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
-    bottom: 0.65px;
-    right: -11.999px;
-    border-color: #ffffff; }
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #ffffff 8px); }
   .tabHeading.statusError {
     color: #f5a623; }
   .tabHeading.statusNotReady {
@@ -145,14 +126,8 @@
   .screenSections .tabHeadingRow .tabHeading {
     border: 1px solid #c7c7c7; }
     .screenSections .tabHeadingRow .tabHeading:after {
-      background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #c7c7c7 10px, #c7c7c7 11px, #dddddd 11px, #dddddd 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
-      border-color: #dddddd;
-      bottom: 0px;
-      right: -12px; }
+      background-image: radial-gradient(circle at 20px 0px, transparent 6px, #c7c7c7 7px, #dddddd 8px);
+      border-color: #dddddd; }
 
 .sectionTop {
   margin-left: auto; }
@@ -161,20 +136,12 @@
     border-color: #cccccc;
     border-width: 1px 1px 0 1px; }
     .sectionTop .tabHeading:first-child:before {
-      background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
+      background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px);
       border-left: 1px solid #cccccc;
       left: -1px; }
     .sectionTop .tabHeading:first-child:after {
-      background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
-      bottom: 0; }
+      background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #ffffff 8px);
+      bottom: -12px; }
     .sectionTop .tabHeading:first-child.sectionActionLink:after {
       content: "";
       width: 22px;
@@ -186,11 +153,7 @@
       display: block;
       border-right: 1px solid #cccccc; }
     .sectionTop .tabHeading:first-child.sectionActionLink:before {
-      background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
+      background-image: radial-gradient(circle at 0px 0px, transparent 6px, #cccccc 7px, #ffffff 8px);
       border-color: #ffffff; }
     .sectionTop .tabHeading:first-child.sectionActionLink:first-child:before {
       left: -22px; }
@@ -202,18 +165,10 @@
       margin-left: auto;
       border-bottom: 1px solid #ffffff; }
       .sectionTop .tabHeading.sectionActionLink:before {
-        background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #c7c7c7 10px, #c7c7c7 11px, #ffffff 11px, #ffffff 12px);
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        border-style: solid;
-        border-width: 0;
-        bottom: -1.9px;
-        left: -11.8px; }
+        background-image: radial-gradient(circle at 0px 0px, transparent 6px, #c7c7c7 7px, #ffffff 8px); }
       .sectionTop .tabHeading.sectionActionLink:after {
         background-color: #ffffff;
-        border-right: 1px solid #c7c7c7;
-        right: -1px;
-        bottom: -20px; }
+        border-right: 1px solid #c7c7c7; }
 
 .sectionContent {
   border: 1px solid #c7c7c7; }
@@ -262,7 +217,7 @@
 
 .tableContainer {
   border: 1px solid #dddddd;
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden; }
   .tableContainer table.table {
     margin-bottom: 0 !important; }
@@ -523,7 +478,7 @@
 .suds-container .suds-input[type="password"],
 .suds-container .suds-input[type="radio"],
 .suds-container .suds-select {
-  border-radius: 50px; }
+  border-radius: 5px; }
 
 .suds-container .radioButtonList {
   display: flex; }
@@ -557,15 +512,15 @@
   color: #fff; }
 
 .suds-container .input-group.date .suds-input[type="date"] {
-  border-radius: 50px 0 0 50px;
+  border-radius: 5px 0 0 5px;
   height: 2.83em;
   font-size: 12px; }
 
 .suds-container .input-group.date .input-group-btn button {
-  border-radius: 0 50px 50px 0; }
+  border-radius: 0 5px 5px 0; }
 
 .suds-container .suds-textarea {
-  border-radius: 20px; }
+  border-radius: 10px; }
 
 .suds-container .answerButtons {
   margin-left: -1em; }
@@ -715,7 +670,7 @@ label {
   flex-direction: column;
   background-color: #AAAAAA;
   color: #111111;
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 4px;
   margin: 0 0.5em 0.5em 0.5em;
   flex: 1 0 30%;
@@ -769,20 +724,16 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px 16px 0 0;
+  border-radius: 10px 10px 0 0;
   margin-bottom: -1px; }
   .badgeCardIcon:after {
     content: "";
-    height: 22px;
-    width: 22px;
-    right: -21.65px;
+    height: 20px;
+    width: 20px;
+    right: -7px;
     position: absolute;
-    bottom: 0.25px;
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    bottom: -12px;
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, #ffffff 7px);
     border-color: #fff; }
   .badgeCardIcon:before {
     position: relative;
@@ -799,7 +750,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px 16px 0 0;
+  border-radius: 10px 10px 0 0;
   margin-top: 1em;
   bottom: -1px;
   font-weight: 600;
@@ -809,12 +760,12 @@ label {
     margin-top: -3px; }
   .badgeCardActionTab:before {
     content: "";
-    height: 19px;
+    height: 20px;
     width: 20px;
-    left: -15.8px;
+    left: -8px;
     position: absolute;
-    bottom: -2.6px;
-    background-image: radial-gradient(circle at top left, transparent 15px, #ffffff 16px); }
+    bottom: -11px;
+    background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px); }
   .badgeCardActionTab:after {
     content: "";
     height: 29px;
@@ -837,10 +788,10 @@ label {
   flex: 1 1 auto;
   flex-direction: column;
   background-color: #ffffff;
-  border-radius: 0 16px 16px 16px;
+  border-radius: 0 10px 10px 10px;
   padding: 10px; }
   .badgeCardContent.noHeader {
-    border-radius: 16px; }
+    border-radius: 10px; }
 
 .badgeCardLabel {
   padding: 0.66em 0.66em 0.66em 2em;
@@ -918,7 +869,7 @@ label {
       background-color: #0a2c4d;
       color: #fff;
       font-weight: 600;
-      border-radius: 20px;
+      border-radius: 5px;
       margin: 0 5px;
       display: block; }
     .badgeCardData .badgeCardDataText p {
@@ -1184,31 +1135,21 @@ body {
         box-shadow: 0 0 17px 2px rgba(0, 0, 0, 0.35);
         white-space: nowrap; }
         .suds-container .summaryHeader .screenName .name:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, #F5F5F5 11px, #F5F5F5 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #F5F5F5;
-          bottom: 2px;
-          right: -22px; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #F5F5F5 7px);
+          bottom: -11px;
+          right: -7px; }
         .suds-container .summaryHeader .screenName .name:before {
-          background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, #F5F5F5 11px, #F5F5F5 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #F5F5F5;
-          bottom: 1px;
-          left: -21px; }
+          background-image: radial-gradient(circle at 0px 0px, transparent 6px, #F5F5F5 7px);
+          bottom: -11px;
+          left: -7px; }
     .suds-container .summaryHeader.summaryOpen .summaryPanel .summaryTab {
       background-color: #4a90e2;
       color: #fff; }
       .suds-container .summaryHeader.summaryOpen .summaryPanel .summaryTab:before {
-        background-image: radial-gradient(circle at 0 0, transparent 12px, #4a90e2 12px);
+        background-image: radial-gradient(circle at 0 0, transparent 20px, #4a90e2 20px);
         opacity: 1; }
       .suds-container .summaryHeader.summaryOpen .summaryPanel .summaryTab:after {
-        background-image: radial-gradient(circle at 100% 0, transparent 12px, #4a90e2 12px);
+        background-image: radial-gradient(circle at 100% 0, transparent 20px, #4a90e2 20px);
         opacity: 1; }
     .suds-container .summaryHeader.summaryOpen .summaryPanel .summaryBody {
       background-color: #4a90e2; }
@@ -1448,7 +1389,7 @@ body {
     background-color: #dddddd;
     position: relative;
     z-index: 58;
-    border-radius: 0 27px 27px 27px;
+    border-radius: 0 12px 12px 12px;
     border: 1px solid #cccccc;
     margin-top: -1px; }
     .suds-container .sections .section:first-child {
@@ -1460,7 +1401,7 @@ body {
     position: relative;
     background-color: #dddddd;
     padding: 0.5em 1em 1em 1em;
-    border-radius: 27px;
+    border-radius: 10px;
     margin: 2em 0;
     display: flex;
     flex-direction: column; }
@@ -1475,7 +1416,7 @@ body {
     .suds-container .section .sectionContent {
       padding: 2em;
       background-color: #ffffff;
-      border-radius: 17px;
+      border-radius: 10px;
       border: 1px solid #c7c7c7;
       flex: 1 0 auto;
       position: relative;
@@ -1510,11 +1451,7 @@ body {
         .welcomeMsg .getStarted .tabHeadingRow .tabHeading:last-child:before {
           display: none; }
         .welcomeMsg .getStarted .tabHeadingRow .tabHeading:last-child:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px); }
   .welcomeMsg .getStarted .getStartedText {
     background-color: #ffffff;
     border-radius: 0 10px 10px 10px;
@@ -1658,7 +1595,7 @@ body {
           line-height: 28px;
           font-size: 24px;
           font-weight: 600;
-          letter-spacing: .01em; }
+          letter-spacing: 0.01em; }
       #renderView.caseFile .summaryHeader .headerSection.details {
         font-family: "Arial", sans-serif;
         display: flex;
@@ -1675,7 +1612,7 @@ body {
           font-size: 24px;
           line-height: 28px;
           font-weight: 600;
-          letter-spacing: .01em;
+          letter-spacing: 0.01em;
           flex-wrap: wrap; }
     #renderView.caseFile .summaryHeader .caseFileId {
       margin-left: 15em; }
@@ -1685,28 +1622,18 @@ body {
         background-color: #F5F5F5;
         color: #001f3f;
         background-image: none;
-        padding: .25em 1.5em;
+        padding: 0.25em 1.5em;
         max-width: 300px;
         text-align: center;
         box-shadow: 0px -4px 17px 2px rgba(0, 0, 0, 0.35); }
         #renderView.caseFile .summaryHeader .caseFileId .fileId:before {
-          background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, #F5F5F5 11px, #F5F5F5 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #F5F5F5;
-          bottom: 0.1px;
-          left: -11px; }
+          background-image: radial-gradient(circle at 0px 0px, transparent 6px, #F5F5F5 7px);
+          bottom: -12px;
+          left: -7px; }
         #renderView.caseFile .summaryHeader .caseFileId .fileId:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, #F5F5F5 11px, #F5F5F5 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #F5F5F5;
-          bottom: 0.1px;
-          right: -12px; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #F5F5F5 7px);
+          bottom: -12px;
+          right: -7px; }
   #renderView.caseFile .caseContent {
     position: relative;
     z-index: 22;
@@ -1726,7 +1653,7 @@ body {
       left: 85px;
       margin-bottom: 2em;
       padding: 0 1em 1em 0;
-      transition: all .3s ease; }
+      transition: all 0.3s ease; }
       #renderView.caseFile .caseContent .caseSections.open {
         transform: translate3d(300px, 0px, 0px); }
       #renderView.caseFile .caseContent .caseSections:last-child {
@@ -1749,40 +1676,24 @@ body {
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter:before, #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter:after {
             display: none; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter.active:before, #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter.active:after {
-            display: block; }
+            display: block;
+            bottom: -11px; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter.active:after {
-            background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #dddddd 11px, #dddddd 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
-            right: -12px;
-            bottom: 1px; }
+            right: -8px;
+            background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #dddddd 8px); }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter.active:before {
-            background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #dddddd #cccccc 11px, #dddddd #cccccc 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0; }
+            left: -8px;
+            background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #dddddd #cccccc 8px); }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter:nth-child(1):before {
             display: block;
-            background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #AAAAAA 11px, #AAAAAA 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
+            background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #AAAAAA 8px);
             left: 0;
             background-color: #AAAAAA;
-            bottom: -21px; }
+            bottom: -20px; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter:nth-child(1).active:before {
-            background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #dddddd 11px, #dddddd 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
+            background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #dddddd 8px);
             border-left: 1px solid #cccccc;
-            background-color: #dddddd;
-            left: -1px; }
+            background-color: #dddddd; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .filters .sectionFilter:hover {
             cursor: pointer; }
       #renderView.caseFile .caseContent .caseFiltersAndViews .views {
@@ -1791,35 +1702,25 @@ body {
         #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab {
           margin-left: 1px;
           background-color: #AAAAAA; }
-          #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab.active:before {
-            bottom: 0px; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab:before {
             display: none; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab:after {
             display: none; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab:last-child:after {
             display: block;
-            background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #AAAAAA 11px, #AAAAAA 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
+            background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #AAAAAA 8px);
             background-color: #AAAAAA;
             width: 22px;
             height: 22px;
-            content: '';
+            content: "";
             right: 0px;
             bottom: -20px; }
           #renderView.caseFile .caseContent .caseFiltersAndViews .views .viewTab:last-child.active:after {
-            background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #dddddd 11px, #dddddd 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
+            background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #dddddd 8px);
             background-color: #dddddd;
             width: 22px;
             height: 22px;
-            content: '';
+            content: "";
             border-right: 1px solid #cccccc;
             right: -1px;
             bottom: -20px; }
@@ -1834,32 +1735,19 @@ body {
         border-bottom: 0px solid #ddd; }
         #renderView.caseFile .caseContent .caseFiltersAndViews .tabHeading.active:before {
           display: block;
-          background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #dddddd 11px, #dddddd 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #dddddd;
-          left: -21px;
-          bottom: 0px; }
+          background-image: radial-gradient(circle at 0px 0px, transparent 6px, #cccccc 7px, #dddddd 8px);
+          bottom: -11px;
+          left: -8px; }
         #renderView.caseFile .caseContent .caseFiltersAndViews .tabHeading.active:after {
-          display: block;
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #dddddd 11px, #dddddd 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #dddddd;
-          border-bottom-width: 1px;
-          right: -22px;
-          bottom: 0px; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #dddddd 8px);
+          border-bottom-width: 1px; }
     #renderView.caseFile .caseContent .screenNav {
       position: absolute;
       z-index: 10;
       max-width: 50%;
       width: 100%;
       opacity: 1;
-      transition: all .3s ease; }
+      transition: all 0.3s ease; }
       #renderView.caseFile .caseContent .screenNav .caseNavToggle {
         align-items: center;
         justify-content: center;
@@ -1869,12 +1757,12 @@ body {
         margin-left: 10px;
         margin-bottom: 1.3em;
         font-size: 24px;
-        transition: all .2s ease;
+        transition: all 0.2s ease;
         border-radius: 3px;
         position: relative; }
         #renderView.caseFile .caseContent .screenNav .caseNavToggle .glyphicon {
           display: block;
-          transition: all .2s ease; }
+          transition: all 0.2s ease; }
         #renderView.caseFile .caseContent .screenNav .caseNavToggle:hover {
           background-color: #001f3f;
           text-decoration: none; }
@@ -1922,12 +1810,12 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            content: '\f111';
-            font-family: 'FontAwesome', cursive;
+            content: "\f111";
+            font-family: "FontAwesome", cursive;
             font-size: 16px;
             margin-right: 4.25em;
             color: #111111;
-            transition: all .2s ease;
+            transition: all 0.2s ease;
             outline: none; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div:hover {
             text-decoration: none;
@@ -1937,26 +1825,26 @@ body {
               background-color: #7FDBFF;
               color: #111; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.homeAnchor:before {
-            content: '\f015 ';
+            content: "\f015 ";
             font-size: 24px;
             margin-right: 2.8em; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.status:before {
             font-size: 24px;
             margin-right: 2.8em; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.Ready:before {
-            content: '\f144';
+            content: "\f144";
             color: #4a90e2; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.NotReady:before {
-            content: '\f023';
+            content: "\f023";
             color: #AAAAAA; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.Done:before {
-            content: '\f00c';
+            content: "\f00c";
             color: #2ecc40; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.Error:before {
-            content: '\f071';
+            content: "\f071";
             color: #f5a623; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.inProgress:before {
-            content: '\f110';
+            content: "\f110";
             color: #2ecc40;
             font-size: 1.3em;
             animation-name: fa-spin;
@@ -1968,7 +1856,7 @@ body {
             animation-fill-mode: initial;
             animation-play-state: initial; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.inProgress:after {
-            content: '\f0ad';
+            content: "\f0ad";
             position: absolute;
             left: -1px;
             top: 0;
@@ -1979,11 +1867,11 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'FontAwesome', cursive;
+            font-family: "FontAwesome", cursive;
             font-size: 20px;
             margin-right: 4.25em;
             color: #4a90e2;
-            transition: all .2s ease;
+            transition: all 0.2s ease;
             outline: none; }
           #renderView.caseFile .caseContent .screenNav .caseNavList li div.inProgress:hover {
             text-decoration: none;
@@ -2036,31 +1924,18 @@ body {
         border: 1px solid #cccccc;
         border-width: 1px 1px 0 1px; }
         #renderView.caseFile .caseContent .activeTabContentTabs .tabHeading:before {
-          background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
+          background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px);
           border-color: #ffffff;
           border-left-color: #cccccc;
           bottom: 1px; }
         #renderView.caseFile .caseContent .activeTabContentTabs .tabHeading:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #ffffff;
-          border-bottom-width: 3px;
-          bottom: -1px;
-          right: -22px; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #ffffff 8px);
+          bottom: -10px;
+          right: -8px; }
         #renderView.caseFile .caseContent .activeTabContentTabs .tabHeading.actionTab:before {
-          background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          left: -21px; }
+          background-image: radial-gradient(circle at 0px 0px, transparent 6px, #cccccc 7px, #ffffff 8px);
+          left: -8px;
+          bottom: -10px; }
     #renderView.caseFile .caseContent[data-view="case"] .caseSections {
       padding-right: 0;
       padding-bottom: 0; }
@@ -2073,7 +1948,7 @@ body {
       #renderView.caseFile .caseContent[data-view="case"] .caseSection:last-child {
         margin-bottom: 0; }
       #renderView.caseFile .caseContent[data-view="case"] .caseSection#aoApproval .sectionContent, #renderView.caseFile .caseContent[data-view="case"] .caseSection#basicInfo .sectionContent, #renderView.caseFile .caseContent[data-view="case"] .caseSection#mandatoryClauses .sectionContent, #renderView.caseFile .caseContent[data-view="case"] .caseSection#nepaApprovalDocs .sectionContent, #renderView.caseFile .caseContent[data-view="case"] .caseSection#signed .sectionContent, #renderView.caseFile .caseContent[data-view="case"] .caseSection#authActions .sectionContent {
-        border-top-right-radius: 12px; }
+        border-top-right-radius: 10px; }
     #renderView.caseFile .caseContent[data-view="case"] .sectionTop {
       display: flex;
       flex-direction: row;
@@ -2081,7 +1956,7 @@ body {
     #renderView.caseFile .caseContent[data-view="case"] .tabHeading {
       background: #ffffff; }
       #renderView.caseFile .caseContent[data-view="case"] .tabHeading.sectionStatus {
-        padding: .5rem 20px;
+        padding: 0.5rem 20px;
         font-size: 24px;
         margin-bottom: -1px;
         border-bottom: 1px solid #ffffff; }
@@ -2094,14 +1969,8 @@ body {
         #renderView.caseFile .caseContent[data-view="case"] .tabHeading.sectionLabel:before {
           display: none; }
         #renderView.caseFile .caseContent[data-view="case"] .tabHeading.sectionLabel:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
-          border-color: #ffffff;
-          bottom: -1px;
-          right: -11.8px; }
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #ffffff 8px);
+          border-color: #ffffff; }
         #renderView.caseFile .caseContent[data-view="case"] .tabHeading.sectionLabel.sectionLabel:first-child {
           margin-left: 0; }
       #renderView.caseFile .caseContent[data-view="case"] .tabHeading.statusError {
@@ -2133,17 +2002,13 @@ body {
         right: -1px;
         bottom: -20px; }
       #renderView.caseFile .caseContent[data-view="case"] .sectionActionLink:before {
-        background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #c7c7c7 10px, #c7c7c7 11px, #ffffff 11px, #ffffff 12px);
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        border-style: solid;
-        border-width: 0;
-        bottom: -1.9px;
-        left: -21.8px; }
+        background-image: radial-gradient(circle at 0px 0px, transparent 6px, #c7c7c7 7px, #ffffff 8px);
+        bottom: -13px;
+        left: -8px; }
     #renderView.caseFile .caseContent[data-view="case"] .sectionContent {
       padding: 2em 1em;
       background-color: #ffffff;
-      border-radius: 0 0 12px 12px; }
+      border-radius: 0 0 10px 10px; }
     #renderView.caseFile .caseContent[data-view="docs"] .docs {
       display: block;
       background-color: #dddddd;
@@ -2182,14 +2047,10 @@ body {
         background-color: #F5F5F5;
         border: 1px solid #e6e6e6; }
         #renderView.caseFile .caseContent[data-view="docs"] .filterBar .tabHeading:after, #renderView.caseFile .caseContent[data-view="log"] .filterBar .tabHeading:after, #renderView.caseFile .caseContent[data-view="finance"] .filterBar .tabHeading:after, #renderView.caseFile .caseContent[data-view="summary"] .filterBar .tabHeading:after {
-          background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #e6e6e6 10px, #e6e6e6 11px, #F5F5F5 11px, #F5F5F5 12px);
-          background-position: bottom left;
-          background-repeat: no-repeat;
-          border-style: solid;
-          border-width: 0;
+          background-image: radial-gradient(circle at 20px 0px, transparent 6px, #e6e6e6 7px, #F5F5F5 8px);
           border-color: #F5F5F5;
-          bottom: 0px;
-          right: -22px; }
+          bottom: -12px;
+          right: -8px; }
     #renderView.caseFile .caseContent[data-view="docs"] .filterControls, #renderView.caseFile .caseContent[data-view="log"] .filterControls, #renderView.caseFile .caseContent[data-view="finance"] .filterControls, #renderView.caseFile .caseContent[data-view="summary"] .filterControls {
       background-color: #F5F5F5;
       padding: 1em;
@@ -2278,7 +2139,7 @@ body {
             overflow: hidden;
             display: flex;
             align-items: center;
-            transition: all .3s ease; }
+            transition: all 0.3s ease; }
             #renderView.caseFile .caseContent[data-view="docs"] .logEntry .entryDetails .noteWithFile .fileLink i, #renderView.caseFile .caseContent[data-view="log"] .logEntry .entryDetails .noteWithFile .fileLink i, #renderView.caseFile .caseContent[data-view="finance"] .logEntry .entryDetails .noteWithFile .fileLink i, #renderView.caseFile .caseContent[data-view="summary"] .logEntry .entryDetails .noteWithFile .fileLink i {
               height: 40px;
               width: 40px;
@@ -2327,20 +2188,20 @@ body {
               color: #ffffff; }
             #renderView.caseFile .caseContent[data-view="docs"] .logEntry .entryDetails .tags .tag:first-child, #renderView.caseFile .caseContent[data-view="log"] .logEntry .entryDetails .tags .tag:first-child, #renderView.caseFile .caseContent[data-view="finance"] .logEntry .entryDetails .tags .tag:first-child, #renderView.caseFile .caseContent[data-view="summary"] .logEntry .entryDetails .tags .tag:first-child {
               margin-left: 0; }
-      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source='user'] .entrySource,
-      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source='user'] .entryDetails, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source='user'] .entrySource,
-      #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source='user'] .entryDetails, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source='user'] .entrySource,
-      #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source='user'] .entryDetails, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source='user'] .entrySource,
-      #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source='user'] .entryDetails {
+      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source="user"] .entrySource,
+      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source="user"] .entryDetails, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source="user"] .entrySource,
+      #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source="user"] .entryDetails, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source="user"] .entrySource,
+      #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source="user"] .entryDetails, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source="user"] .entrySource,
+      #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source="user"] .entryDetails {
         background-color: #7FDBFF;
         color: #111; }
-      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source='user'] .entrySource:after, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source='user'] .entrySource:after, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source='user'] .entrySource:after, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source='user'] .entrySource:after {
+      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source="user"] .entrySource:after, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source="user"] .entrySource:after, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source="user"] .entrySource:after, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source="user"] .entrySource:after {
         background-image: radial-gradient(circle at 100% 0, transparent, transparent 20px, #7FDBFF 21px, #7FDBFF 22px);
         box-sizing: border-box; }
-      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source='user'] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source='user'] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source='user'] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source='user'] .entryDetails .tag.email .fa {
+      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source="user"] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source="user"] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source="user"] .entryDetails .tag.email .fa, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source="user"] .entryDetails .tag.email .fa {
         background-color: #4a90e2;
         color: #fff; }
-      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source='user'] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source='user'] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source='user'] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source='user'] .entryDetails .loggedDate {
+      #renderView.caseFile .caseContent[data-view="docs"] .logEntry[data-log-source="user"] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="log"] .logEntry[data-log-source="user"] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="finance"] .logEntry[data-log-source="user"] .entryDetails .loggedDate, #renderView.caseFile .caseContent[data-view="summary"] .logEntry[data-log-source="user"] .entryDetails .loggedDate {
         color: #111; }
     #renderView.caseFile .caseContent[data-view="docs"] .logEntry:nth-child(2n+1), #renderView.caseFile .caseContent[data-view="log"] .logEntry:nth-child(2n+1), #renderView.caseFile .caseContent[data-view="finance"] .logEntry:nth-child(2n+1), #renderView.caseFile .caseContent[data-view="summary"] .logEntry:nth-child(2n+1) {
       flex-direction: row-reverse;
@@ -2364,11 +2225,7 @@ body {
             display: none; }
           #renderView.caseFile .caseContent[data-view="docs"] .logEntry:nth-child(2n+1) .entryDetails .tabHeading:before, #renderView.caseFile .caseContent[data-view="log"] .logEntry:nth-child(2n+1) .entryDetails .tabHeading:before, #renderView.caseFile .caseContent[data-view="finance"] .logEntry:nth-child(2n+1) .entryDetails .tabHeading:before, #renderView.caseFile .caseContent[data-view="summary"] .logEntry:nth-child(2n+1) .entryDetails .tabHeading:before {
             display: block;
-            background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-            background-position: bottom left;
-            background-repeat: no-repeat;
-            border-style: solid;
-            border-width: 0;
+            background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px);
             border-color: #ffffff; }
         #renderView.caseFile .caseContent[data-view="docs"] .logEntry:nth-child(2n+1) .entryDetails .entry, #renderView.caseFile .caseContent[data-view="log"] .logEntry:nth-child(2n+1) .entryDetails .entry, #renderView.caseFile .caseContent[data-view="finance"] .logEntry:nth-child(2n+1) .entryDetails .entry, #renderView.caseFile .caseContent[data-view="summary"] .logEntry:nth-child(2n+1) .entryDetails .entry {
           border-radius: 10px 0 10px 10px; }
@@ -2749,15 +2606,11 @@ body {
       #renderView.caseFile.administrationCaseFile .oversightInstanceTop .oversightInstanceActionTab:first-child:before {
         content: "";
         position: absolute;
-        width: 12px;
-        height: 12px;
+        width: 20px;
+        height: 20px;
         left: -21px;
         bottom: -1px;
-        background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #dddddd 10px, #dddddd 11px, #f4f4f4 11px, #f4f4f4 12px);
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        border-style: solid;
-        border-width: 0; }
+        background-image: radial-gradient(circle at 0px 0px, transparent 6px, #dddddd 7px, #f4f4f4 8px); }
 
 #renderView.caseFile.administrationCaseFile .oversightData {
   display: flex;
@@ -4136,7 +3989,7 @@ body {
       left: -22px;
       bottom: -3px;
       opacity: 0;
-      background-image: radial-gradient(circle at 0 0, transparent 12px, #AAAAAA 12px); }
+      background-image: radial-gradient(circle at 0 0, transparent 20px, #AAAAAA 20px); }
     .summaryPanel .summaryTab:after {
       content: "";
       width: 26px;
@@ -4146,7 +3999,7 @@ body {
       bottom: -3px;
       z-index: 4;
       opacity: 0;
-      background-image: radial-gradient(circle at 0 0, transparent 12px, #AAAAAA 12px); }
+      background-image: radial-gradient(circle at 0 0, transparent 20px, #AAAAAA 20px); }
   .summaryPanel .summaryBody {
     padding: 1em .5em;
     padding-bottom: 6em;
@@ -4447,11 +4300,7 @@ body {
   #renderView.billingSummary .screenSections[data-view="all"] .sectionFilter[data-filter="all"]:after {
     z-index: 20;
     display: block;
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
   #renderView.billingSummary .screenSections[data-view="all"] .sectionFilter[data-filter="all"]:before {
     background-color: #ffffff; }
@@ -4465,20 +4314,12 @@ body {
   #renderView.billingSummary .screenSections[data-view="paid"] .sectionFilter[data-filter="paid"]:after {
     z-index: 20;
     display: block;
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
   #renderView.billingSummary .screenSections[data-view="paid"] .sectionFilter[data-filter="paid"]:before {
     z-index: 20;
     display: block;
-    background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
 
 #renderView.billingSummary .screenSections[data-view="paid"] .sectionFilter[data-filter="all"]:before {
@@ -4496,20 +4337,12 @@ body {
   #renderView.billingSummary .screenSections[data-view="unpaid"] .sectionFilter[data-filter="unpaid"]:after {
     z-index: 20;
     display: block;
-    background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    background-image: radial-gradient(circle at 20px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
   #renderView.billingSummary .screenSections[data-view="unpaid"] .sectionFilter[data-filter="unpaid"]:before {
     z-index: 20;
     display: block;
-    background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, transparent 10px, transparent 11px, #ffffff 11px, #ffffff 12px);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    border-style: solid;
-    border-width: 0;
+    background-image: radial-gradient(circle at 0px 0px, transparent 6px, transparent 7px, #ffffff 8px);
     border-color: #ffffff; }
 
 #renderView.billingSummary .screenSections[data-view="unpaid"] .sectionFilter[data-filter="all"]:before {
@@ -5046,24 +4879,16 @@ body {
     padding: 10px 15px; }
     .contactManager .contactsTab:before, .contactManager .contactsTab:after {
       content: "";
-      width: 12px;
-      height: 12px;
+      width: 20px;
+      height: 20px;
       position: absolute;
       bottom: 0.2px;
       box-sizing: border-box; }
     .contactManager .contactsTab:before {
-      background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #F5F5F5 11px, #F5F5F5 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
+      background-image: radial-gradient(circle at 0px 0px, transparent 6px, #cccccc 7px, #F5F5F5 8px);
       left: -22px; }
     .contactManager .contactsTab:after {
-      background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #F5F5F5 11px, #F5F5F5 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0;
+      background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #F5F5F5 8px);
       right: -22px; }
     .contactManager .contactsTab.flushLeft:before {
       display: none; }
@@ -5079,17 +4904,9 @@ body {
         border-right-color: #cccccc;
         border-right-style: solid; }
     .contactManager .contactsTab.active:before {
-      background-image: radial-gradient(farthest-corner at 0px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0; }
+      background-image: radial-gradient(circle at 0px 0px, transparent 6px, #cccccc 7px, #ffffff 8px); }
     .contactManager .contactsTab.active:after {
-      background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, #cccccc 10px, #cccccc 11px, #ffffff 11px, #ffffff 12px);
-      background-position: bottom left;
-      background-repeat: no-repeat;
-      border-style: solid;
-      border-width: 0; }
+      background-image: radial-gradient(circle at 20px 0px, transparent 6px, #cccccc 7px, #ffffff 8px); }
   .contactManager .contactManagerTitle {
     background-color: #F5F5F5;
     width: 300px;
@@ -6323,8 +6140,8 @@ body {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
-    transform: skewX(0.39063deg) skewY(0.39063deg); }
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+    transform: skewX(0.39062deg) skewY(0.39062deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); } }
@@ -6351,8 +6168,8 @@ body {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
-    transform: skewX(0.39063deg) skewY(0.39063deg); }
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+    transform: skewX(0.39062deg) skewY(0.39062deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); } }

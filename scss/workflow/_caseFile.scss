@@ -26,8 +26,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        height: auto;
-        //background: url("../img/mountains1.jpg") no-repeat 90% 50%;
+        height: auto; //background: url("../img/mountains1.jpg") no-repeat 90% 50%;
         background: url("../img/forest2.jpg") no-repeat 50% 40%;
         background-size: cover;
         border-radius: 10px 10px 0 0;
@@ -114,7 +113,7 @@
                     line-height: 28px;
                     font-size: 24px;
                     font-weight: 600;
-                    letter-spacing: .01em
+                    letter-spacing: 0.01em;
                 }
             }
             &.details {
@@ -134,7 +133,7 @@
                     font-size: 24px;
                     line-height: 28px;
                     font-weight: 600;
-                    letter-spacing: .01em;
+                    letter-spacing: 0.01em;
                     flex-wrap: wrap;
                 }
             }
@@ -147,21 +146,19 @@
                 background-color: $gray3;
                 color: $gray3-text;
                 background-image: none;
-                padding: .25em 1.5em;
+                padding: 0.25em 1.5em;
                 max-width: 300px;
                 text-align: center;
                 box-shadow: 0px -4px 17px 2px rgba(0, 0, 0, 0.35);
                 &:before {
                     @include simpleBeforeCurve($gray3);
-                    border-color: $gray3;
-                    bottom: 0.1px;
-                    left: -11px;
+                    bottom: -12px;
+                    left: -7px;
                 }
                 &:after {
                     @include simpleAfterCurve($gray3);
-                    border-color: $gray3;
-                    bottom: 0.1px;
-                    right: -12px;
+                    bottom: -12px;
+                    right: -7px;
                 }
             }
         }
@@ -184,7 +181,7 @@
             left: 85px;
             margin-bottom: 2em;
             padding: 0 1em 1em 0;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
             &.open {
                 transform: translate3d(300px, 0px, 0px);
             }
@@ -208,52 +205,45 @@
                 .sectionFilter {
                     background-color: $gray2;
                     margin-right: 1px;
-                    &:before, &:after {
+                    &:before,
+                    &:after {
                         display: none;
                     }
-                    
                     &.active {
                         &:before,
                         &:after {
-                            display: block;
-                            // bottom: 0;
+                            display: block; // bottom: 0;
+                            bottom: -11px;
                         }
-                        
                         &:after {
-                            @include afterCurve($gray1, $gray4);
-                            right: -12px;
-                            bottom: 1px;
+                            right: -8px;
+                            @include afterCurve($gray1,
+                            $gray4);
                         }
-                        
                         &:before {
+                            left: -8px;
                             @include beforeCurve($gray1 $gray4);
-                            
                         }
                     }
-                    
                     &:nth-child(1) {
                         &:before {
                             display: block;
                             @include beforeCurve($gray2);
                             left: 0;
                             background-color: $gray2;
-                            bottom: -21px;
+                            bottom: -20px;
                         }
-                        
                         &.active {
                             &:before {
                                 @include beforeCurve($gray1);
                                 border-left: 1px solid $gray4;
                                 background-color: $gray1;
-                                left: -1px;
                             }
                         }
                     }
-                    
                     &:hover {
                         cursor: pointer;
                     }
-                    
                 }
             }
             .views {
@@ -262,13 +252,6 @@
                 .viewTab {
                     margin-left: 1px;
                     background-color: $gray2;
-                    //box-shadow: inset 0px -5px 7px -3px rgba(0,0,0,0.3);
-                    
-                    &.active {
-                        &:before {
-                            bottom: 0px;
-                        }
-                    }
                     &:before {
                         display: none;
                     }
@@ -282,7 +265,7 @@
                             background-color: $gray2;
                             width: 22px;
                             height: 22px;
-                            content: '';
+                            content: "";
                             right: 0px;
                             bottom: -20px;
                         }
@@ -294,13 +277,12 @@
                             background-color: $gray1;
                             width: 22px;
                             height: 22px;
-                            content: '';
+                            content: "";
                             border-right: 1px solid $gray4;
-                            right: -1px;;
+                            right: -1px;
                             bottom: -20px;
                         }
                     }
-                    
                     &:hover {
                         cursor: pointer;
                     }
@@ -309,26 +291,21 @@
             .tabHeading.active {
                 background-color: $gray1;
                 z-index: 61;
-                background-image: linear-gradient(#ccc, #ddd 20px);
-                // box-shadow: inset 0 1px 5px 0px rgba(255,255,255,1), 2px 4px 2px -1px rgba(0,0,0,0.5);
+                background-image: linear-gradient( #ccc, #ddd 20px); // box-shadow: inset 0 1px 5px 0px rgba(255,255,255,1), 2px 4px 2px -1px rgba(0,0,0,0.5);
                 box-shadow: inset 0 2px 5px -2px rgba(255, 255, 255, 1);
                 border: 1px solid #ccc;
-                border-bottom: 0px solid #ddd;
-                //box-shadow: 0px -4px 5px -1px rgba(0,0,0,0.35);
+                border-bottom: 0px solid #ddd; //box-shadow: 0px -4px 5px -1px rgba(0,0,0,0.35);
                 &:before {
                     display: block;
-                    @include beforeCurve($gray1, $gray4);
-                    border-color: $gray1;
-                    left: -21px;
-                    bottom: 0px;
+                    @include beforeCurve($gray1,
+                    $gray4);
+                    bottom: -11px;
+                    left: -8px;
                 }
                 &:after {
-                    display: block;
-                    @include afterCurve($gray1, $gray4);
-                    border-color: $gray1;
+                    @include afterCurve($gray1,
+                    $gray4);
                     border-bottom-width: 1px;
-                    right: -22px;
-                    bottom: 0px;
                 }
             }
         }
@@ -338,7 +315,7 @@
             max-width: 50%;
             width: 100%;
             opacity: 1;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
             .caseNavToggle {
                 align-items: center;
                 justify-content: center;
@@ -348,19 +325,16 @@
                 margin-left: 10px;
                 margin-bottom: 1.3em;
                 font-size: 24px;
-                transition: all .2s ease;
+                transition: all 0.2s ease;
                 border-radius: 3px;
                 position: relative;
-                
                 .glyphicon {
                     display: block;
-                    transition: all .2s ease;
+                    transition: all 0.2s ease;
                 }
-                
                 &:hover {
                     background-color: $primary-color-three;
                     text-decoration: none;
-                    
                     .glyphicon {
                         color: $primary-color-three-text;
                     }
@@ -378,16 +352,13 @@
                     flex-direction: column;
                     align-items: center;
                     line-height: 1;
-                    
                     #toggleOpenLabel {
                         display: inline;
                     }
-                    
                     #toggleCloseLabel {
                         display: none;
                     }
                 }
-                
             }
             .navLabel {
                 position: absolute;
@@ -418,12 +389,12 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            content: '\f111';
-                            font-family: 'FontAwesome', cursive;
+                            content: "\f111";
+                            font-family: "FontAwesome", cursive;
                             font-size: 16px;
                             margin-right: 4.25em;
                             color: $eerie-black;
-                            transition: all .2s ease;
+                            transition: all 0.2s ease;
                             outline: none;
                         }
                         &:hover {
@@ -437,9 +408,9 @@
                         }
                         &.homeAnchor {
                             &:before {
-                                content: '\f015 ';
+                                content: "\f015 ";
                                 font-size: 24px;
-                                margin-right: 2.8em
+                                margin-right: 2.8em;
                             }
                         }
                         &.status {
@@ -450,31 +421,31 @@
                         }
                         &.Ready {
                             &:before {
-                                content: '\f144';
+                                content: "\f144";
                                 color: $primary-color-two;
                             }
                         }
                         &.NotReady {
                             &:before {
-                                content: '\f023';
+                                content: "\f023";
                                 color: $gray2;
                             }
                         }
                         &.Done {
                             &:before {
-                                content: '\f00c';
+                                content: "\f00c";
                                 color: $primary-highlight;
                             }
                         }
                         &.Error {
                             &:before {
-                                content: '\f071';
+                                content: "\f071";
                                 color: $warning-suds;
                             }
                         }
                         &.inProgress {
                             &:before {
-                                content: '\f110';
+                                content: "\f110";
                                 color: $primary-highlight;
                                 font-size: 1.3em;
                                 animation-name: fa-spin;
@@ -487,7 +458,7 @@
                                 animation-play-state: initial;
                             }
                             &:after {
-                                content: '\f0ad';
+                                content: "\f0ad";
                                 position: absolute;
                                 left: -1px;
                                 top: 0;
@@ -498,11 +469,11 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                font-family: 'FontAwesome', cursive;
+                                font-family: "FontAwesome", cursive;
                                 font-size: 20px;
                                 margin-right: 4.25em;
                                 color: $primary-color-two;
-                                transition: all .2s ease;
+                                transition: all 0.2s ease;
                                 outline: none;
                             }
                             &:hover {
@@ -585,20 +556,19 @@
                     border-color: $white;
                     border-left-color: $gray4;
                     bottom: 1px;
-                    
                 }
                 &:after {
-                    @include afterCurve($white, $gray4);
-                    border-color: $white;
-                    border-bottom-width: 3px;
-                    bottom: -1px;
-                    right: -22px;
+                    @include afterCurve($white,
+                    $gray4);
+                    bottom: -10px;
+                    right: -8px;
                 }
-                
                 &.actionTab {
                     &:before {
-                        @include beforeCurve($white, $gray4);
-                        left: -21px;
+                        @include beforeCurve($white,
+                        $gray4);
+                        left: -8px;
+                        bottom: -10px;
                     }
                 }
             }
@@ -626,7 +596,7 @@
                 &#signed,
                 &#authActions {
                     .sectionContent {
-                        border-top-right-radius: 12px;
+                        border-top-right-radius: 10px;
                     }
                 }
             }
@@ -637,9 +607,8 @@
             }
             .tabHeading {
                 background: $white;
-                
                 &.sectionStatus {
-                    padding: .5rem 20px;
+                    padding: 0.5rem 20px;
                     font-size: 24px;
                     margin-bottom: -1px;
                     border-bottom: 1px solid $white;
@@ -655,12 +624,10 @@
                         display: none;
                     }
                     &:after {
-                        @include afterCurve($white, $gray4);
+                        @include afterCurve($white,
+                        $gray4);
                         border-color: $white;
-                        bottom: -1px;
-                        right: -11.8px;
                     }
-                    
                     &.sectionLabel:first-child {
                         margin-left: 0;
                     }
@@ -698,24 +665,23 @@
             .sectionActionLink {
                 margin-left: auto;
                 border-bottom: 1px solid $white;
-                
                 &:after {
-                    
                     background-color: $white;
                     border-right: 1px solid $gray5;
                     right: -1px;
                     bottom: -20px;
                 }
                 &:before {
-                    @include beforeCurve($white, #c7c7c7);
-                    bottom: -1.9px;
-                    left: -21.8px;
+                    @include beforeCurve($white,
+                    #c7c7c7);
+                    bottom: -13px;
+                    left: -8px;
                 }
             }
             .sectionContent {
                 padding: 2em 1em;
                 background-color: $white;
-                border-radius: 0 0 12px 12px;
+                border-radius: 0 0 10px 10px;
             }
         }
         &[data-view="docs"] {
@@ -730,7 +696,6 @@
                 display: block;
                 background-color: $gray1;
                 padding: 1em 1em 0 1em;
-                
                 .activeTabContentFrame {
                     border-top-right-radius: 20px;
                 }
@@ -762,7 +727,6 @@
             .caseSections {
                 left: 0;
                 width: 100%;
-                
             }
             .screenNav {
                 opacity: 0;
@@ -779,10 +743,11 @@
                     background-color: $gray3;
                     border: 1px solid #e6e6e6;
                     &:after {
-                        @include afterCurve($gray3, #e6e6e6);
+                        @include afterCurve($gray3,
+                        #e6e6e6);
                         border-color: $gray3;
-                        bottom: 0px;
-                        right: -22px;
+                        bottom: -12px;
+                        right: -8px;
                     }
                 }
             }
@@ -838,9 +803,8 @@
                         height: 22px;
                         background-color: transparent;
                         position: absolute;
-                        background-image: radial-gradient(circle at 100% 0, transparent, transparent 20px, $gray1 21px, $gray1 22px);
+                        background-image: radial-gradient( circle at 100% 0, transparent, transparent 20px, $gray1 21px, $gray1 22px);
                         box-sizing: border-box;
-                        
                         display: block;
                         transform: rotate(180deg);
                         right: 0px;
@@ -856,9 +820,8 @@
                         border-radius: 10px 10px 0 0;
                         &:after {
                             width: 12px;
-                            height: 12px;
-                            // @include simpleAfterCurve($white);
-                            background-image: radial-gradient(farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, $white 11px, $white 12px);
+                            height: 12px; // @include simpleAfterCurve($white);
+                            background-image: radial-gradient( farthest-corner at 11px 0px, transparent, transparent 10px, transparent 10px, transparent 10px, $white 11px, $white 12px);
                             bottom: 2px;
                             right: -12px;
                             border-color: $white;
@@ -885,7 +848,7 @@
                             overflow: hidden;
                             display: flex;
                             align-items: center;
-                            transition: all .3s ease;
+                            transition: all 0.3s ease;
                             i {
                                 height: 40px;
                                 width: 40px;
@@ -954,7 +917,7 @@
                         }
                     }
                 }
-                &[data-log-source='user'] {
+                &[data-log-source="user"] {
                     .entrySource,
                     .entryDetails {
                         background-color: $primary-color-one;
@@ -962,7 +925,7 @@
                     }
                     .entrySource {
                         &:after {
-                            background-image: radial-gradient(circle at 100% 0, transparent, transparent 20px, $primary-color-one 21px, $primary-color-one 22px);
+                            background-image: radial-gradient( circle at 100% 0, transparent, transparent 20px, $primary-color-one 21px, $primary-color-one 22px);
                             box-sizing: border-box;
                         }
                     }
@@ -1020,24 +983,18 @@
                 }
             }
         }
-        
         .aoApprovalCheckList {
             border-bottom: 1px solid $gray2;
             margin-bottom: 1em;
-            
             .noContentButton {
                 margin-top: -6px;
             }
         }
-        
         .wrappableColumns {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-        }
-        
-        //Status Strip basic rules
-        
+        } //Status Strip basic rules
         .statusStrip {
             display: flex;
             flex-direction: column;
@@ -1045,18 +1002,15 @@
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 20px;
-            
             &.warning,
             &.danger {
                 box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
             }
         }
-        
         .basicInfo {
             display: flex;
             flex-direction: row;
         }
-        
         .infoBlock {
             display: flex;
             flex-direction: column;
@@ -1075,7 +1029,6 @@
             align-items: center;
             flex: 1 1 auto;
         }
-        
         .infoActions {
             margin-left: auto;
             display: flex;
@@ -1088,7 +1041,6 @@
         .timeLineFrame {
             padding: 1em;
             display: none;
-            
             .timeline {
                 border-style: solid;
                 border-color: #000;
@@ -1097,7 +1049,6 @@
                 height: 21px;
                 margin-top: 20px;
             }
-            
             .day {
                 position: absolute;
                 top: -20px;
@@ -1105,16 +1056,13 @@
                 width: 14px;
                 line-height: 1.1;
                 text-align: center;
-    
                 &.day30 {
                     left: -8px;
                 }
-    
                 &.day0 {
                     right: -8px;
                 }
             }
-            
             .timeLinePath {
                 height: 0;
                 width: 100%;
@@ -1124,7 +1072,6 @@
                 position: absolute;
                 top: 10px;
             }
-            
             .timeLinePoint {
                 width: 19px;
                 height: 19px;
@@ -1135,8 +1082,6 @@
                 margin-left: -9px;
                 position: relative;
             }
-            
         }
-        
     }
 }

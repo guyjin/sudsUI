@@ -9,24 +9,15 @@
     .suds-input[type="password"],
     .suds-input[type="radio"],
     .suds-select {
-        border-radius: 50px;
+        border-radius: 5px;
     }
-    
-    
-    
-    .suds-input[type="radio"] {
-    
-    }
-    
+    .suds-input[type="radio"] {}
     .radioButtonList {
         display: flex;
     }
-    
     .radioButtonContainer {
-        
-        
         label {
-            line-height:1;
+            line-height: 1;
             text-transform: uppercase;
             font-weight: 600;
             background-color: $gray1;
@@ -40,53 +31,43 @@
             position: relative;
             z-index: 9;
             transition: all .3s ease;
-            
             &:hover {
                 cursor: pointer;
             }
         }
-        
         input[type='radio'] {
             border: none;
             position: relative;
             z-index: 10;
-            margin-left:5px;
+            margin-left: 5px;
         }
-        
-        input[type='radio']:checked + label {
+        input[type='radio']:checked+label {
             background-color: $primary-color-two;
             color: $primary-color-two-text;
         }
-    }
-    
-    // styles for NRM date widget.
-    
+    } // styles for NRM date widget.
     .input-group.date {
         .suds-input[type="date"] {
-            border-radius: 50px 0 0 50px;
+            border-radius: 5px 0 0 5px;
             height: 2.83em;
             font-size: 12px;
         }
-        
         .input-group-btn {
             button {
-                border-radius: 0 50px 50px 0;
+                border-radius: 0 5px 5px 0;
             }
         }
     }
-    
     .suds-textarea {
-        border-radius: 20px;
+        border-radius: 10px;
     }
-    
     .answerButtons {
         margin-left: -1em;
         input[type="radio"] {
             position: relative;
             left: -9999em;
-            
             &:checked {
-                + .radioLabel {
+                +.radioLabel {
                     @extend .suds-primary;
                     &:before {
                         content: "\00a0\f058";
@@ -94,7 +75,6 @@
                 }
             }
         }
-        
         .radioLabel {
             display: inline-flex;
             align-items: center;
@@ -107,24 +87,20 @@
             }
         }
     }
-    
     .checkList {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        
         .checkListItem {
             label {
                 line-height: 1.2;
                 max-width: 300px;
                 width: 100%;
             }
-            
             input[type="checkbox"] {
                 position: absolute;
                 visibility: hidden;
             }
-            
             .check {
                 position: relative;
                 &:before {
@@ -134,8 +110,7 @@
                     color: $gray2;
                 }
             }
-            
-            input:checked + span.check {
+            input:checked+span.check {
                 &:after {
                     position: absolute;
                     left: 0;
@@ -149,7 +124,6 @@
             }
         }
     }
-    
     .requiredFlag {
         font-weight: bold;
         color: maroon;
@@ -159,16 +133,17 @@
     }
 }
 
+
 /*Added by Amer*/
+
 #editDataPointModal {
     .answerButtons {
         margin-left: -1em;
         input[type="radio"] {
             position: relative;
             left: -9999em;
-            
             &:checked {
-                + .radioLabel {
+                +.radioLabel {
                     @extend .suds-primary;
                     &:before {
                         content: "\00a0\f058";
@@ -176,7 +151,6 @@
                 }
             }
         }
-        
         .radioLabel {
             display: inline-flex;
             align-items: center;
@@ -200,8 +174,6 @@
     border-radius: 0 30px 30px 0;
 }
 
-
-
 .form-section {
     display: flex;
     justify-content: flex-start;
@@ -209,12 +181,9 @@
 
 .form-group {
     margin-right: .5em;
-
-    
     &:last-child {
         margin-right: 0;
-    }
-    //
+    } //
     //&.md {
     //    max-width: 200px;
     //}
@@ -228,23 +197,20 @@ label {
     font-size: 14px;
     position: relative;
     display: block;
-    line-height:1;
-     &.req {
-         
-         &:before {
-             content: "\f069";
-             font-family: "FontAwesome", cursive;
-             color: $danger-suds;
-             font-weight: 400;
-             font-size: .8em;
-             line-height: 1;
-              margin-right: 3px;
-             //display: inline-block;
-             position: relative;
-             //right: 1em;
-            top:-2px;
-         }
-     }
+    line-height: 1;
+    &.req {
+        &:before {
+            content: "\f069";
+            font-family: "FontAwesome", cursive;
+            color: $danger-suds;
+            font-weight: 400;
+            font-size: .8em;
+            line-height: 1;
+            margin-right: 3px; //display: inline-block;
+            position: relative; //right: 1em;
+            top: -2px;
+        }
+    }
 }
 
 .controls {

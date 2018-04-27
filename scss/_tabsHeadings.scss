@@ -1,7 +1,6 @@
-$tab-radius: 12px;
-
+$tab-radius: 20px;
 @function color-factory($targetColor) {
-    @return "#" + $targetColor;
+    @return "#"+$targetColor;
 }
 
 //
@@ -12,14 +11,12 @@ $tab-radius: 12px;
 //@function beforeCurve-factory($targetColor) {
 //  @return '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3A%23' + $targetColor + '%3B%7D%3C/style%3E%3C/defs%3E%3Cpath%20class%3D%22a%22%20d%3D%22M20%2C9V29H0A20%2C20%2C0%2C0%2C0%2C20%2C9Z%22%20transform%3D%22translate%280%20-10%29%22/%3E%3C/svg%3E'
 //}
-
 .tabHeadingRow {
     display: flex;
     flex-direction: row;
     overflow: hidden;
     padding: 0 1em 0 1em;
     margin-left: -1em;
-    
     .tabHeading {
         &:first-child {
             &:before {
@@ -35,12 +32,9 @@ $tab-radius: 12px;
     background-color: #ddd;
     font-weight: 600;
     margin: 5px 0px -1px 0;
-    border-radius: 12px 12px 0 0;
-
-    //box-shadow: 0px -1px 6px 0px rgba(0,0,0,0.5);
+    border-radius: 10px 10px 0 0; //box-shadow: 0px -1px 6px 0px rgba(0,0,0,0.5);
     position: relative;
-    color: $primary-color-three;
-    //@for $i from 1 through 3 {
+    color: $primary-color-three; //@for $i from 1 through 3 {
     //  &:nth-child(#{$i}){
     //    z-index: calc(10 - #{$i});
     //  }
@@ -51,16 +45,16 @@ $tab-radius: 12px;
         width: $tab-radius;
         height: $tab-radius;
         position: absolute;
-        bottom: -1px;
+        bottom: -13px;
         box-sizing: border-box;
     }
     &:after {
-        right: -10px;
+        right: -8px;
         @include afterCurve($white);
         border-color: $white;
     }
     &:before {
-        left: -10px;
+        left: -8px;
         @include beforeCurve($white);
     }
     &.active {
@@ -70,10 +64,14 @@ $tab-radius: 12px;
         background-color: $white;
         background-image: none;
         &:after {
+            bottom: -13px;
+            right: -8px;
             z-index: 20;
             @include afterCurve($white);
         }
         &:before {
+            bottom: -13px;
+            left: -8px;
             z-index: 20;
             @include beforeCurve($white);
         }
@@ -112,12 +110,8 @@ $tab-radius: 12px;
         }
         &:after {
             @include afterCurve($white, $gray4);
-            bottom: 0.65px;
-            right: -11.999px;
-            border-color: $white;
         }
     }
-    
     &.statusError {
         color: $warning-suds;
     }
@@ -130,7 +124,6 @@ $tab-radius: 12px;
     &.statusDone {
         color: $primary-color-two;
     }
-    
     &:first-child {
         &.sectionLabel {
             &:before {
@@ -152,93 +145,79 @@ $tab-radius: 12px;
         z-index: 60;
         .tabHeading {
             border: 1px solid $gray5;
-            
             &:after {
                 @include afterCurve($gray1, $gray5);
                 border-color: $gray1;
-                bottom: 0px;
-                right: -12px;
             }
         }
     }
 }
 
 .sectionTop {
- margin-left: auto;
-.tabHeading {
-    border-style: solid;
-    border-color: $gray4;
-    border-width: 1px 1px 0 1px;
-
-    &:first-child {
-
-        &:before {
-            @include beforeCurve($white);
-            border-left: 1px solid $gray4;
-            left: -1px;
-        }
-        &:after {
-            @include afterCurve($white, $gray4);
-            bottom: 0;
-        }
-        &.sectionActionLink {
-            &:after {
-                content: "";
-                width: 22px;
-                height: 22px;
-                background: $white;
-                position: absolute;
-                right: -1px;
-                bottom: -21px;
-                display: block;
-                border-right: 1px solid $gray4;
-            }
+    margin-left: auto;
+    .tabHeading {
+        border-style: solid;
+        border-color: $gray4;
+        border-width: 1px 1px 0 1px;
+        &:first-child {
             &:before {
-                @include beforeCurve($white, $gray4);
-                border-color: $white;
+                @include beforeCurve($white);
+                border-left: 1px solid $gray4;
+                left: -1px;
             }
-            &:first-child {
+            &:after {
+                @include afterCurve($white, $gray4);
+                bottom: -12px;
+            }
+            &.sectionActionLink {
+                &:after {
+                    content: "";
+                    width: 22px;
+                    height: 22px;
+                    background: $white;
+                    position: absolute;
+                    right: -1px;
+                    bottom: -21px;
+                    display: block;
+                    border-right: 1px solid $gray4;
+                }
                 &:before {
-                    left: -22px;
+                    @include beforeCurve($white, $gray4);
+                    border-color: $white;
+                }
+                &:first-child {
+                    &:before {
+                        left: -22px;
+                    }
                 }
             }
+            &.addNewButton {
+                margin-left: auto;
+            }
+            &.costRecoveryPDF {
+                margin-left: auto;
+            }
         }
-        &.addNewButton {
+        &.sectionActionLink {
             margin-left: auto;
-        }
-        &.costRecoveryPDF {
-            margin-left: auto;
-        }
-
-    }
-    
-    &.sectionActionLink {
-        margin-left: auto;
-        border-bottom: 1px solid $white;
-    
-        &:before {
-            @include beforeCurve($white, #c7c7c7);
-            bottom: -1.9px;
-            left: -11.8px;
-        }
-    
-        &:after {
-        
-            background-color: $white;
-            border-right: 1px solid $gray5;
-            right: -1px;
-            bottom: -20px;
+            border-bottom: 1px solid $white;
+            &:before {
+                @include beforeCurve($white, #c7c7c7);
+            }
+            &:after {
+                background-color: $white;
+                border-right: 1px solid $gray5;
+            }
         }
     }
-}
 }
 
 .sectionContent {
-border: 1px solid #c7c7c7;
+    border: 1px solid #c7c7c7;
 }
 
 .sudsTabContent {
-padding: 1em;
-border-radius: 0 20px 20px 20px;
-background-color: $white;
+    padding: 1em;
+    border-radius: 0 20px 20px 20px;
+    background-color: $white;
 }

@@ -35,7 +35,7 @@ body {
         position: absolute;
         background-color: #ddd;
     }
-    & > .ui-layout-center {
+    &>.ui-layout-center {
         top: 40px !important;
     }
     .ui-layout-resizer-north {
@@ -108,18 +108,16 @@ body {
         overflow-x: hidden;
         &.form-inline {
             flex-direction: row;
-            & > button {
+            &>button {
                 margin: 0 5px;
             }
         }
     }
     #renderView {
-        position: relative;
-        //display: flex;
+        position: relative; //display: flex;
         //flex-direction: column;
         flex: 1 1 auto;
-        margin: 0 10px;
-        //a.suds-link {
+        margin: 0 10px; //a.suds-link {
         //  color: $primary-color-one-text;
         //  background-color: $primary-color-one;
         //  padding: 2px 4px;
@@ -145,8 +143,7 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         position: relative;
-        min-height: 80px;
-        //background: url("../img/mountains1.jpg") no-repeat 90% 50%;
+        min-height: 80px; //background: url("../img/mountains1.jpg") no-repeat 90% 50%;
         background: url("../img/forest2.jpg") no-repeat 50% 40%;
         background-size: cover;
         border-radius: 20px 20px 0 0;
@@ -155,8 +152,7 @@ body {
         padding-bottom: 20px;
         margin-bottom: -20px;
         margin-top: 10px;
-        transition: all 0.2s ease;
-        //max-height: 4.6875em;
+        transition: all 0.2s ease; //max-height: 4.6875em;
         overflow: hidden;
         .detailSections {
             display: flex;
@@ -280,15 +276,13 @@ body {
                 white-space: nowrap;
                 &:after {
                     @include simpleAfterCurve($gray3);
-                    border-color: $gray3;
-                    bottom: 2px;
-                    right: -22px;
+                    bottom: -11px;
+                    right: -7px;
                 }
                 &:before {
                     @include simpleBeforeCurve($gray3);
-                    border-color: $gray3;
-                    bottom: 1px;
-                    left: -21px;
+                    bottom: -11px;
+                    left: -7px;
                 }
             }
         }
@@ -298,19 +292,11 @@ body {
                     background-color: $primary-color-two;
                     color: $primary-color-two-text;
                     &:before {
-                        background-image: radial-gradient(
-                                circle at 0 0,
-                                transparent $tab-radius,
-                                $primary-color-two $tab-radius
-                        );
+                        background-image: radial-gradient( circle at 0 0, transparent $tab-radius, $primary-color-two $tab-radius);
                         opacity: 1;
                     }
                     &:after {
-                        background-image: radial-gradient(
-                                circle at 100% 0,
-                                transparent $tab-radius,
-                                $primary-color-two $tab-radius
-                        );
+                        background-image: radial-gradient( circle at 100% 0, transparent $tab-radius, $primary-color-two $tab-radius);
                         opacity: 1;
                     }
                 }
@@ -344,8 +330,7 @@ body {
             transition: transform 0.3s ease;
             &.open {
                 transform: translate3d(300px, 0px, 0px);
-            }
-            // .tabHeading {
+            } // .tabHeading {
             // font-weight: 600;
             // &:after {
             // @include afterCurve(#dddddd);
@@ -482,7 +467,7 @@ body {
                 }
             }
         }
-        .screenNav + .screenSections {
+        .screenNav+.screenSections {
             left: 85px;
             width: calc(100% - 100px);
         }
@@ -511,8 +496,7 @@ body {
             transition: transform 0.3s ease;
             &.open {
                 transform: translate3d(300px, 0px, 0px);
-            }
-            // .tabHeading {
+            } // .tabHeading {
             // font-weight: 600;
             // &:after {
             // @include afterCurve(#dddddd);
@@ -535,8 +519,7 @@ body {
                 margin-left: 10px;
                 font-size: 24px;
                 transition: all 0.2s ease;
-                border-radius: 3px;
-                // &:hover {
+                border-radius: 3px; // &:hover {
                 // background-color: $primary-color-three;
                 // color: $primary-color-three-text;
                 // text-decoration: none;
@@ -646,7 +629,7 @@ body {
                 }
             }
         }
-        .screenNav + .screenSections {
+        .screenNav+.screenSections {
             left: 85px;
             width: calc(100% - 100px);
         }
@@ -656,7 +639,7 @@ body {
         background-color: $gray1;
         position: relative;
         z-index: 58;
-        border-radius: 0 27px 27px 27px;
+        border-radius: 0 12px 12px 12px;
         border: 1px solid $gray4;
         margin-top: -1px;
         .section:first-child {
@@ -671,7 +654,7 @@ body {
         position: relative;
         background-color: $gray1;
         padding: 0.5em 1em 1em 1em;
-        border-radius: 27px;
+        border-radius: 10px;
         margin: 2em 0;
         display: flex;
         flex-direction: column;
@@ -688,7 +671,7 @@ body {
         .sectionContent {
             padding: 2em;
             background-color: $white;
-            border-radius: 17px;
+            border-radius: 10px;
             border: 1px solid #c7c7c7;
             flex: 1 0 auto;
             position: relative;
@@ -711,63 +694,119 @@ body {
     }
 }
 
+
 /* Get Started Page */
+
 @import "workflow/getStarted";
+
 /* On Boarding new Permit */
+
 @import "workflow/onBoarding";
+
 /* Case File Page */
+
 @import "workflow/caseFile";
+
 /* Application Case File */
+
 @import "workflow/applicationCaseFile";
+
 /* Administration Case File */
+
 @import "workflow/administrationCaseFile";
+
 /* New Or ReIssue Screen */
+
 @import "workflow/newOrReissue";
+
 /* Stage and Step layout rules */
+
 @import "workflow/workflowHeader";
+
 /* Question formatting */
+
 @import "workflow/questions";
+
 /* End Stage and Step layout rules */
+
+
 /* New Proposal Screen */
+
 @import "workflow/newProposal";
+
 /* Need Proposal? */
+
 @import "workflow/isPermitRequired";
+
 /* NCGU sections */
+
 @import "workflow/ncguCheck";
+
 /* End NCGU */
+
+
 /* Select Special Use Codes */
+
 @import "workflow/useCodes";
+
 /* End Special Use Codes */
+
+
 /* Proposal Contacts Screen */
+
 @import "workflow/contacts";
+
 /* End Proposal Contacts Screen */
+
+
 /* Standard Proposal Form */
+
 @import "workflow/standardForm";
 @import "workflow/basicInfo";
+
 /* Under Construction */
+
 @import "underConstruction";
+
 /* Level 1/2 Screening */
+
 @import "workflow/level1Screening";
+
 /* Cost Recovery */
+
 @import "workflow/costRecovery";
 @import "workflow/costRecoveryWorksheet";
+
 /* AO Level 1/2 Screening Approvals */
+
 @import "workflow/aoScreeningApproval";
+
 /* Cost Recovery Processing AO Approval */
+
 @import "workflow/_crProcessingAOApproval";
+
 /* Record Summary styles */
+
 @import "workflow/summary";
+
 /* Rent sheet styles */
+
 @import "workflow/rentSheet";
+
 /* Bills & Payments styles */
+
 @import "workflow/billingSummary";
+
 /* Authority Selection Styles */
+
 @import "workflow/authoritySelection";
+
 /* Dashboard styles */
+
 @import "workflow/dashBoard";
 
-
 /* Contact Management */
+
 @import "contacts";
 .direction {
     font-weight: 600;
@@ -776,41 +815,42 @@ body {
         text-decoration: underline;
     }
 }
+
 .controlBtn {
-  min-width: 8em;
+    min-width: 8em;
 }
 
-.container .nav-tabs > li.active > a,
-.container .nav-tabs > li.active > a:hover,
-.container .nav-tabs > li.active > a:focus {
+.container .nav-tabs>li.active>a,
+.container .nav-tabs>li.active>a:hover,
+.container .nav-tabs>li.active>a:focus {
     color: #555;
     background-color: #fff;
 }
 
 .nrm-editstate {
-  margin-left: 0;
+    margin-left: 0;
     position: relative;
     top: -4px;
 }
 
 #new-proposal-btn {
-  margin-left: 5px;
+    margin-left: 5px;
     border-radius: 3px;
 }
 
 #nrmSearchResultsTable-actions {
-  padding-bottom: 5px;
+    padding-bottom: 5px;
     border-width: 0 0 1px 0;
     border-radius: 0;
     box-shadow: none;
 }
 
 #nrmSearchResultsTable_wrapper {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .highlightBox {
-  background-color: $primary-color-one;
+    background-color: $primary-color-one;
     padding: 1em 1em 2em 1em;
     margin-bottom: 1.42em;
     margin-right: 0.71em;
@@ -827,18 +867,18 @@ body {
 }
 
 .clearfix {
-  &:after {
-      display: block;
-      content: "";
-      width: 0;
-      height: 0;
-      clear: both;
-      line-height: 0;
-  }
+    &:after {
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        clear: both;
+        line-height: 0;
+    }
 }
 
 .formQuestionBlock {
-  margin-top: 1.42em;
+    margin-top: 1.42em;
     margin-bottom: 1.42em;
     margin-right: 0.71em;
     label {
@@ -854,11 +894,11 @@ body {
 }
 
 .fineprint {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .note {
-  font-style: italic;
+    font-style: italic;
     font-weight: 600;
     color: #888;
     line-height: 1.8em;
