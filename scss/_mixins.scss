@@ -26,9 +26,9 @@
 }
 
 @mixin simpleBeforeCurve($targetColor) {
-    background-image: radial-gradient( circle at 0px 0px, transparent 6px, $targetColor 7px);
+    background-image: radial-gradient( circle at 0px 0px, transparent 6px, $targetColor 6.9px);
 }
 
 @mixin simpleAfterCurve($targetColor) {
-    background-image: radial-gradient( circle at 20px 0px, transparent 6px, $targetColor 7px);
+    background-image: radial-gradient( circle at 20px 0px, transparent 6px, $targetColor 6.9px);
 }
