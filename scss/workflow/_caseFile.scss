@@ -152,13 +152,13 @@
                 box-shadow: 0px -4px 17px 2px rgba(0, 0, 0, 0.35);
                 &:before {
                     @include simpleBeforeCurve($gray3);
-                    bottom: -12px;
-                    left: -7px;
+                    bottom: -12.4px;
+                    left: -6.8px;
                 }
                 &:after {
                     @include simpleAfterCurve($gray3);
-                    bottom: -12px;
-                    right: -7px;
+                    bottom: -12.4px;
+                    right: -6.8px;
                 }
             }
         }
@@ -213,10 +213,10 @@
                         &:before,
                         &:after {
                             display: block; // bottom: 0;
-                            bottom: -11px;
+                            bottom: -11.6px;
                         }
                         &:after {
-                            right: -8px;
+                            right: -7.4px;
                             @include afterCurve($gray1,
                             $gray4);
                         }
@@ -229,7 +229,7 @@
                         &:before {
                             display: block;
                             @include beforeCurve($gray2);
-                            left: 0;
+                            left: -1px;
                             background-color: $gray2;
                             bottom: -20px;
                         }
