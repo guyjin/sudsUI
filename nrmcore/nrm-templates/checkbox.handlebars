@@ -1,9 +1,0 @@
-<div id="{{id}}-container" class="checkbox{{#if className}} {{className}}{{/if}}">
-{{#if hz}}{{#unless tablecell}}<div class="{{#if hzGrid}}{{hzGrid}}{{else}}col-sm-offset-2 col-sm-10{{/if}}">{{/unless}}{{/if}}
-{{#unless nolabel}}<label>{{/unless}}
-<input type="checkbox" id="{{id}}" value="{{#if trueVal}}{{trueVal}}{{else}}true{{/if}}"
-{{#if falseVal}} data-falsevalue="{{falseVal}}"{{/if}}{{#if title}} title="{{title}}"{{/if}}{{#if nolabel}} aria-label="{{label}}"{{/if}}
-{{#if checked}} checked{{/if}}{{#if disabled}} disabled{{/if}}/>{{#unless nolabel}}{{label}}
-</label>{{/unless}}
- {{#unless tablecell}}{{#if hz}}</div>{{/if}}{{/unless}}
- </div>

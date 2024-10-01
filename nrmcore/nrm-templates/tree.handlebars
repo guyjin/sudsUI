@@ -1,7 +1,0 @@
-<ul>{{#each nodes}}
-<li class="{{#if expand}}jstree-open {{/if}}nrmtree-{{apiKey}}" data-nrmtree-path="{{path}}" 
- data-nrmtree-nodetype="{{nodetype}}">
-  <a href="#" class="nrmtree-{{nodetype}}" tabindex="-1" aria-expanded="{{#if expand}}true{{else}}false{{/if}}">{{title}}</a>
-  {{#if nodes}}{{partial "tree"}}{{/if}}
-</li>
-{{/each}}</ul>
